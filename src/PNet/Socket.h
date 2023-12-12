@@ -6,6 +6,8 @@
 #include "IPEndpoint.h"
 #include "Constants.h"
 #include "Packet.h"
+#include <thread>
+#include <future>
 
 namespace PNet
 {

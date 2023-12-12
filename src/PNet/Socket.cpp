@@ -1,5 +1,5 @@
 #include "Socket.h"
-//#include <assert.h>
+#include <assert.h>
 #include <iostream>
 
 namespace PNet
@@ -7,12 +7,12 @@ namespace PNet
 	Socket::Socket(IPVersion ipversion, SocketHandle handle)
 		:ipversion(ipversion), handle(handle)
 	{
-		//assert(ipversion == IPVersion::IPv4 || ipversion == IPVersion::IPv6);
+		assert(ipversion == IPVersion::IPv4 || ipversion == IPVersion::IPv6);
 	}
 
 	PResult Socket::Create()
 	{
-		//assert(ipversion == IPVersion::IPv4 || ipversion == IPVersion::IPv6);
+		assert(ipversion == IPVersion::IPv4 || ipversion == IPVersion::IPv6);
 
 		if (handle != INVALID_SOCKET)
 		{
@@ -60,7 +60,7 @@ namespace PNet
 
 	PResult Socket::Bind(IPEndpoint endpoint)
 	{
-		//assert(ipversion == endpoint.GetIPVersion());
+		assert(ipversion == endpoint.GetIPVersion());
 
 		if (ipversion == IPVersion::IPv4)
 		{
@@ -102,7 +102,8 @@ namespace PNet
 			return PResult::P_GenericError;
 		}
 
-		int result = listen(handle, backlog);
+  		int result = listen(handle, backlog);
+
 		if (result != 0) //If an error occurred
 		{
 			int error = WSAGetLastError();
@@ -114,7 +115,7 @@ namespace PNet
 
 	PResult Socket::Accept(Socket & outSocket, IPEndpoint * endpoint)
 	{
-		//assert(ipversion == IPVersion::IPv4 || ipversion == IPVersion::IPv6);
+		assert(ipversion == IPVersion::IPv4 || ipversion == IPVersion::IPv6);
 
 		if (ipversion == IPVersion::IPv4)
 		{
@@ -158,7 +159,7 @@ namespace PNet
 
 	PResult Socket::Connect(IPEndpoint endpoint)
 	{
-		//assert(ipversion == endpoint.GetIPVersion());
+		assert(ipversion == endpoint.GetIPVersion());
 
 		int result = 0;
 		if (ipversion == IPVersion::IPv4)

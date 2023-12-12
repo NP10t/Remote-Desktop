@@ -6,6 +6,8 @@
 #include <wx/spinctrl.h>
 #include <string>
 #include "MyServer.h"
+#include <future>
+#include <thread>
 
 class MainFrameServer: public wxFrame
 {
@@ -18,6 +20,8 @@ class MainFrameServer: public wxFrame
         void OnConnectButtonClicked(wxCommandEvent& evt);
         void OnDisconnectButtonClicked(wxCommandEvent& evt);
 
+        std::thread runServer;
+		MyServer server;
         wxPanel* panel;
         wxStaticText* IPStaticText;
         wxButton* connectButton;

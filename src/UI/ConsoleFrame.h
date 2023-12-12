@@ -4,18 +4,19 @@
 #include <wx/frame.h>
 #include <wx/wx.h>
 #include <string>
+#include "TextCtrlStreambuf.h"
 
 class ConsoleFrame : public wxFrame 
 {
     public:
         ConsoleFrame(const wxString& title, const wxPoint& pos, const wxSize& size);
+        wxTextCtrl* consoleTextCtrl;
     private:
         void OnInputEnter(wxCommandEvent& event);
         void CreateControls();
         void BindEventHandlers();
 
         wxPanel* panel;
-        wxTextCtrl* consoleTextCtrl;
         wxTextCtrl* inputTextCtrl;
         wxBoxSizer* mainSizer;
 };

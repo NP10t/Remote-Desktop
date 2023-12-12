@@ -6,6 +6,8 @@
 #include <wx/spinctrl.h>
 #include <string>
 #include "MyClient.h"
+#include <future>
+#include <thread>
 
 class MainFrameClient: public wxFrame
 {
@@ -19,6 +21,8 @@ class MainFrameClient: public wxFrame
         void OnDisconnectButtonClicked(wxCommandEvent& evt);
         void OnInputEnter(wxCommandEvent& evt);
 
+        std::thread runClient;
+        MyClient client;
         wxPanel* panel;
         wxTextCtrl* inputIPTextCtrl;
         wxButton* connectButton;

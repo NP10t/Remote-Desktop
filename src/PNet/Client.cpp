@@ -1,8 +1,13 @@
 #include "Client.h"
+#include <chrono>
+#include <conio.h>
 #include <iostream>
+#include <Windows.h>
+
 
 namespace PNet
 {
+	int keyboard = -1, ctrlD = 0, shiftD = 0, ctrlU = 0, shiftU = 0, Caplock = 0, delta = 0;
 	bool Client::Connect(IPEndpoint ip)
 	{
 		Socket socket = Socket(ip.GetIPVersion());
@@ -13,10 +18,11 @@ namespace PNet
 
 			std::cout << "Socket successfully created." << std::endl;
 			// if (socket.Connect(ip) != PResult::P_Success)
-			while(1)
+			while (1)
 			{
-				if(socket.Connect(ip) != PResult::P_Success){
-					continue; //neu client mo truoc server thi client wait until server start to listen
+				if (socket.Connect(ip) != PResult::P_Success)
+				{
+					continue; // neu client mo truoc server thi client wait until server start to listen
 				}
 
 				if (socket.SetBlocking(false) == PResult::P_Success)
@@ -28,7 +34,7 @@ namespace PNet
 					newConnectionFD.events = POLLRDNORM | POLLWRNORM;
 					newConnectionFD.revents = 0;
 
-					master_fd.push_back(newConnectionFD); //khi co ket noi toi thi bo vao buffer
+					master_fd.push_back(newConnectionFD); // khi co ket noi toi thi bo vao buffer
 					select_device = 0;
 
 					OnConnect(newConnection);
@@ -288,21 +294,117 @@ namespace PNet
 		connections.erase(connections.begin() + connectionIndex);
 	}
 
+	HHOOK mh;
+
+	LRESULT CALLBACK mouse(int nCode, WPARAM wParam, LPARAM lParam)
+	{
+		if (nCode < 0)
+		{
+			return CallNextHookEx(mh, nCode, wParam, lParam);
+		}
+
+		MSLLHOOKSTRUCT *pMouseStruct = (MSLLHOOKSTRUCT *)lParam;
+
+		if (pMouseStruct != NULL)
+		{
+			if (wParam == WM_MOUSEWHEEL)
+			{
+				// Determine the direction of the mouse wheel scroll
+				delta = GET_WHEEL_DELTA_WPARAM(pMouseStruct->mouseData) > 0 ? 1 : -1;
+			}
+			else
+			{
+				delta = 0;
+			}
+		}
+
+		return CallNextHookEx(mh, nCode, wParam, lParam);
+	}
+
+	void ProcessMessages()
+	{
+		// Process messages in the message queue
+		MSG message;
+		PeekMessage(&message, NULL, 0, 0, PM_REMOVE);
+		TranslateMessage(&message);
+		DispatchMessage(&message);
+	}
+
 	void Client::Mouse(TCPConnection &connection)
 	{
-		std::cout << "dang truyen chuot\n";
-		std::string a = "chuot ne em\n";
-		std::shared_ptr<Packet> packet = std::make_shared<Packet>(PacketType::PT_ChatMessage);
-		*packet << a;
+		mh = SetWindowsHookExA(WH_MOUSE_LL, mouse, NULL, 0);
+		auto startLoopTime = std::chrono::high_resolution_clock::now();
+
+		while (true)
+		{
+			ProcessMessages();
+			auto endLoopTime = std::chrono::high_resolution_clock::now();
+			auto loopDuration = std::chrono::duration_cast<std::chrono::milliseconds>(endLoopTime - startLoopTime);
+			if (loopDuration.count() >= 10 || delta != 0)
+				break;
+		}
+
+		int LCD = 0, RCD = 0, LCU = 0, RCU = 0;
+		if (GetAsyncKeyState(VK_SCROLL) & 0x8001)
+			if (GetAsyncKeyState(VK_LBUTTON) & 0x8001)
+				LCD = 1;
+		if (GetAsyncKeyState(VK_RBUTTON) & 0x8001)
+			RCD = 1;
+		if (LCD && !(GetAsyncKeyState(VK_LBUTTON) & 0x8001))
+			LCU = 1;
+		if (RCD && !(GetAsyncKeyState(VK_RBUTTON) & 0x8001))
+			RCU = 1;
+		POINT xy;
+		GetCursorPos(&xy);
+		int x = xy.x;
+		int y = xy.y;
+		std::shared_ptr<Packet> packet = std::make_shared<Packet>(PacketType::PT_Mouse);
+		*packet << x << y << LCD << RCD << LCU << RCU << delta;
+		delta = 0;
 		connection.pm_outgoing.Append(packet);
 	}
 
 	void Client::Keyboard(TCPConnection &connection)
 	{
-		std::cout << "dang truyen ban phim\n";
-		std::string a = "ban phim ne em\n";
-		std::shared_ptr<Packet> packet = std::make_shared<Packet>(PacketType::PT_ChatMessage);
-		*packet << a;
+		if (GetKeyState(VK_SHIFT) & 0x8000)
+			shiftD = 1;
+		if (GetKeyState(VK_CONTROL) & 0x8000)
+			ctrlD = 1;
+		// ctrl = 17/162, shift = 16,160
+		for (int i = 5; i < 255; ++i)
+		{
+			if (GetAsyncKeyState(i) & 0x8001)
+			{
+				if (i == 16 || i == 160 || i == 17 || i == 162 || i == 179)
+					continue;
+				keyboard = i;
+				if (!(GetKeyState(VK_CAPITAL) & 0x0001) && i >= 65 && i <= 65 + 'Z' - 'A')
+					keyboard += 32;
+				Sleep(80);
+				break;
+			}
+		}
+		if (shiftD && !(GetKeyState(VK_SHIFT) & 0x8000))
+		{
+			shiftD = 0;
+			shiftU = 1;
+		}
+		if (ctrlD && !(GetKeyState(VK_CONTROL) & 0x8000))
+		{
+			ctrlD = 0;
+			ctrlU = 1;
+		}
+		if (GetKeyState(VK_CAPITAL) & 0x0001)
+			Caplock = 1;
+		else
+			Caplock = 0;
+		if (ctrlU == 1)
+			ctrlU = 0;
+		if (shiftU == 1)
+			shiftU = 0;
+		std::shared_ptr<Packet> packet = std::make_shared<Packet>(PacketType::PT_Keyboard);
+		*packet << keyboard << shiftD << shiftU << ctrlD << ctrlU << Caplock;
+		keyboard = -1;
 		connection.pm_outgoing.Append(packet);
 	}
 }

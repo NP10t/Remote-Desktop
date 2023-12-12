@@ -10,13 +10,23 @@ ConsoleFrame::ConsoleFrame(const wxString& title, const wxPoint& pos, const wxSi
 void ConsoleFrame::CreateControls()
 {
     panel = new wxPanel(this, wxID_ANY);
-    consoleTextCtrl = new wxTextCtrl(panel, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE | wxTE_READONLY);
+    consoleTextCtrl = new wxTextCtrl(panel, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE);
     inputTextCtrl = new wxTextCtrl(panel, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER);
     mainSizer = new wxBoxSizer(wxVERTICAL);
+
+    TextCtrlStreambuf textCtrlStreambuf(consoleTextCtrl);
+    std::streambuf* oldCoutBuffer = std::cout.rdbuf(&textCtrlStreambuf);
+
+        // Test: print something to std::cout
+    std::cout << "Hello, wxWidgets!" << std::endl;
+
+        // Restore the original cout buffer when done
+    std::cout.rdbuf(oldCoutBuffer);
 
     mainSizer->Add(consoleTextCtrl, 1, wxEXPAND | wxALL, 5);
     mainSizer->Add(inputTextCtrl, 0, wxEXPAND | wxALL, 5);
     panel->SetSizer(mainSizer);
+    std::cout << "Hello";
     Centre();
 }
 

@@ -31,25 +31,17 @@ void MainFrameServer::BindEventHandlers()
 void MainFrameServer::OnConnectButtonClicked(wxCommandEvent &evt)
 {
     std::string IPString = "127.0.0.1";
-    //wxLogStatus(IPString);
-	if (Network::Initialize())
-	{
-		MyServer server;
-		if (server.Initialize(IPEndpoint(IPString.c_str(), 6112)))
-		{
-			while (true)
-			{
-				server.Frame();
-			}
-			for (auto& thread : server.threads) {
-				thread.join();
-			}
-		}
-	}
-	Network::Shutdown();
+
+    runServer = std::thread(&MyServer::Run, &server, IPString);
 }
 
 void MainFrameServer::OnDisconnectButtonClicked(wxCommandEvent &evt)
 {
+    for (auto& thread : server.threads) 
+    {
+		thread.join();
+    }
+    runServer.join();
     Network::Shutdown(); 
 }
+

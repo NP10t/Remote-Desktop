@@ -7,9 +7,13 @@
 
 class MyClient : public Client
 {
-	bool ProcessPacket(std::shared_ptr<Packet> packet) override;
-	void OnConnect(TCPConnection & newConnection) override;
-	void OnDisconnect(TCPConnection & lostConnection, std::string reason) override;
+	public:
+		void Run(std::string inputIP);
+	
+	private:
+		bool ProcessPacket(std::shared_ptr<Packet> packet) override;
+		void OnConnect(TCPConnection & newConnection) override;
+		void OnDisconnect(TCPConnection & lostConnection, std::string reason) override;
 };
 
 #endif
