@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\canhom\CMakeFiles\b4d389dd6cb72965a97f2291ca3d7aec\server-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\canhom\CMakeFiles\b4d389dd6cb72965a97f2291ca3d7aec\server-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\canhom\CMakeFiles\b4d389dd6cb72965a97f2291ca3d7aec\server-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\canhom\CMakeFiles\b4d389dd6cb72965a97f2291ca3d7aec\server-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\canhom\CMakeFiles\b4d389dd6cb72965a97f2291ca3d7aec\server-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\canhom\CMakeFiles\b4d389dd6cb72965a97f2291ca3d7aec\server-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\canhom\CMakeFiles\b4d389dd6cb72965a97f2291ca3d7aec\server-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\canhom\CMakeFiles\e4e3489ffa35482f6149ca6ea6ad6c1b\server-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\canhom\CMakeFiles\9412231ff958c9176f33355ba0ed2bbe\server.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\canhom\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="E:\canhom\CMakeFiles\server" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{65294A81-E178-3157-9BCF-79819CF4E796}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
