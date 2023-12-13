@@ -12,10 +12,10 @@ void MyServer::Run(std::string IPString)
 	{
 		if (this->Initialize(IPEndpoint(IPString.c_str(), 6112)))
 		{
-			while (true)
-			{
+			// while (true)
+			// {
 				this->Frame();
-			}
+			// }
 		}
 	}
 }

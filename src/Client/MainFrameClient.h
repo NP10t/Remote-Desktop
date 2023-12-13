@@ -25,7 +25,6 @@ class MainFrameClient: public wxFrame
 
         std::thread runClient;
         MyClient client;
-        int idx_of_controled_server; // no giong voi bien selected_device
         wxPanel* panel;
         wxTextCtrl* inputIPTextCtrl;
         wxButton* connectButton;

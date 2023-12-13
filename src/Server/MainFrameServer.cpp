@@ -11,8 +11,8 @@ void MainFrameServer::CreateControls()
 {
     panel = new wxPanel(this);
     IPStaticText = new wxStaticText(panel, wxID_ANY, "Your IP Address is: ", wxDefaultPosition, wxDefaultSize);
-    connectButton = new wxButton(panel, wxID_ANY, "Connect", wxPoint(100, 200), wxDefaultSize);
-    disconnectButton = new wxButton(panel, wxID_ANY, "Disconnect", wxPoint(400, 200), wxDefaultSize);
+    connectButton = new wxButton(panel, wxID_ANY, "Open connection", wxPoint(100, 200), wxDefaultSize);
+    disconnectButton = new wxButton(panel, wxID_ANY, "Close connection", wxPoint(400, 200), wxDefaultSize);
     mainSizer = new wxBoxSizer(wxVERTICAL);
 
     mainSizer->Add(IPStaticText, 0, wxALIGN_CENTRE | wxALL, 20);
@@ -33,15 +33,13 @@ void MainFrameServer::OnConnectButtonClicked(wxCommandEvent &evt)
     std::string IPString = "127.0.0.1";
 
     runServer = std::thread(&MyServer::Run, &server, IPString);
+    runServer.detach();
 }
 
 void MainFrameServer::OnDisconnectButtonClicked(wxCommandEvent &evt)
 {
-    for (auto& thread : server.threads) 
-    {
-		thread.join();
-    }
-    runServer.join();
-    Network::Shutdown(); 
+    server.CloseConnection("ban da bam nut dong ket noi");
+    // runServer.join();
+    // Network::Shutdown(); 
 }
 

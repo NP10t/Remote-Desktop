@@ -54,11 +54,8 @@ void MainFrameClient::OnConnectButtonClicked(wxCommandEvent &evt)
 {
     wxString inputIPtmp = inputIPTextCtrl->GetValue();
     std::string inputIP = inputIPtmp.ToStdString();
-    // idx_of_controled_server = 0; // no giong voi bien selected_device
     client.selected_device = -1;
     client.Connect(IPEndpoint(inputIP.c_str(), 6112));
-    
-    // client.Frame(client.selected_device);
 }
 
 void MainFrameClient::OnDisconnectButtonClicked(wxCommandEvent &evt)
@@ -71,3 +68,8 @@ void MainFrameClient::OnDisconnectButtonClicked(wxCommandEvent &evt)
         // Network::Shutdown(); 
     // }
 }
+
+/* khi ma Tan lam nut dong chuong trinh:
+-dong chuong trinh thi goi Network::Shutdown(); ngoai ra con lam gi ko thi NP ko biet. 
+-Cac thread video va control ko can join nua. 2 thread ay duoc detach co nghia la xong thi no tu dong dung lai. neu no ko dung thi chac la viet them cai dieu kien dung (return)
+*/

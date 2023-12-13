@@ -34,30 +34,34 @@ namespace PNet
 
 	void Server::Frame()
 	{
-
-		if (WSAPoll(&listeningSocketFD, 1, 1) > 0)
-		{
-			if (listeningSocketFD.revents & POLLRDNORM)
+		while(1){
+			if (WSAPoll(&listeningSocketFD, 1, 1) > 0)
 			{
-				Socket newConnectionSocket;
-				IPEndpoint newConnectionEndpoint;
-				if (listeningSocket.Accept(newConnectionSocket, &newConnectionEndpoint) == PResult::P_Success)
+				if (listeningSocketFD.revents & POLLRDNORM)
 				{
-					connection = TCPConnection(newConnectionSocket, newConnectionEndpoint);
-					OnConnect();
-					newConnectionFD.fd = newConnectionSocket.GetHandle();
-					newConnectionFD.events = POLLRDNORM | POLLWRNORM;
-					newConnectionFD.revents = 0;
+					Socket newConnectionSocket;
+					IPEndpoint newConnectionEndpoint;
+					if (listeningSocket.Accept(newConnectionSocket, &newConnectionEndpoint) == PResult::P_Success)
+					{
+						connection = TCPConnection(newConnectionSocket, newConnectionEndpoint);
+						OnConnect();
+						newConnectionFD.fd = newConnectionSocket.GetHandle();
+						newConnectionFD.events = POLLRDNORM | POLLWRNORM;
+						newConnectionFD.revents = 0;
 
-					std::thread control(&Server::Obey, this);
-					threads.push_back(std::move(control));
+						Obey_thread = std::thread(&Server::Obey, this);
+						Obey_thread.detach();
+						// threads.push_back(std::move(control));
 
-					std::thread video(&Server::LiveStream, this);
-					threads.push_back(std::move(video));
-				}
-				else
-				{
-					std::cerr << "Failed to accept new connection." << std::endl;
+						Livestream_thread = std::thread(&Server::Livestream, this);
+						// threads.push_back(std::move(video));
+						Livestream_thread.detach();
+						return;
+					}
+					else
+					{
+						std::cerr << "Failed to accept new connection." << std::endl;
+					}
 				}
 			}
 		}
@@ -65,9 +69,9 @@ namespace PNet
 
 	void Server::Obey()
 	{
-		WSAPOLLFD use_fd = newConnectionFD;
 		while (this->isConnected)
 		{
+			WSAPOLLFD use_fd = newConnectionFD;
 			if (WSAPoll(&use_fd, 1, 1) > 0)
 			{
 				if (use_fd.revents & POLLERR) // If error occurred on this socket
@@ -165,14 +169,14 @@ namespace PNet
 				}
 			}
 		}
-		return;
+		MessageBox(NULL, TEXT("da dung obey thread"), TEXT("2"), MB_ICONERROR | MB_OK);
 	}
 
-	void Server::LiveStream()
+	void Server::Livestream()
 	{
-		WSAPOLLFD use_fd = newConnectionFD;
 		while (this->isConnected)
 		{
+			WSAPOLLFD use_fd = newConnectionFD;
 			if (WSAPoll(&use_fd, 1, 1) > 0)
 			{
 
@@ -257,7 +261,7 @@ namespace PNet
 			if (key == 'x')
 				return;
 		}
-		return;
+		MessageBox(NULL, TEXT("da dung live thread"), TEXT("2"), MB_ICONERROR | MB_OK);
 	}
 
 	void Server::OnDisconnect(std::string reason)
@@ -271,9 +275,12 @@ namespace PNet
 
 	void Server::CloseConnection(std::string reason)
 	{
+		std::wstring wideReason(reason.begin(), reason.end());
+		LPCTSTR wideReasonPtr = wideReason.c_str();
+		MessageBox(NULL, wideReasonPtr, TEXT("server"), MB_ICONERROR | MB_OK);
+		isConnected = false;
 		OnDisconnect(reason);
 		listeningSocketFD.fd = 0;
-		isConnected = false;
 		connection.Close();
 	}
 

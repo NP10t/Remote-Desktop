@@ -20,17 +20,21 @@ namespace PNet
 		bool Initialize(IPEndpoint ip);
 		void Frame();
 		void Obey();
-		void LiveStream();
+		void Livestream();
 		void Video();
 		cv::Mat captureScreen(HWND hwnd, int targetWidth, int targetHeight);
-		std::vector<std::thread> threads;
-		std::vector<std::thread> buttons;
+		std::thread Obey_thread;
+		std::thread Livestream_thread;
+		// std::vector<std::thread> threads;
+		// std::vector<std::thread> buttons;
+
+		void CloseConnection(std::string reason);
 
 	protected:
 		virtual void OnDisconnect(std::string reason);
 		virtual void OnConnect();
 
-		void CloseConnection(std::string reason);
+		
 		virtual bool ProcessPacket(std::shared_ptr<Packet> packet);
 
 		Socket listeningSocket;

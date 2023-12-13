@@ -65,6 +65,7 @@ namespace PNet
 
 
 		if(!this->video.joinable()){
+		// MessageBox(NULL, TEXT("tao thread video ne"), TEXT("9"), MB_ICONERROR | MB_OK);
 		this->video = std::thread(&Client::PlayVideo, this, current_device);
 		this->video.detach();
 		}
@@ -170,7 +171,7 @@ namespace PNet
 		// 	if (selected_device == -1) continue;
 		// 	int i = selected_device;
 
-		while (1)
+		while (current_device == selected_device)
 		{
 			int i = current_device;
 			use_fd = master_fd;
@@ -261,16 +262,16 @@ namespace PNet
 								connection.pm_incoming.currentTask = PacketManagerTask::ProcessPacketSize;
 								// while (connections[i-1].pm_incoming.HasPendingPackets())
 								// {
-									// MessageBox(NULL, TEXT("5"), TEXT("2"), MB_ICONERROR | MB_OK);
+								// MessageBox(NULL, TEXT("5"), TEXT("2"), MB_ICONERROR | MB_OK);
 								std::shared_ptr<Packet> frontPacket = connections[i].pm_incoming.Retrieve();
 								if (!ProcessPacket(frontPacket))
 								{
 									CloseConnection(i, "Failed to process incoming packet.");
 									break;
 								}
-								
+								// MessageBox(NULL, TEXT("6"), TEXT("2"), MB_ICONERROR | MB_OK);
 								connections[i].pm_incoming.Pop();
-								if(current_device != selected_device) return;
+								// if(current_device != selected_device) return;
 								int key = waitKey(1);
 								if (key == 'x')
 									return;
@@ -282,7 +283,7 @@ namespace PNet
 				}
 			}
 		}
-
+		destroyAllWindows();
 	}
 
 	bool Client::ProcessPacket(std::shared_ptr<Packet> packet)
@@ -307,15 +308,29 @@ namespace PNet
 
 	void Client::CloseConnection(int connectionIndex, std::string reason)
 	{
+		std::wstring wideReason(reason.begin(), reason.end());
+		LPCTSTR wideReasonPtr = wideReason.c_str();
+		MessageBox(NULL, wideReasonPtr, TEXT("client"), MB_ICONERROR | MB_OK);
+		std::wstring strSelectedDevice = std::to_wstring(connections.size());
+		LPCTSTR lpSelectedDevice = strSelectedDevice.c_str();
+		MessageBox(NULL, lpSelectedDevice, TEXT("size of connections (client, 1)"), MB_ICONERROR | MB_OK);
+		
 		if(connectionIndex == -1) return;
 		selected_device = -1;
 		TCPConnection &connection = connections[connectionIndex];
 		OnDisconnect(connection, reason);
 		master_fd.erase(master_fd.begin() + (connectionIndex));
-		// if(use_fd.size() == 0) return;
-		// use_fd.erase(use_fd.begin() + (connectionIndex));
-		// use_fd.erase(use_fd.begin() + use_fd.size() - 1);
+
+		std::wstring strSelectedDevice2 = std::to_wstring(use_fd.size());
+		LPCTSTR lpSelectedDevice2 = strSelectedDevice2.c_str();
+		MessageBox(NULL, lpSelectedDevice2, TEXT("size of use_fd (client, 1)"), MB_ICONERROR | MB_OK);
+		use_fd.erase(use_fd.begin() + (connectionIndex));
 		connection.Close();
+		
+		std::wstring strSelectedDevice1 = std::to_wstring(connections.size());
+		LPCTSTR lpSelectedDevice1 = strSelectedDevice1.c_str();
+		MessageBox(NULL, lpSelectedDevice1, TEXT("size of connections (client, 2)"), MB_ICONERROR | MB_OK);
+		
 		connections.erase(connections.begin() + connectionIndex);
 	}
 

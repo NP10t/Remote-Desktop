@@ -14,3 +14,4 @@ stage
 build
 x64
 !src
+srcNP
