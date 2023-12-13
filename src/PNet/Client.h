@@ -24,6 +24,7 @@ namespace PNet
 		std::thread control;
 		std::thread video;
 		int selected_device;
+		int selected_device_connected;
 		void CloseConnection(int connectionIndex, std::string reason);		
 	protected:
 		virtual bool ProcessPacket(std::shared_ptr<Packet> packet);

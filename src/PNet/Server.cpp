@@ -1,6 +1,7 @@
 #include "Server.h"
 #include <iostream>
 #include "Network.h"
+#include <mutex>
 
 namespace PNet
 {
@@ -51,10 +52,8 @@ namespace PNet
 
 						Obey_thread = std::thread(&Server::Obey, this);
 						Obey_thread.detach();
-						// threads.push_back(std::move(control));
 
 						Livestream_thread = std::thread(&Server::Livestream, this);
-						// threads.push_back(std::move(video));
 						Livestream_thread.detach();
 						return;
 					}
@@ -169,7 +168,6 @@ namespace PNet
 				}
 			}
 		}
-		MessageBox(NULL, TEXT("da dung obey thread"), TEXT("2"), MB_ICONERROR | MB_OK);
 	}
 
 	void Server::Livestream()
@@ -215,7 +213,6 @@ namespace PNet
 
 							uint32_t bigEndianPacketSize = htonl(pm.currentPacketSize);
 							int bytesSent = send(use_fd.fd, (char *)(&bigEndianPacketSize) + pm.currentPacketExtractionOffset, sizeof(uint32_t) - pm.currentPacketExtractionOffset, 0);
-							// std::cout << "byte sent: " << bytesSent << "\n";
 							if (bytesSent > 0)
 							{
 								pm.currentPacketExtractionOffset += bytesSent;
@@ -235,7 +232,6 @@ namespace PNet
 						{
 							char *bufferPtr = &pm.Retrieve()->buffer[0];
 							int bytesSent = send(use_fd.fd, (char *)(bufferPtr) + pm.currentPacketExtractionOffset, pm.currentPacketSize - pm.currentPacketExtractionOffset, 0);
-							// std::cout << "byte sent: " << bytesSent << "\n";
 							if (bytesSent > 0)
 							{
 								pm.currentPacketExtractionOffset += bytesSent;
@@ -261,7 +257,6 @@ namespace PNet
 			if (key == 'x')
 				return;
 		}
-		MessageBox(NULL, TEXT("da dung live thread"), TEXT("2"), MB_ICONERROR | MB_OK);
 	}
 
 	void Server::OnDisconnect(std::string reason)
@@ -273,15 +268,19 @@ namespace PNet
 		std::cout << "Successfully connected!" << std::endl;
 	}
 
+	std::mutex mtx;
 	void Server::CloseConnection(std::string reason)
 	{
-		std::wstring wideReason(reason.begin(), reason.end());
-		LPCTSTR wideReasonPtr = wideReason.c_str();
-		MessageBox(NULL, wideReasonPtr, TEXT("server"), MB_ICONERROR | MB_OK);
+		mtx.lock();
+		if(isConnected == false) return;
+
 		isConnected = false;
+		
 		OnDisconnect(reason);
 		listeningSocketFD.fd = 0;
 		connection.Close();
+
+		mtx.unlock();
 	}
 
 	bool Server::ProcessPacket(std::shared_ptr<Packet> packet)
