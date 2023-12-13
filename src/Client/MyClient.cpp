@@ -6,9 +6,9 @@ void MyClient::Run(std::string inputIP)
 {
 	if (Network::Initialize())
 	{
-		if (this->Connect(IPEndpoint(inputIP.c_str(), 6112))) //ket noi den server co dia chi ip... cong... Lam nut bat su kien thi goi ham nay de ket noi, Ket noi moi se duoc luu lai o buffer bla bla NP lam het r
+		if (this->Initialize(IPEndpoint(inputIP.c_str(), 6112))) //ket noi den server co dia chi ip... cong... Lam nut bat su kien thi goi ham nay de ket noi, Ket noi moi se duoc luu lai o buffer bla bla NP lam het r
 		{
-			this->Frame(); //(gui den nguoi lam nut bat su kien): ham nay chi gan goi 1 lan, khi ket noi den server lan dau tien thi goi ham nay, tu do ve sau ko can nua
+			//this->Frame(); //(gui den nguoi lam nut bat su kien): ham nay chi gan goi 1 lan, khi ket noi den server lan dau tien thi goi ham nay, tu do ve sau ko can nua
 		}
 	}
 }

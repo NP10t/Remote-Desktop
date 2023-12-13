@@ -20,7 +20,6 @@ namespace PNet
 		unsigned short GetPort();
 		sockaddr_in GetSockaddrIPv4();
 		sockaddr_in6 GetSockaddrIPv6();
-		void Print();
 	private:
 		IPVersion ipversion = IPVersion::Unknown;
 		std::string hostname = "";

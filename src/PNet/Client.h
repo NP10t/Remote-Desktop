@@ -6,6 +6,11 @@
 #include <winsock2.h>
 #include <Windows.h>
 #include <WS2tcpip.h>
+#include <chrono>
+#include <conio.h>
+#include <iostream>
+#include <Windows.h>
+#include <mutex>
 
 using namespace std;
 using namespace cv;
@@ -15,22 +20,24 @@ namespace PNet
 	class Client
 	{
 	public:
-		bool Connect(IPEndpoint ip);
-		bool Frame();
-		void ControlUsingTCP();
-		void PlayVideo();
+		bool Initialize(IPEndpoint ip);
+		bool Frame(int select_device);
+		void ControlUsingTCP(int select_device);
+		void PlayVideo(int select_device);
 		void Mouse(TCPConnection &connection);
 		void Keyboard(TCPConnection &connection);
 		std::thread control;
 		std::thread video;
-		int select_device;
+		int selected_device;
+		int selected_device_connected;
+		void CloseConnection(int connectionIndex, std::string reason);
+		std::mutex mtx;	
 
 	protected:
 		virtual bool ProcessPacket(std::shared_ptr<Packet> packet);
 		virtual void OnConnectFail();
 		virtual void OnConnect(TCPConnection &newConnection);
 		virtual void OnDisconnect(TCPConnection &lostConnection, std::string reason);
-		void CloseConnection(int connectionIndex, std::string reason);
 
 		std::vector<TCPConnection> connections;
 		std::vector<WSAPOLLFD> master_fd;

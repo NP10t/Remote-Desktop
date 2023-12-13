@@ -6,16 +6,16 @@
 #include <Windows.h>
 int shitfD = 0, ctrlD = 0;
 
-void MyServer::Run(std::string IPString)
+void MyServer::Run()
 {
 	if (Network::Initialize())
 	{
-		if (this->Initialize(IPEndpoint(IPString.c_str(), 6112)))
+		if (this->Initialize())
 		{
-			while (true)
-			{
+			//while (true)
+			//{
 				this->Frame();
-			}
+			//}
 		}
 	}
 }

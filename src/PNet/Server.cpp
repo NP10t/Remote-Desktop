@@ -1,11 +1,22 @@
 #include "Server.h"
-#include <iostream>
-#include "Network.h"
 
 namespace PNet
 {
-	bool Server::Initialize(IPEndpoint ip)
+	std::mutex mtxx;
+	std::string Server::GetIPv4Address()
 	{
+		char hostbuffer[256];
+		gethostname(hostbuffer, sizeof(hostbuffer));
+
+		struct hostent* host_entry =  gethostbyname(hostbuffer);
+
+		IPv4Address = inet_ntoa(*((struct in_addr*)host_entry->h_addr_list[0]));
+		return IPv4Address;
+	}
+
+	bool Server::Initialize()
+	{
+		IPEndpoint ip(IPv4Address.c_str(), 6112);
 		listeningSocket = Socket(ip.GetIPVersion());
 		if (listeningSocket.Create() == PResult::P_Success)
 		{
@@ -34,30 +45,39 @@ namespace PNet
 
 	void Server::Frame()
 	{
-
-		if (WSAPoll(&listeningSocketFD, 1, 1) > 0)
+		while(1)
 		{
-			if (listeningSocketFD.revents & POLLRDNORM)
+			if (WSAPoll(&listeningSocketFD, 1, 1) > 0)
 			{
-				Socket newConnectionSocket;
-				IPEndpoint newConnectionEndpoint;
-				if (listeningSocket.Accept(newConnectionSocket, &newConnectionEndpoint) == PResult::P_Success)
+				if (listeningSocketFD.revents & POLLRDNORM)
 				{
-					connection = TCPConnection(newConnectionSocket, newConnectionEndpoint);
-					OnConnect();
-					newConnectionFD.fd = newConnectionSocket.GetHandle();
-					newConnectionFD.events = POLLRDNORM | POLLWRNORM;
-					newConnectionFD.revents = 0;
+					Socket newConnectionSocket;
+					IPEndpoint newConnectionEndpoint;
+					if (listeningSocket.Accept(newConnectionSocket, &newConnectionEndpoint) == PResult::P_Success)
+					{
+						connection = TCPConnection(newConnectionSocket, newConnectionEndpoint);
+						OnConnect();
+						newConnectionFD.fd = newConnectionSocket.GetHandle();
+						newConnectionFD.events = POLLRDNORM | POLLWRNORM;
+						newConnectionFD.revents = 0;
 
-					std::thread control(&Server::Obey, this);
-					threads.push_back(std::move(control));
+						// std::thread control(&Server::Obey, this);
+						// threads.push_back(std::move(control));
 
-					std::thread video(&Server::LiveStream, this);
-					threads.push_back(std::move(video));
-				}
-				else
-				{
-					std::cerr << "Failed to accept new connection." << std::endl;
+						// std::thread video(&Server::LiveStream, this);
+						// threads.push_back(std::move(video));
+
+						Obey_thread = std::thread(&Server::Obey, this);
+						Obey_thread.detach();
+
+						Livestream_thread = std::thread(&Server::Livestream, this);
+						Livestream_thread.detach();
+						return;
+					}
+					else
+					{
+						std::cerr << "Failed to accept new connection." << std::endl;
+					}
 				}
 			}
 		}
@@ -65,9 +85,9 @@ namespace PNet
 
 	void Server::Obey()
 	{
-		WSAPOLLFD use_fd = newConnectionFD;
 		while (this->isConnected)
 		{
+			WSAPOLLFD use_fd = newConnectionFD;
 			if (WSAPoll(&use_fd, 1, 1) > 0)
 			{
 				if (use_fd.revents & POLLERR) // If error occurred on this socket
@@ -165,14 +185,14 @@ namespace PNet
 				}
 			}
 		}
-		return;
 	}
 
-	void Server::LiveStream()
+	void Server::Livestream()
 	{
-		WSAPOLLFD use_fd = newConnectionFD;
+		
 		while (this->isConnected)
 		{
+			WSAPOLLFD use_fd = newConnectionFD;
 			if (WSAPoll(&use_fd, 1, 1) > 0)
 			{
 
@@ -211,7 +231,6 @@ namespace PNet
 
 							uint32_t bigEndianPacketSize = htonl(pm.currentPacketSize);
 							int bytesSent = send(use_fd.fd, (char *)(&bigEndianPacketSize) + pm.currentPacketExtractionOffset, sizeof(uint32_t) - pm.currentPacketExtractionOffset, 0);
-							// std::cout << "byte sent: " << bytesSent << "\n";
 							if (bytesSent > 0)
 							{
 								pm.currentPacketExtractionOffset += bytesSent;
@@ -257,7 +276,6 @@ namespace PNet
 			if (key == 'x')
 				return;
 		}
-		return;
 	}
 
 	void Server::OnDisconnect(std::string reason)
@@ -271,10 +289,16 @@ namespace PNet
 
 	void Server::CloseConnection(std::string reason)
 	{
+		mtxx.lock();
+		if (isConnected == false) return;
+		
+		isConnected = false;
 		OnDisconnect(reason);
 		listeningSocketFD.fd = 0;
-		isConnected = false;
+		
 		connection.Close();
+
+		mtxx.unlock();
 	}
 
 	bool Server::ProcessPacket(std::shared_ptr<Packet> packet)
