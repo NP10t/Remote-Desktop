@@ -37,7 +37,14 @@ void MainFrameClient::BindEventHandlers()
 }
 
 void MainFrameClient::selectAnotherDeviceClicked(wxCommandEvent& evt) {
-    client.selected_device = -1; //ko chon may nao ca
+    client.selected_device = 1; //ko chon may nao ca
+    if(client.connections.size() == 1){
+        MessageBox(NULL, TEXT("may thu 2 ko ton tai"), TEXT("troll nhau ah"), MB_ICONERROR | MB_OK);
+        return;
+    }
+
+    client.selected_device_connected = true;
+    client.Frame(client.selected_device);
 }
 
 void MainFrameClient::selectTheFirstDeviceClicked(wxCommandEvent& evt) {

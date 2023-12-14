@@ -25,14 +25,15 @@ namespace PNet
 		std::thread video;
 		int selected_device;
 		int selected_device_connected;
-		void CloseConnection(int connectionIndex, std::string reason);		
+		void CloseConnection(int connectionIndex, std::string reason);	
+		std::vector<TCPConnection> connections;	
 	protected:
 		virtual bool ProcessPacket(std::shared_ptr<Packet> packet);
 		virtual void OnConnectFail();
 		virtual void OnConnect(TCPConnection &newConnection);
 		virtual void OnDisconnect(TCPConnection &lostConnection, std::string reason);
 
-		std::vector<TCPConnection> connections;
+		// std::vector<TCPConnection> connections;
 		std::vector<WSAPOLLFD> master_fd;
 		std::vector<WSAPOLLFD> use_fd;
 	};

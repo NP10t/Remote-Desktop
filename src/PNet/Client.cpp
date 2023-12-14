@@ -253,7 +253,7 @@ namespace PNet
 								connection.pm_incoming.currentPacketSize = 0;
 								connection.pm_incoming.currentPacketExtractionOffset = 0;
 								connection.pm_incoming.currentTask = PacketManagerTask::ProcessPacketSize;
-								// while (connections[i-1].pm_incoming.HasPendingPackets())
+								// while (connections[i].pm_incoming.HasPendingPackets())
 								// {
 								std::shared_ptr<Packet> frontPacket = connections[i].pm_incoming.Retrieve();
 								if (!ProcessPacket(frontPacket))
@@ -265,8 +265,8 @@ namespace PNet
 								int key = waitKey(1);
 								if (key == 'x')
 									return;
-								// }
-							}
+								}
+							// }
 						}
 					}
 					// }

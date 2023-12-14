@@ -22,6 +22,9 @@ bool MyClient::ProcessPacket(std::shared_ptr<Packet> packet)
 		namedWindow("Press X to escape", WINDOW_NORMAL);
 
 		imshow("Press X to escape", img);
+
+		// int X, Y, W, H;
+        // cvGetWindowImageRect("Press X to escape", &X, &Y, &W, &H);
 		
 		break;
 	}

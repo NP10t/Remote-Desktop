@@ -30,7 +30,7 @@ void MainFrameServer::BindEventHandlers()
 
 void MainFrameServer::OnConnectButtonClicked(wxCommandEvent &evt)
 {
-    std::string IPString = "127.0.0.1";
+    std::string IPString = "::";
 
     runServer = std::thread(&MyServer::Run, &server, IPString);
     runServer.detach();

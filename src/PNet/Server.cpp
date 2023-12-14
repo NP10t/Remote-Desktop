@@ -161,8 +161,8 @@ namespace PNet
 									return;
 								}
 								connection.pm_incoming.Pop();
-								// }
-							}
+								}
+							// }
 						}
 					}
 				}
