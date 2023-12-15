@@ -162,6 +162,7 @@ namespace PNet
 
 	void Client::PlayVideo(int current_device)
 	{
+		
 		while (current_device == selected_device) // khi chuyen sang thiet bi khac thi current_device != selected_device => huy luon thread nay, tao lai thread khac 
 		{
 			

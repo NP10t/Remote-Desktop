@@ -1,6 +1,12 @@
 #include "MyClient.h"
 #include <string>
 
+// void mouseCallback(int event, int x, int y, int flags, void* userdata) {
+//     if (event == cv::EVENT_LBUTTONDOWN) {
+//         std::cout << "Mouse position: (" << x << ", " << y << ")" << std::endl;
+//     }
+// }
+
 bool MyClient::ProcessPacket(std::shared_ptr<Packet> packet)
 {
 	switch (packet->GetPacketType())
@@ -19,8 +25,9 @@ bool MyClient::ProcessPacket(std::shared_ptr<Packet> packet)
 			std::cout << "invalib image\n";
 			return false;
 		}
-		namedWindow("Press X to escape", WINDOW_NORMAL);
 
+		namedWindow("Press X to escape", WINDOW_NORMAL);
+		// setMouseCallback("LSD Window", mouseCallback);
 		imshow("Press X to escape", img);
 
 		// int X, Y, W, H;
