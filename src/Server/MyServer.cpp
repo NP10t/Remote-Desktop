@@ -6,6 +6,8 @@
 #include <Windows.h>
 
 int shitfD = 0, ctrlD = 0;
+int W_ratio = GetSystemMetrics(SM_CXSCREEN);
+int H_ratio = GetSystemMetrics(SM_CYSCREEN);
 
 void MyServer::Run(std::string IPString)
 {
@@ -154,7 +156,7 @@ bool MyServer::ProcessPacket(std::shared_ptr<Packet> packet)
 	}
 	case PacketType::PT_IntegerArray:
 	{
-		uint32_t *a = new uint32_t[13];
+		uint32_t a[13];
 		a[0] = 0, a[1] = 0, a[2] = 0, a[3] = 0, a[4] = 0, a[5] = 0, a[6] = 0, a[7] = -1, a[8] = 0, a[9] = 0, a[10] = 0, a[11] = 0;
 		*packet >> a[0] >> a[1] >> a[2] >> a[3] >> a[4] >> a[5] >> a[6] >> a[7] >> a[8] >> a[9] >> a[10] >> a[11] >> a[12];
 		//std::cout << "X: " << a[0] <<" " << a[1] <<'\n';

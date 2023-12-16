@@ -105,7 +105,6 @@ namespace PNet
 
 				if (use_fd.revents & POLLRDNORM) // If normal data can be read without blocking
 				{
-					// MessageBox(NULL, TEXT("3"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 					int bytesReceived = 0;
 
 					if (connection.pm_incoming.currentTask == PacketManagerTask::ProcessPacketSize)
@@ -181,8 +180,8 @@ namespace PNet
 									return;
 								}
 								connection.pm_incoming.Pop();
-								}
-							// }
+								// }
+							}
 						}
 					}
 				}
@@ -252,7 +251,6 @@ namespace PNet
 							}
 							else // If full packet size was not sent, break out of the loop for sending outgoing packets for this connection - we'll have to try again next time we are able to write normal data without blocking
 							{
-								// MessageBox(NULL, TEXT("truoc break 1"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 								break;
 							}
 						}
@@ -273,7 +271,6 @@ namespace PNet
 							}
 							else
 							{
-								// MessageBox(NULL, TEXT("truoc break 2"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 								break; // Added after tutorial was made 2019-06-24
 							}
 						}

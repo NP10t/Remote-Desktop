@@ -160,7 +160,6 @@ namespace PNet
 	PResult Socket::Connect(IPEndpoint endpoint)
 	{
 		assert(ipversion == endpoint.GetIPVersion());
-
 		int result = 0;
 		if (ipversion == IPVersion::IPv4)
 		{

@@ -1,5 +1,9 @@
 {
     "files.associations": {
+<<<<<<< HEAD
+=======
+        "*.rmd": "markdown",
+>>>>>>> nguyenquangthinh
         "thread": "cpp",
         "atomic": "cpp",
         "bit": "cpp",
@@ -72,6 +76,21 @@
         "deque": "cpp",
         "coroutine": "cpp",
         "resumable": "cpp",
+<<<<<<< HEAD
         "queue": "cpp"
+=======
+        "queue": "cpp",
+        "array": "cpp",
+        "fstream": "cpp",
+        "hash_map": "cpp",
+        "hash_set": "cpp",
+        "numeric": "cpp",
+        "ranges": "cpp",
+        "regex": "cpp",
+        "set": "cpp",
+        "span": "cpp",
+        "stack": "cpp",
+        "unordered_set": "cpp"
+>>>>>>> nguyenquangthinh
     }
 }

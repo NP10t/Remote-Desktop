@@ -1,11 +1,19 @@
 
 cmake_minimum_required(VERSION 3.15)
 
+<<<<<<< HEAD
 set(command "C:/Strawberry/c/bin/cmake.exe;--build;.;--config;MinSizeRel;--target;install")
 set(log_merged "")
 set(log_output_on_failure "")
 set(stdout_log "E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-install-out.log")
 set(stderr_log "E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-install-err.log")
+=======
+set(command "C:/cmake-3.28.0-rc5-windows-x86_64/bin/cmake.exe;--build;.;--config;MinSizeRel;--target;install")
+set(log_merged "")
+set(log_output_on_failure "")
+set(stdout_log "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/wxWidgets_external-install-out.log")
+set(stderr_log "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/wxWidgets_external-install-err.log")
+>>>>>>> nguyenquangthinh
 execute_process(
   COMMAND ${command}
   RESULT_VARIABLE result
@@ -31,7 +39,11 @@ if(result)
   if (${log_merged})
     set(msg "${msg}\nSee also\n  ${stderr_log}")
   else()
+<<<<<<< HEAD
     set(msg "${msg}\nSee also\n  E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-install-*.log")
+=======
+    set(msg "${msg}\nSee also\n  C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/wxWidgets_external-install-*.log")
+>>>>>>> nguyenquangthinh
   endif()
   if (${log_output_on_failure})
     message(SEND_ERROR "${msg}")
@@ -50,7 +62,11 @@ if(result)
   endif()
 else()
   if(NOT "Visual Studio 17 2022" MATCHES "Ninja")
+<<<<<<< HEAD
     set(msg "wxWidgets_external install command succeeded.  See also E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-install-*.log")
+=======
+    set(msg "wxWidgets_external install command succeeded.  See also C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/wxWidgets_external-install-*.log")
+>>>>>>> nguyenquangthinh
     message(STATUS "${msg}")
   endif()
 endif()

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+<<<<<<< HEAD
     <CustomBuild Include="E:\canhom\CMakeFiles\bea636eec4a5ddcd528c4c0d61f9b2c6\wxWidgets_external-mkdir.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
@@ -36,6 +37,43 @@
   <ItemGroup>
     <Filter Include="CMake Rules">
       <UniqueIdentifier>{65294A81-E178-3157-9BCF-79819CF4E796}</UniqueIdentifier>
+=======
+    <CustomBuild Include="C:\Do an mmt\Mang_May_Tinh-master\CMakeFiles\f5551f6a34532a7d1fbed37a85d91c35\wxWidgets_external-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Do an mmt\Mang_May_Tinh-master\CMakeFiles\f5551f6a34532a7d1fbed37a85d91c35\wxWidgets_external-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Do an mmt\Mang_May_Tinh-master\CMakeFiles\f5551f6a34532a7d1fbed37a85d91c35\wxWidgets_external-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Do an mmt\Mang_May_Tinh-master\CMakeFiles\f5551f6a34532a7d1fbed37a85d91c35\wxWidgets_external-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Do an mmt\Mang_May_Tinh-master\CMakeFiles\f5551f6a34532a7d1fbed37a85d91c35\wxWidgets_external-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Do an mmt\Mang_May_Tinh-master\CMakeFiles\f5551f6a34532a7d1fbed37a85d91c35\wxWidgets_external-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Do an mmt\Mang_May_Tinh-master\CMakeFiles\f5551f6a34532a7d1fbed37a85d91c35\wxWidgets_external-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Do an mmt\Mang_May_Tinh-master\CMakeFiles\0fc3da8a6a845a9326c34e20c0ff6011\wxWidgets_external-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Do an mmt\Mang_May_Tinh-master\CMakeFiles\ffd04a2ef2503e06704be11e1b1c5f71\wxWidgets_external.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Do an mmt\Mang_May_Tinh-master\thirdparty\wxwidgets\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Do an mmt\Mang_May_Tinh-master\thirdparty\wxwidgets\CMakeFiles\wxWidgets_external" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{F11CA415-81BA-3597-8740-DC2599A477CD}</UniqueIdentifier>
+>>>>>>> nguyenquangthinh
     </Filter>
   </ItemGroup>
 </Project>

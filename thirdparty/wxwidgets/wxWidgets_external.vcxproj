@@ -22,9 +22,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
+<<<<<<< HEAD
     <ProjectGuid>{CA3A1AB5-4DAE-3BA8-A391-83451093D4A9}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+=======
+    <ProjectGuid>{E070D9A8-A9C3-3545-8F73-1241C631ADFE}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
+>>>>>>> nguyenquangthinh
     <Platform>x64</Platform>
     <ProjectName>wxWidgets_external</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
@@ -105,12 +111,21 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <CustomBuild Include="E:\canhom\CMakeFiles\bea636eec4a5ddcd528c4c0d61f9b2c6\wxWidgets_external-mkdir.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Creating directories for 'wxWidgets_external'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 C:\Strawberry\c\bin\cmake.exe -Dcfgdir=/Debug -P E:/canhom/subprojects/tmp/wxWidgets_external/wxWidgets_external-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Debug/wxWidgets_external-mkdir
+=======
+    <CustomBuild Include="C:\Do an mmt\Mang_May_Tinh-master\CMakeFiles\f5551f6a34532a7d1fbed37a85d91c35\wxWidgets_external-mkdir.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Creating directories for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -Dcfgdir=/Debug -P "C:/Do an mmt/Mang_May_Tinh-master/subprojects/tmp/wxWidgets_external/wxWidgets_external-mkdirs.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/Debug/wxWidgets_external-mkdir"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -119,6 +134,7 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+<<<<<<< HEAD
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Creating directories for 'wxWidgets_external'</Message>
@@ -126,6 +142,15 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
 C:\Strawberry\c\bin\cmake.exe -Dcfgdir=/Release -P E:/canhom/subprojects/tmp/wxWidgets_external/wxWidgets_external-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Release/wxWidgets_external-mkdir
+=======
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Creating directories for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -Dcfgdir=/Release -P "C:/Do an mmt/Mang_May_Tinh-master/subprojects/tmp/wxWidgets_external/wxWidgets_external-mkdirs.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/Release/wxWidgets_external-mkdir"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -134,6 +159,7 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+<<<<<<< HEAD
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Creating directories for 'wxWidgets_external'</Message>
@@ -141,6 +167,15 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
 C:\Strawberry\c\bin\cmake.exe -Dcfgdir=/MinSizeRel -P E:/canhom/subprojects/tmp/wxWidgets_external/wxWidgets_external-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/MinSizeRel/wxWidgets_external-mkdir
+=======
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Creating directories for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -Dcfgdir=/MinSizeRel -P "C:/Do an mmt/Mang_May_Tinh-master/subprojects/tmp/wxWidgets_external/wxWidgets_external-mkdirs.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/MinSizeRel/wxWidgets_external-mkdir"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -149,6 +184,7 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+<<<<<<< HEAD
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Creating directories for 'wxWidgets_external'</Message>
@@ -156,6 +192,15 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
 C:\Strawberry\c\bin\cmake.exe -Dcfgdir=/RelWithDebInfo -P E:/canhom/subprojects/tmp/wxWidgets_external/wxWidgets_external-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/RelWithDebInfo/wxWidgets_external-mkdir
+=======
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Creating directories for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -Dcfgdir=/RelWithDebInfo -P "C:/Do an mmt/Mang_May_Tinh-master/subprojects/tmp/wxWidgets_external/wxWidgets_external-mkdirs.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/RelWithDebInfo/wxWidgets_external-mkdir"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -164,11 +209,16 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+<<<<<<< HEAD
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-mkdir</Outputs>
+=======
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-mkdir</Outputs>
+>>>>>>> nguyenquangthinh
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <CustomBuild Include="E:\canhom\CMakeFiles\bea636eec4a5ddcd528c4c0d61f9b2c6\wxWidgets_external-download.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing download step (git clone) for 'wxWidgets_external'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
@@ -179,6 +229,18 @@ if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -P E:/canhom/subprojects/tmp/wxWidgets_external/wxWidgets_external-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Debug/wxWidgets_external-download
+=======
+    <CustomBuild Include="C:\Do an mmt\Mang_May_Tinh-master\CMakeFiles\f5551f6a34532a7d1fbed37a85d91c35\wxWidgets_external-download.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing download step (git clone) for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd "C:\Do an mmt\Mang_May_Tinh-master\subprojects\Source"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -P "C:/Do an mmt/Mang_May_Tinh-master/subprojects/tmp/wxWidgets_external/wxWidgets_external-gitclone.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/Debug/wxWidgets_external-download"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -186,6 +248,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\wxWidgets_external-gitinfo.txt;E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-mkdir;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
@@ -198,6 +261,20 @@ if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -P E:/canhom/subprojects/tmp/wxWidgets_external/wxWidgets_external-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Release/wxWidgets_external-download
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\wxWidgets_external-gitinfo.txt;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing download step (git clone) for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd "C:\Do an mmt\Mang_May_Tinh-master\subprojects\Source"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -P "C:/Do an mmt/Mang_May_Tinh-master/subprojects/tmp/wxWidgets_external/wxWidgets_external-gitclone.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/Release/wxWidgets_external-download"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -205,6 +282,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\wxWidgets_external-gitinfo.txt;E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-mkdir;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
@@ -217,6 +295,20 @@ if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -P E:/canhom/subprojects/tmp/wxWidgets_external/wxWidgets_external-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/MinSizeRel/wxWidgets_external-download
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\wxWidgets_external-gitinfo.txt;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing download step (git clone) for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd "C:\Do an mmt\Mang_May_Tinh-master\subprojects\Source"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -P "C:/Do an mmt/Mang_May_Tinh-master/subprojects/tmp/wxWidgets_external/wxWidgets_external-gitclone.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/MinSizeRel/wxWidgets_external-download"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -224,6 +316,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\wxWidgets_external-gitinfo.txt;E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-mkdir;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
@@ -236,6 +329,20 @@ if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -P E:/canhom/subprojects/tmp/wxWidgets_external/wxWidgets_external-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/RelWithDebInfo/wxWidgets_external-download
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\wxWidgets_external-gitinfo.txt;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing download step (git clone) for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd "C:\Do an mmt\Mang_May_Tinh-master\subprojects\Source"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -P "C:/Do an mmt/Mang_May_Tinh-master/subprojects/tmp/wxWidgets_external/wxWidgets_external-gitclone.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/RelWithDebInfo/wxWidgets_external-download"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -243,12 +350,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\wxWidgets_external-gitinfo.txt;E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-mkdir;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-download</Outputs>
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\wxWidgets_external-gitinfo.txt;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-download</Outputs>
+>>>>>>> nguyenquangthinh
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <CustomBuild Include="E:\canhom\CMakeFiles\bea636eec4a5ddcd528c4c0d61f9b2c6\wxWidgets_external-update.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No update step for 'wxWidgets_external'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
@@ -259,6 +372,18 @@ if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Debug/wxWidgets_external-update
+=======
+    <CustomBuild Include="C:\Do an mmt\Mang_May_Tinh-master\CMakeFiles\f5551f6a34532a7d1fbed37a85d91c35\wxWidgets_external-update.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No update step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd "C:\Do an mmt\Mang_May_Tinh-master\subprojects\Source\wxWidgets_external"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/Debug/wxWidgets_external-update"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -266,6 +391,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-download;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
@@ -278,6 +404,20 @@ if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Release/wxWidgets_external-update
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\wxWidgets_external-update-info.txt;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No update step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd "C:\Do an mmt\Mang_May_Tinh-master\subprojects\Source\wxWidgets_external"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/Release/wxWidgets_external-update"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -285,6 +425,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-download;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
@@ -297,6 +438,20 @@ if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/MinSizeRel/wxWidgets_external-update
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\wxWidgets_external-update-info.txt;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No update step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd "C:\Do an mmt\Mang_May_Tinh-master\subprojects\Source\wxWidgets_external"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/MinSizeRel/wxWidgets_external-update"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -304,6 +459,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-download;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
@@ -316,6 +472,20 @@ if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/RelWithDebInfo/wxWidgets_external-update
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\wxWidgets_external-update-info.txt;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No update step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd "C:\Do an mmt\Mang_May_Tinh-master\subprojects\Source\wxWidgets_external"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/RelWithDebInfo/wxWidgets_external-update"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -323,18 +493,32 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-download;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-update</Outputs>
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\wxWidgets_external-update-info.txt;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-update</Outputs>
+>>>>>>> nguyenquangthinh
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <CustomBuild Include="E:\canhom\CMakeFiles\bea636eec4a5ddcd528c4c0d61f9b2c6\wxWidgets_external-patch.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No patch step for 'wxWidgets_external'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 C:\Strawberry\c\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Debug/wxWidgets_external-patch
+=======
+    <CustomBuild Include="C:\Do an mmt\Mang_May_Tinh-master\CMakeFiles\f5551f6a34532a7d1fbed37a85d91c35\wxWidgets_external-patch.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No patch step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/Debug/wxWidgets_external-patch"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -342,6 +526,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-update;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
@@ -350,6 +535,16 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
 C:\Strawberry\c\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Release/wxWidgets_external-patch
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\wxWidgets_external-patch-info.txt;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No patch step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/Release/wxWidgets_external-patch"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -357,6 +552,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-update;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
@@ -365,6 +561,16 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
 C:\Strawberry\c\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/MinSizeRel/wxWidgets_external-patch
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\wxWidgets_external-patch-info.txt;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No patch step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/MinSizeRel/wxWidgets_external-patch"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -372,6 +578,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-update;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
@@ -380,6 +587,16 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
 C:\Strawberry\c\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/RelWithDebInfo/wxWidgets_external-patch
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\wxWidgets_external-patch-info.txt;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No patch step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/RelWithDebInfo/wxWidgets_external-patch"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -387,12 +604,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-update;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-patch</Outputs>
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\wxWidgets_external-patch-info.txt;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-patch</Outputs>
+>>>>>>> nguyenquangthinh
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <CustomBuild Include="E:\canhom\CMakeFiles\bea636eec4a5ddcd528c4c0d61f9b2c6\wxWidgets_external-configure.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing configure step for 'wxWidgets_external'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
@@ -403,6 +626,18 @@ if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -Dconfig=$(Configuration) -P E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-configure-Debug.cmake
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Debug/wxWidgets_external-configure
+=======
+    <CustomBuild Include="C:\Do an mmt\Mang_May_Tinh-master\CMakeFiles\f5551f6a34532a7d1fbed37a85d91c35\wxWidgets_external-configure.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing configure step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd "C:\Do an mmt\Mang_May_Tinh-master\subprojects\Build\wxWidgets_external"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -Dconfig=$(Configuration) -P "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/wxWidgets_external-configure-Debug.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/Debug/wxWidgets_external-configure"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -410,6 +645,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\tmp\wxWidgets_external\wxWidgets_external-cfgcmd.txt;E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-patch;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
@@ -422,6 +658,20 @@ if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -Dconfig=$(Configuration) -P E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-configure-Release.cmake
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Release/wxWidgets_external-configure
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\tmp\wxWidgets_external\wxWidgets_external-cfgcmd.txt;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing configure step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd "C:\Do an mmt\Mang_May_Tinh-master\subprojects\Build\wxWidgets_external"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -Dconfig=$(Configuration) -P "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/wxWidgets_external-configure-Release.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/Release/wxWidgets_external-configure"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -429,6 +679,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\tmp\wxWidgets_external\wxWidgets_external-cfgcmd.txt;E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-patch;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
@@ -441,6 +692,20 @@ if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -Dconfig=$(Configuration) -P E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-configure-MinSizeRel.cmake
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/MinSizeRel/wxWidgets_external-configure
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\tmp\wxWidgets_external\wxWidgets_external-cfgcmd.txt;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing configure step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd "C:\Do an mmt\Mang_May_Tinh-master\subprojects\Build\wxWidgets_external"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -Dconfig=$(Configuration) -P "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/wxWidgets_external-configure-MinSizeRel.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/MinSizeRel/wxWidgets_external-configure"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -448,6 +713,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\tmp\wxWidgets_external\wxWidgets_external-cfgcmd.txt;E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-patch;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
@@ -460,6 +726,20 @@ if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -Dconfig=$(Configuration) -P E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-configure-RelWithDebInfo.cmake
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/RelWithDebInfo/wxWidgets_external-configure
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\tmp\wxWidgets_external\wxWidgets_external-cfgcmd.txt;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing configure step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd "C:\Do an mmt\Mang_May_Tinh-master\subprojects\Build\wxWidgets_external"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -Dconfig=$(Configuration) -P "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/wxWidgets_external-configure-RelWithDebInfo.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/RelWithDebInfo/wxWidgets_external-configure"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -467,12 +747,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\tmp\wxWidgets_external\wxWidgets_external-cfgcmd.txt;E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-patch;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-configure</Outputs>
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\tmp\wxWidgets_external\wxWidgets_external-cfgcmd.txt;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-configure</Outputs>
+>>>>>>> nguyenquangthinh
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <CustomBuild Include="E:\canhom\CMakeFiles\bea636eec4a5ddcd528c4c0d61f9b2c6\wxWidgets_external-build.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing build step for 'wxWidgets_external'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
@@ -483,6 +769,18 @@ if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -Dconfig=$(Configuration) -P E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-build-Debug.cmake
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Debug/wxWidgets_external-build
+=======
+    <CustomBuild Include="C:\Do an mmt\Mang_May_Tinh-master\CMakeFiles\f5551f6a34532a7d1fbed37a85d91c35\wxWidgets_external-build.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing build step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd "C:\Do an mmt\Mang_May_Tinh-master\subprojects\Build\wxWidgets_external"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -Dconfig=$(Configuration) -P "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/wxWidgets_external-build-Debug.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/Debug/wxWidgets_external-build"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -490,6 +788,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-configure;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
@@ -502,6 +801,20 @@ if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -Dconfig=$(Configuration) -P E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-build-Release.cmake
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Release/wxWidgets_external-build
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing build step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd "C:\Do an mmt\Mang_May_Tinh-master\subprojects\Build\wxWidgets_external"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -Dconfig=$(Configuration) -P "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/wxWidgets_external-build-Release.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/Release/wxWidgets_external-build"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -509,6 +822,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-configure;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
@@ -521,6 +835,20 @@ if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -Dconfig=$(Configuration) -P E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-build-MinSizeRel.cmake
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/MinSizeRel/wxWidgets_external-build
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing build step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd "C:\Do an mmt\Mang_May_Tinh-master\subprojects\Build\wxWidgets_external"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -Dconfig=$(Configuration) -P "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/wxWidgets_external-build-MinSizeRel.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/MinSizeRel/wxWidgets_external-build"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -528,6 +856,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-configure;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
@@ -540,6 +869,20 @@ if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -Dconfig=$(Configuration) -P E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-build-RelWithDebInfo.cmake
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/RelWithDebInfo/wxWidgets_external-build
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing build step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd "C:\Do an mmt\Mang_May_Tinh-master\subprojects\Build\wxWidgets_external"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -Dconfig=$(Configuration) -P "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/wxWidgets_external-build-RelWithDebInfo.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/RelWithDebInfo/wxWidgets_external-build"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -547,12 +890,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-configure;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-build</Outputs>
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-build</Outputs>
+>>>>>>> nguyenquangthinh
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <CustomBuild Include="E:\canhom\CMakeFiles\bea636eec4a5ddcd528c4c0d61f9b2c6\wxWidgets_external-install.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing install step for 'wxWidgets_external'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
@@ -563,6 +912,18 @@ if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -Dconfig=$(Configuration) -P E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-install-Debug.cmake
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Debug/wxWidgets_external-install
+=======
+    <CustomBuild Include="C:\Do an mmt\Mang_May_Tinh-master\CMakeFiles\f5551f6a34532a7d1fbed37a85d91c35\wxWidgets_external-install.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing install step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd "C:\Do an mmt\Mang_May_Tinh-master\subprojects\Build\wxWidgets_external"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -Dconfig=$(Configuration) -P "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/wxWidgets_external-install-Debug.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/Debug/wxWidgets_external-install"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -570,6 +931,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-build;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
@@ -582,6 +944,20 @@ if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -Dconfig=$(Configuration) -P E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-install-Release.cmake
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Release/wxWidgets_external-install
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing install step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd "C:\Do an mmt\Mang_May_Tinh-master\subprojects\Build\wxWidgets_external"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -Dconfig=$(Configuration) -P "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/wxWidgets_external-install-Release.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/Release/wxWidgets_external-install"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -589,6 +965,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-build;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
@@ -601,6 +978,20 @@ if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -Dconfig=$(Configuration) -P E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-install-MinSizeRel.cmake
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/MinSizeRel/wxWidgets_external-install
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing install step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd "C:\Do an mmt\Mang_May_Tinh-master\subprojects\Build\wxWidgets_external"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -Dconfig=$(Configuration) -P "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/wxWidgets_external-install-MinSizeRel.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/MinSizeRel/wxWidgets_external-install"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -608,6 +999,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-build;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
@@ -620,6 +1012,20 @@ if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -Dconfig=$(Configuration) -P E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-install-RelWithDebInfo.cmake
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/RelWithDebInfo/wxWidgets_external-install
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing install step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd "C:\Do an mmt\Mang_May_Tinh-master\subprojects\Build\wxWidgets_external"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -Dconfig=$(Configuration) -P "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/wxWidgets_external-install-RelWithDebInfo.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/RelWithDebInfo/wxWidgets_external-install"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -627,12 +1033,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-build;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-install</Outputs>
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-install</Outputs>
+>>>>>>> nguyenquangthinh
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <CustomBuild Include="E:\canhom\CMakeFiles\70dcefc0cc8dcf63db4e56f6893052e0\wxWidgets_external-complete.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Completed 'wxWidgets_external'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
@@ -641,6 +1053,16 @@ if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/thirdparty/wxwidgets/CMakeFiles/Debug/wxWidgets_external-complete
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Debug/wxWidgets_external-done
+=======
+    <CustomBuild Include="C:\Do an mmt\Mang_May_Tinh-master\CMakeFiles\0fc3da8a6a845a9326c34e20c0ff6011\wxWidgets_external-complete.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Completed 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E make_directory "C:/Do an mmt/Mang_May_Tinh-master/thirdparty/wxwidgets/CMakeFiles/Debug"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/thirdparty/wxwidgets/CMakeFiles/Debug/wxWidgets_external-complete"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/Debug/wxWidgets_external-done"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -648,6 +1070,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-install;E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-mkdir;E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-download;E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-update;E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-patch;E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-configure;E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-build;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\Debug\wxWidgets_external-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
@@ -658,6 +1081,18 @@ if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/thirdparty/wxwidgets/CMakeFiles/Release/wxWidgets_external-complete
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Release/wxWidgets_external-done
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-install;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-mkdir;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-download;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-update;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-patch;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-configure;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Do an mmt\Mang_May_Tinh-master\thirdparty\wxwidgets\CMakeFiles\Debug\wxWidgets_external-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Completed 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E make_directory "C:/Do an mmt/Mang_May_Tinh-master/thirdparty/wxwidgets/CMakeFiles/Release"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/thirdparty/wxwidgets/CMakeFiles/Release/wxWidgets_external-complete"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/Release/wxWidgets_external-done"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -665,6 +1100,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-install;E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-mkdir;E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-download;E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-update;E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-patch;E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-configure;E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-build;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\Release\wxWidgets_external-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
@@ -675,6 +1111,18 @@ if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/thirdparty/wxwidgets/CMakeFiles/MinSizeRel/wxWidgets_external-complete
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/MinSizeRel/wxWidgets_external-done
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-install;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-mkdir;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-download;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-update;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-patch;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-configure;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Do an mmt\Mang_May_Tinh-master\thirdparty\wxwidgets\CMakeFiles\Release\wxWidgets_external-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Completed 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E make_directory "C:/Do an mmt/Mang_May_Tinh-master/thirdparty/wxwidgets/CMakeFiles/MinSizeRel"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/thirdparty/wxwidgets/CMakeFiles/MinSizeRel/wxWidgets_external-complete"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/MinSizeRel/wxWidgets_external-done"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -682,6 +1130,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-install;E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-mkdir;E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-download;E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-update;E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-patch;E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-configure;E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-build;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\MinSizeRel\wxWidgets_external-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
@@ -692,6 +1141,18 @@ if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/thirdparty/wxwidgets/CMakeFiles/RelWithDebInfo/wxWidgets_external-complete
 if %errorlevel% neq 0 goto :cmEnd
 C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/RelWithDebInfo/wxWidgets_external-done
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-install;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-mkdir;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-download;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-update;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-patch;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-configure;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Do an mmt\Mang_May_Tinh-master\thirdparty\wxwidgets\CMakeFiles\MinSizeRel\wxWidgets_external-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Completed 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E make_directory "C:/Do an mmt/Mang_May_Tinh-master/thirdparty/wxwidgets/CMakeFiles/RelWithDebInfo"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/thirdparty/wxwidgets/CMakeFiles/RelWithDebInfo/wxWidgets_external-complete"
+if %errorlevel% neq 0 goto :cmEnd
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe -E touch "C:/Do an mmt/Mang_May_Tinh-master/subprojects/Stamp/wxWidgets_external/RelWithDebInfo/wxWidgets_external-done"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -699,13 +1160,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-install;E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-mkdir;E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-download;E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-update;E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-patch;E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-configure;E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-build;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\RelWithDebInfo\wxWidgets_external-complete</Outputs>
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-install;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-mkdir;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-download;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-update;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-patch;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-configure;C:\Do an mmt\Mang_May_Tinh-master\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Do an mmt\Mang_May_Tinh-master\thirdparty\wxwidgets\CMakeFiles\RelWithDebInfo\wxWidgets_external-complete</Outputs>
+>>>>>>> nguyenquangthinh
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <CustomBuild Include="E:\canhom\CMakeFiles\ad4b525464ea6c57859d4535dd227c17\wxWidgets_external.rule">
+=======
+    <CustomBuild Include="C:\Do an mmt\Mang_May_Tinh-master\CMakeFiles\ffd04a2ef2503e06704be11e1b1c5f71\wxWidgets_external.rule">
+>>>>>>> nguyenquangthinh
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 :cmEnd
@@ -714,8 +1184,13 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\Debug\wxWidgets_external-complete;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\wxWidgets_external</Outputs>
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Do an mmt\Mang_May_Tinh-master\thirdparty\wxwidgets\CMakeFiles\Debug\wxWidgets_external-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Do an mmt\Mang_May_Tinh-master\thirdparty\wxwidgets\CMakeFiles\wxWidgets_external</Outputs>
+>>>>>>> nguyenquangthinh
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'"></Message>
@@ -726,8 +1201,13 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\Release\wxWidgets_external-complete;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\wxWidgets_external</Outputs>
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Do an mmt\Mang_May_Tinh-master\thirdparty\wxwidgets\CMakeFiles\Release\wxWidgets_external-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Do an mmt\Mang_May_Tinh-master\thirdparty\wxwidgets\CMakeFiles\wxWidgets_external</Outputs>
+>>>>>>> nguyenquangthinh
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'"></Message>
@@ -738,8 +1218,13 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\MinSizeRel\wxWidgets_external-complete;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\wxWidgets_external</Outputs>
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Do an mmt\Mang_May_Tinh-master\thirdparty\wxwidgets\CMakeFiles\MinSizeRel\wxWidgets_external-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Do an mmt\Mang_May_Tinh-master\thirdparty\wxwidgets\CMakeFiles\wxWidgets_external</Outputs>
+>>>>>>> nguyenquangthinh
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'"></Message>
@@ -750,18 +1235,31 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\RelWithDebInfo\wxWidgets_external-complete;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\wxWidgets_external</Outputs>
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Do an mmt\Mang_May_Tinh-master\thirdparty\wxwidgets\CMakeFiles\RelWithDebInfo\wxWidgets_external-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Do an mmt\Mang_May_Tinh-master\thirdparty\wxwidgets\CMakeFiles\wxWidgets_external</Outputs>
+>>>>>>> nguyenquangthinh
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <CustomBuild Include="E:\canhom\thirdparty\wxwidgets\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/canhom/thirdparty/wxwidgets/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 C:\Strawberry\c\bin\cmake.exe -SE:/canhom -BE:/canhom --check-stamp-file E:/canhom/thirdparty/wxwidgets/CMakeFiles/generate.stamp
+=======
+    <CustomBuild Include="C:\Do an mmt\Mang_May_Tinh-master\thirdparty\wxwidgets\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Do an mmt/Mang_May_Tinh-master/thirdparty/wxwidgets/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe "-SC:/Do an mmt/Mang_May_Tinh-master" "-BC:/Do an mmt/Mang_May_Tinh-master" --check-stamp-file "C:/Do an mmt/Mang_May_Tinh-master/thirdparty/wxwidgets/CMakeFiles/generate.stamp"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -769,12 +1267,21 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\RepositoryInfo.txt.in;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\cfgcmd.txt.in;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\gitclone.cmake.in;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\mkdirs.cmake.in;C:\Strawberry\c\share\cmake-3.26\Modules\FindGit.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\FindPackageHandleStandardArgs.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\FindPackageMessage.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\FindwxWidgets.cmake;E:\canhom\subprojects\tmp\wxWidgets_external\wxWidgets_external-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/canhom/thirdparty/wxwidgets/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
 C:\Strawberry\c\bin\cmake.exe -SE:/canhom -BE:/canhom --check-stamp-file E:/canhom/thirdparty/wxwidgets/CMakeFiles/generate.stamp
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\tmp\wxWidgets_external\wxWidgets_external-mkdirs.cmake;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject.cmake;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\PatchInfo.txt.in;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\RepositoryInfo.txt.in;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\UpdateInfo.txt.in;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\cfgcmd.txt.in;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\gitclone.cmake.in;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\mkdirs.cmake.in;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\shared_internal_commands.cmake;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\FindGit.cmake;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\FindPackageHandleStandardArgs.cmake;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\FindPackageMessage.cmake;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\FindwxWidgets.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Do an mmt\Mang_May_Tinh-master\thirdparty\wxwidgets\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Do an mmt/Mang_May_Tinh-master/thirdparty/wxwidgets/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe "-SC:/Do an mmt/Mang_May_Tinh-master" "-BC:/Do an mmt/Mang_May_Tinh-master" --check-stamp-file "C:/Do an mmt/Mang_May_Tinh-master/thirdparty/wxwidgets/CMakeFiles/generate.stamp"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -782,12 +1289,21 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\RepositoryInfo.txt.in;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\cfgcmd.txt.in;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\gitclone.cmake.in;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\mkdirs.cmake.in;C:\Strawberry\c\share\cmake-3.26\Modules\FindGit.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\FindPackageHandleStandardArgs.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\FindPackageMessage.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\FindwxWidgets.cmake;E:\canhom\subprojects\tmp\wxWidgets_external\wxWidgets_external-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule E:/canhom/thirdparty/wxwidgets/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
 C:\Strawberry\c\bin\cmake.exe -SE:/canhom -BE:/canhom --check-stamp-file E:/canhom/thirdparty/wxwidgets/CMakeFiles/generate.stamp
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\tmp\wxWidgets_external\wxWidgets_external-mkdirs.cmake;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject.cmake;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\PatchInfo.txt.in;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\RepositoryInfo.txt.in;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\UpdateInfo.txt.in;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\cfgcmd.txt.in;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\gitclone.cmake.in;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\mkdirs.cmake.in;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\shared_internal_commands.cmake;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\FindGit.cmake;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\FindPackageHandleStandardArgs.cmake;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\FindPackageMessage.cmake;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\FindwxWidgets.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Do an mmt\Mang_May_Tinh-master\thirdparty\wxwidgets\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Do an mmt/Mang_May_Tinh-master/thirdparty/wxwidgets/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe "-SC:/Do an mmt/Mang_May_Tinh-master" "-BC:/Do an mmt/Mang_May_Tinh-master" --check-stamp-file "C:/Do an mmt/Mang_May_Tinh-master/thirdparty/wxwidgets/CMakeFiles/generate.stamp"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -795,12 +1311,21 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\RepositoryInfo.txt.in;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\cfgcmd.txt.in;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\gitclone.cmake.in;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\mkdirs.cmake.in;C:\Strawberry\c\share\cmake-3.26\Modules\FindGit.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\FindPackageHandleStandardArgs.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\FindPackageMessage.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\FindwxWidgets.cmake;E:\canhom\subprojects\tmp\wxWidgets_external\wxWidgets_external-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule E:/canhom/thirdparty/wxwidgets/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
 C:\Strawberry\c\bin\cmake.exe -SE:/canhom -BE:/canhom --check-stamp-file E:/canhom/thirdparty/wxwidgets/CMakeFiles/generate.stamp
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\tmp\wxWidgets_external\wxWidgets_external-mkdirs.cmake;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject.cmake;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\PatchInfo.txt.in;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\RepositoryInfo.txt.in;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\UpdateInfo.txt.in;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\cfgcmd.txt.in;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\gitclone.cmake.in;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\mkdirs.cmake.in;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\shared_internal_commands.cmake;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\FindGit.cmake;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\FindPackageHandleStandardArgs.cmake;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\FindPackageMessage.cmake;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\FindwxWidgets.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Do an mmt\Mang_May_Tinh-master\thirdparty\wxwidgets\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Do an mmt/Mang_May_Tinh-master/thirdparty/wxwidgets/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\cmake-3.28.0-rc5-windows-x86_64\bin\cmake.exe "-SC:/Do an mmt/Mang_May_Tinh-master" "-BC:/Do an mmt/Mang_May_Tinh-master" --check-stamp-file "C:/Do an mmt/Mang_May_Tinh-master/thirdparty/wxwidgets/CMakeFiles/generate.stamp"
+>>>>>>> nguyenquangthinh
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -808,18 +1333,32 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+<<<<<<< HEAD
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\RepositoryInfo.txt.in;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\cfgcmd.txt.in;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\gitclone.cmake.in;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\mkdirs.cmake.in;C:\Strawberry\c\share\cmake-3.26\Modules\FindGit.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\FindPackageHandleStandardArgs.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\FindPackageMessage.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\FindwxWidgets.cmake;E:\canhom\subprojects\tmp\wxWidgets_external\wxWidgets_external-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\generate.stamp</Outputs>
+=======
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Do an mmt\Mang_May_Tinh-master\subprojects\tmp\wxWidgets_external\wxWidgets_external-mkdirs.cmake;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject.cmake;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\PatchInfo.txt.in;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\RepositoryInfo.txt.in;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\UpdateInfo.txt.in;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\cfgcmd.txt.in;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\gitclone.cmake.in;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\mkdirs.cmake.in;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\ExternalProject\shared_internal_commands.cmake;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\FindGit.cmake;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\FindPackageHandleStandardArgs.cmake;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\FindPackageMessage.cmake;C:\cmake-3.28.0-rc5-windows-x86_64\share\cmake-3.28\Modules\FindwxWidgets.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Do an mmt\Mang_May_Tinh-master\thirdparty\wxwidgets\CMakeFiles\generate.stamp</Outputs>
+>>>>>>> nguyenquangthinh
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <None Include="E:\canhom\thirdparty\wxwidgets\CMakeFiles\wxWidgets_external">
     </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="E:\canhom\ZERO_CHECK.vcxproj">
       <Project>{78252731-9FBB-3167-A90B-0EABDB816E52}</Project>
+=======
+    <None Include="C:\Do an mmt\Mang_May_Tinh-master\thirdparty\wxwidgets\CMakeFiles\wxWidgets_external">
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Do an mmt\Mang_May_Tinh-master\ZERO_CHECK.vcxproj">
+      <Project>{35D07FBC-98D3-323E-AB26-039C16CBDB87}</Project>
+>>>>>>> nguyenquangthinh
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

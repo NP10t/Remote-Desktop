@@ -11,7 +11,7 @@ MainFrameClient::MainFrameClient(const wxString& title, const wxPoint& pos, cons
 void MainFrameClient::CreateControls()
 {
     panel = new wxPanel(this);
-    inputIPTextCtrl = new wxTextCtrl(panel, wxID_ANY, "127.0.0.1", wxPoint(200, 200), wxDefaultSize, wxTE_PROCESS_ENTER);
+    inputIPTextCtrl = new wxTextCtrl(panel, wxID_ANY, "192.168.226.50", wxPoint(200, 200), wxDefaultSize, wxTE_PROCESS_ENTER);
     connectButton = new wxButton(panel, wxID_ANY, "Connect", wxPoint(100, 200), wxDefaultSize);
     disconnectButton = new wxButton(panel, wxID_ANY, "Disconnect", wxPoint(400, 200), wxDefaultSize);
     selectAnotherDeviceButton = new wxButton(panel, wxID_ANY, "Chon may khac", wxPoint(500, 200), wxDefaultSize);

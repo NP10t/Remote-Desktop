@@ -31,7 +31,6 @@ void MainFrameServer::BindEventHandlers()
 void MainFrameServer::OnConnectButtonClicked(wxCommandEvent &evt)
 {
     std::string IPString = "::";
-
     runServer = std::thread(&MyServer::Run, &server, IPString);
     runServer.detach();
 }

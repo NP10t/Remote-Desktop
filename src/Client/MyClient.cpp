@@ -1,11 +1,7 @@
 #include "MyClient.h"
 #include <string>
 
-// void mouseCallback(int event, int x, int y, int flags, void* userdata) {
-//     if (event == cv::EVENT_LBUTTONDOWN) {
-//         std::cout << "Mouse position: (" << x << ", " << y << ")" << std::endl;
-//     }
-// }
+//int H = 0, W = 0, T = 0, L = 0;
 
 bool MyClient::ProcessPacket(std::shared_ptr<Packet> packet)
 {
@@ -27,11 +23,26 @@ bool MyClient::ProcessPacket(std::shared_ptr<Packet> packet)
 		}
 
 		namedWindow("Press X to escape", WINDOW_NORMAL);
-		// setMouseCallback("LSD Window", mouseCallback);
+
+	// 	RECT windowRect;
+    // 	HWND hwnd = FindWindow(NULL, L"Press X to escape");
+    // if (hwnd == NULL) {
+    //     std::cout << "Window not found\n";
+    // } else {
+    //     GetWindowRect(hwnd, &windowRect);
+
+    //     int T = windowRect.top;
+    //     int L = windowRect.left;
+
+    //     int W = windowRect.right - windowRect.left;
+    //     int H = windowRect.bottom - windowRect.top;
+    // }
+
+
 		imshow("Press X to escape", img);
 
-		// int X, Y, W, H;
-        // cvGetWindowImageRect("Press X to escape", &X, &Y, &W, &H);
+        
+		//cvGetWindowRect("Press X to escape",&X, &Y, &W, &H);
 		
 		break;
 	}

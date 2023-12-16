@@ -15,12 +15,17 @@ namespace PNet
 	class Client
 	{
 	public:
+		double H;
+		double W;
+		double T;
+		double L;
 		bool Connect(IPEndpoint ip);
 		bool Frame(int select_device);
 		void ControlUsingTCP(int select_device);
 		void PlayVideo(int select_device);
 		void Mouse(TCPConnection &connection);
 		void Keyboard(TCPConnection &connection);
+		void Chat(TCPConnection &connection);
 		std::thread control;
 		std::thread video;
 		int selected_device;
