@@ -15,7 +15,7 @@ void MainFrameServer::CreateControls()
     wxString label = wxString::Format("Your IP Address is: %s", server.GetIPv4Address());
     IPStaticText = new wxStaticText(panel, wxID_ANY, label , wxDefaultPosition, wxDefaultSize);
 
-    connectStateStaticText = new wxStaticText(panel, wxID_ANY, "asd", wxDefaultPosition, wxDefaultSize);
+    connectStateStaticText = new wxStaticText(panel, wxID_ANY, "", wxDefaultPosition, wxDefaultSize);
 
     connectButton = new wxButton(panel, wxID_ANY, "Open connection", wxPoint(100, 200), wxDefaultSize);
     disconnectButton = new wxButton(panel, wxID_ANY, "Close connection", wxPoint(400, 200), wxDefaultSize);
