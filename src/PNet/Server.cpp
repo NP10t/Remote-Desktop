@@ -81,7 +81,7 @@ namespace PNet
 				// MessageBox(NULL, TEXT("2"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 				if (use_fd.revents & POLLERR) // If error occurred on this socket
 				{
-					// MessageBox(NULL, TEXT("dong bang error"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+					MessageBox(NULL, TEXT("pollerr tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 					// mtx.unlock();
 					CloseConnection("POLLERR");
 					return;
@@ -89,6 +89,7 @@ namespace PNet
 
 				if (use_fd.revents & POLLHUP) // If poll hangup occurred on this socket
 				{
+					MessageBox(NULL, TEXT("pollup tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 					// mtx.unlock();
 					CloseConnection("POLLHUP");
 					return;
@@ -96,6 +97,7 @@ namespace PNet
 
 				if (use_fd.revents & POLLNVAL) // If invalid socket
 				{
+					MessageBox(NULL, TEXT("pollnval tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 					// mtx.unlock();
 					CloseConnection("POLLNVAL");
 					return;
@@ -117,6 +119,7 @@ namespace PNet
 
 					if (bytesReceived == 0) // If connection was lost
 					{
+						MessageBox(NULL, TEXT("lost connection tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 						// mtx.unlock();
 						CloseConnection("Recv==0");
 						return;
@@ -128,6 +131,7 @@ namespace PNet
 						if (error != WSAEWOULDBLOCK)
 						{
 							// mtx.unlock();
+							MessageBox(NULL, TEXT("SOCKET_ERROR tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 							CloseConnection("Recv<0");
 							return;
 						}
@@ -143,7 +147,7 @@ namespace PNet
 								connection.pm_incoming.currentPacketSize = ntohs(connection.pm_incoming.currentPacketSize);
 								if (connection.pm_incoming.currentPacketSize > PNet::g_MaxPacketSize)
 								{
-									std::cout << "to vay ne (obey) " << connection.pm_incoming.currentPacketSize << "\n";
+									MessageBox(NULL, TEXT("Packet size too large."), TEXT("Loi"), MB_ICONERROR | MB_OK);
 									// mtx.unlock();
 									CloseConnection("Packet size too large.");
 									return;
@@ -172,6 +176,7 @@ namespace PNet
 								if (!ProcessPacket(frontPacket))
 								{
 									// mtx.unlock();
+									MessageBox(NULL, TEXT("ko process dc tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 									CloseConnection("Failed to process incoming packet.");
 									return;
 								}
@@ -184,7 +189,7 @@ namespace PNet
 			}
 			// mtx.unlock();
 		}
-		MessageBox(NULL, TEXT("dong tu nhien"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+		MessageBox(NULL, TEXT("dong Obey tu nhien"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 	}
 
 	void Server::Livestream()
@@ -198,7 +203,7 @@ namespace PNet
 
 				if (use_fd.revents & POLLERR) // If error occurred on this socket
 				{
-					// MessageBox(NULL, TEXT("Leu Leu"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+					MessageBox(NULL, TEXT("pollerr tai livestream"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 					// mtx.unlock();
 					CloseConnection("POLLERR");
 					return;
@@ -206,12 +211,14 @@ namespace PNet
 
 				if (use_fd.revents & POLLHUP) // If poll hangup occurred on this socket
 				{
+					MessageBox(NULL, TEXT("pollup tai livestream"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 					CloseConnection("POLLHUP");
 					return;
 				}
 
 				if (use_fd.revents & POLLNVAL) // If invalid socket
 				{
+					MessageBox(NULL, TEXT("pollnval tai livestream"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 					CloseConnection("POLLNVAL");
 					return;
 				}
@@ -245,6 +252,7 @@ namespace PNet
 							}
 							else // If full packet size was not sent, break out of the loop for sending outgoing packets for this connection - we'll have to try again next time we are able to write normal data without blocking
 							{
+								// MessageBox(NULL, TEXT("truoc break 1"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 								break;
 							}
 						}
@@ -265,6 +273,7 @@ namespace PNet
 							}
 							else
 							{
+								// MessageBox(NULL, TEXT("truoc break 2"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 								break; // Added after tutorial was made 2019-06-24
 							}
 						}
@@ -279,6 +288,7 @@ namespace PNet
 
 			// mtx.unlock();
 		}
+		MessageBox(NULL, TEXT("dong livestream mot cach tu nhien"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 	}
 
 	void Server::OnDisconnect(std::string reason)
@@ -297,7 +307,7 @@ namespace PNet
 		if(isConnected == false) return;
 
 		isConnected = false;
-		// MessageBox(NULL, TEXT("dang dong ket loi"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+		MessageBox(NULL, TEXT("dang dong ket loi"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 		
 		OnDisconnect(reason);
 		listeningSocketFD.fd = 0;
