@@ -24,21 +24,6 @@ bool MyClient::ProcessPacket(std::shared_ptr<Packet> packet)
 
 		namedWindow("Press X to escape", WINDOW_NORMAL);
 
-	// 	RECT windowRect;
-    // 	HWND hwnd = FindWindow(NULL, L"Press X to escape");
-    // if (hwnd == NULL) {
-    //     std::cout << "Window not found\n";
-    // } else {
-    //     GetWindowRect(hwnd, &windowRect);
-
-    //     int T = windowRect.top;
-    //     int L = windowRect.left;
-
-    //     int W = windowRect.right - windowRect.left;
-    //     int H = windowRect.bottom - windowRect.top;
-    // }
-
-
 		imshow("Press X to escape", img);
 
         

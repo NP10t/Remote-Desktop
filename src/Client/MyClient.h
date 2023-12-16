@@ -5,7 +5,6 @@
 #include <iostream>
 #include <string>
 
-
 class MyClient : public Client
 {
 	private:

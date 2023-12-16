@@ -19,14 +19,22 @@ class MainFrameServer: public wxFrame
 
         void OnConnectButtonClicked(wxCommandEvent& evt);
         void OnDisconnectButtonClicked(wxCommandEvent& evt);
+        void OnClose(wxCloseEvent& event);
 
         std::thread runServer;
 		MyServer server;
         wxPanel* panel;
         wxStaticText* IPStaticText;
+        wxStaticText* connectStateStaticText;
+
         wxButton* connectButton;
         wxButton* disconnectButton;
         wxBoxSizer* mainSizer;
+
+        int flag = 0;
+        //kiem tra xem thu da bam onconnect button de tao server chua. Ban dau = 0
+        //sau khi bam onconnect = 1, bam lai onconnect thi khong co gi xay ra
+        //sau khi bam disconnect thi = 0.
 };
 
 #endif

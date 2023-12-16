@@ -4,7 +4,6 @@
 #include <wx/wx.h>
 #include <iostream>
 #include "MyClient.h"
-#include "../UI/ConsoleFrame.h"
 #include "MainFrameClient.h"
 
 class App : public wxApp

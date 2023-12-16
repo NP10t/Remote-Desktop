@@ -5,12 +5,26 @@
 
 namespace PNet
 {
-	bool Server::Initialize(IPEndpoint ip)
+	std::mutex mtxs;
+
+	std::string Server::GetIPv4Address()
 	{
+		char hostbuffer[256];
+		gethostname(hostbuffer, sizeof(hostbuffer));
+
+		struct hostent* host_entry =  gethostbyname(hostbuffer);
+
+		this->IPv4Address = inet_ntoa(*((struct in_addr*)host_entry->h_addr_list[0]));
+		return IPv4Address;
+	}
+
+	bool Server::Initialize()
+	{
+		IPEndpoint ip("0.0.0.0", 6112);
 		listeningSocket = Socket(ip.GetIPVersion());
 		if (listeningSocket.Create() == PResult::P_Success)
 		{
-			std::cout << "Socket successfully created." << std::endl;
+			// std::cout << "Socket successfully created." << std::endl;
 			if (listeningSocket.Listen(ip) == PResult::P_Success)
 			{
 				listeningSocketFD.fd = listeningSocket.GetHandle();
@@ -70,23 +84,32 @@ namespace PNet
 	{
 		while (this->isConnected)
 		{
+			// mtx.lock();
+			// MessageBox(NULL, TEXT("1"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 			WSAPOLLFD use_fd = newConnectionFD;
 			if (WSAPoll(&use_fd, 1, 1) > 0)
 			{
+				// MessageBox(NULL, TEXT("2"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 				if (use_fd.revents & POLLERR) // If error occurred on this socket
 				{
+					MessageBox(NULL, TEXT("pollerr tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+					// mtx.unlock();
 					CloseConnection("POLLERR");
 					return;
 				}
 
 				if (use_fd.revents & POLLHUP) // If poll hangup occurred on this socket
 				{
+					MessageBox(NULL, TEXT("pollup tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+					// mtx.unlock();
 					CloseConnection("POLLHUP");
 					return;
 				}
 
 				if (use_fd.revents & POLLNVAL) // If invalid socket
 				{
+					MessageBox(NULL, TEXT("pollnval tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+					// mtx.unlock();
 					CloseConnection("POLLNVAL");
 					return;
 				}
@@ -106,6 +129,8 @@ namespace PNet
 
 					if (bytesReceived == 0) // If connection was lost
 					{
+						MessageBox(NULL, TEXT("lost connection tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+						// mtx.unlock();
 						CloseConnection("Recv==0");
 						return;
 					}
@@ -115,6 +140,8 @@ namespace PNet
 						int error = WSAGetLastError();
 						if (error != WSAEWOULDBLOCK)
 						{
+							// mtx.unlock();
+							MessageBox(NULL, TEXT("SOCKET_ERROR tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 							CloseConnection("Recv<0");
 							return;
 						}
@@ -130,7 +157,8 @@ namespace PNet
 								connection.pm_incoming.currentPacketSize = ntohs(connection.pm_incoming.currentPacketSize);
 								if (connection.pm_incoming.currentPacketSize > PNet::g_MaxPacketSize)
 								{
-									std::cout << "to vay ne (obey) " << connection.pm_incoming.currentPacketSize << "\n";
+									MessageBox(NULL, TEXT("Packet size too large."), TEXT("Loi"), MB_ICONERROR | MB_OK);
+									// mtx.unlock();
 									CloseConnection("Packet size too large.");
 									return;
 								}
@@ -157,6 +185,8 @@ namespace PNet
 								std::shared_ptr<Packet> frontPacket = connection.pm_incoming.Retrieve();
 								if (!ProcessPacket(frontPacket))
 								{
+									// mtx.unlock();
+									MessageBox(NULL, TEXT("ko process dc tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 									CloseConnection("Failed to process incoming packet.");
 									return;
 								}
@@ -167,31 +197,38 @@ namespace PNet
 					}
 				}
 			}
+			// mtx.unlock();
 		}
+		MessageBox(NULL, TEXT("dong Obey tu nhien"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 	}
 
 	void Server::Livestream()
 	{
 		while (this->isConnected)
 		{
+			// mtx.lock();
 			WSAPOLLFD use_fd = newConnectionFD;
 			if (WSAPoll(&use_fd, 1, 1) > 0)
 			{
 
 				if (use_fd.revents & POLLERR) // If error occurred on this socket
 				{
+					MessageBox(NULL, TEXT("pollerr tai livestream"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+					// mtx.unlock();
 					CloseConnection("POLLERR");
 					return;
 				}
 
 				if (use_fd.revents & POLLHUP) // If poll hangup occurred on this socket
 				{
+					MessageBox(NULL, TEXT("pollup tai livestream"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 					CloseConnection("POLLHUP");
 					return;
 				}
 
 				if (use_fd.revents & POLLNVAL) // If invalid socket
 				{
+					MessageBox(NULL, TEXT("pollnval tai livestream"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 					CloseConnection("POLLNVAL");
 					return;
 				}
@@ -206,7 +243,7 @@ namespace PNet
 							pm.currentPacketSize = pm.Retrieve()->buffer.size();
 							if (pm.currentPacketSize > PNet::g_MaxPacketSize)
 							{
-								std::cout << "vuot\n";
+								// std::cout << "vuot\n";
 								pm.Pop();
 								continue;
 							}
@@ -253,10 +290,13 @@ namespace PNet
 			}
 
 			Video();
-			int key = waitKey(1);
-			if (key == 'x')
-				return;
+			// int key = waitKey(1);
+			// if (key == 'x')
+			// 	return;
+
+			// mtx.unlock();
 		}
+		MessageBox(NULL, TEXT("dong livestream mot cach tu nhien"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 	}
 
 	void Server::OnDisconnect(std::string reason)
@@ -268,19 +308,20 @@ namespace PNet
 		std::cout << "Successfully connected!" << std::endl;
 	}
 
-	std::mutex mtx;
+	
 	void Server::CloseConnection(std::string reason)
 	{
-		mtx.lock();
+		mtxs.lock();
 		if(isConnected == false) return;
 
 		isConnected = false;
+		MessageBox(NULL, TEXT("dang dong ket loi"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 		
 		OnDisconnect(reason);
 		listeningSocketFD.fd = 0;
 		connection.Close();
 
-		mtx.unlock();
+		mtxs.unlock();
 	}
 
 	bool Server::ProcessPacket(std::shared_ptr<Packet> packet)
@@ -340,7 +381,8 @@ namespace PNet
 	{
 
 		HWND hwndDesktop = GetDesktopWindow();
-		Mat img = captureScreen(hwndDesktop, 1280, 720);
+		// Mat img = captureScreen(hwndDesktop, 1280, 720);
+		Mat img = captureScreen(hwndDesktop, 1000, 500);
 		if (img.empty())
 			return;
 
@@ -354,7 +396,7 @@ namespace PNet
 		// namedWindow("Server", WINDOW_NORMAL);
 		// imshow("Server", img);
 		std::string bufferStr(bufferVec.begin(), bufferVec.end());
-		std::cout << "kick thuoc ne " << bufferStr.size() << "\n";
+		// std::cout << "kick thuoc ne " << bufferStr.size() << "\n";
 		std::shared_ptr<Packet> packet = std::make_shared<Packet>(PacketType::PT_Image);
 		*packet << bufferStr;
 		connection.pm_outgoing.Append(packet);

@@ -160,12 +160,10 @@ namespace PNet
 	PResult Socket::Connect(IPEndpoint endpoint)
 	{
 		assert(ipversion == endpoint.GetIPVersion());
-		MessageBox(NULL, TEXT("connect222 1"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 		int result = 0;
 		if (ipversion == IPVersion::IPv4)
 		{
 			sockaddr_in addr = endpoint.GetSockaddrIPv4();
-			MessageBox(NULL, TEXT("connect222 2"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 			result = connect(handle, (sockaddr*)(&addr), sizeof(sockaddr_in));
 		}
 		else //IPv6
@@ -175,12 +173,10 @@ namespace PNet
 		}
 		if (result != 0) //if an error occurred
 		{
-			MessageBox(NULL, TEXT("connect222 3"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 			int error = WSAGetLastError();
 			std::cout << "chua ket noi duoc, ma loi: " << error << " (dang thu lai)" << "\n";
 			return PResult::P_GenericError;
 		}
-		MessageBox(NULL, TEXT("connect222 4"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 		return PResult::P_Success;
 	}
 

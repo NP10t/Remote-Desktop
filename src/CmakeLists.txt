@@ -29,8 +29,6 @@ set(SOURCES
     ./Server/MyServer.cpp
     ./Server/App.cpp
     ./Server/MainFrameServer.cpp
-    ./UI/ConsoleFrame.cpp
-    ./UI/TextCtrlStreambuf.cpp
     )
 
 set(HEADERS
@@ -53,8 +51,6 @@ set(HEADERS
     ./Server/MyServer.h
     ./Server/App.h
     ./Server/MainFrameServer.h
-    ./UI/ConsoleFrame.h
-    ./UI/TextCtrlStreambuf.h
     )
 
 include(${wxWidgets_USE_FILE})
@@ -108,8 +104,6 @@ set(SOURCES
     ./Client/MyClient.cpp
     ./Client/App.cpp
     ./Client/MainFrameClient.cpp
-    ./UI/ConsoleFrame.cpp
-    ./UI/TextCtrlStreambuf.cpp
     )
 
 set(HEADERS
@@ -132,8 +126,6 @@ set(HEADERS
     ./Client/MyClient.h
     ./Client/App.h
     ./Client/MainFrameClient.h
-    ./UI/ConsoleFrame.h
-    ./UI/TextCtrlStreambuf.h
     )
 
 include(${wxWidgets_USE_FILE})

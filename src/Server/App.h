@@ -5,7 +5,6 @@
 #include <iostream>
 #include "MainFrameServer.h"
 #include "MyServer.h"
-#include "../UI/ConsoleFrame.h"
 
 class App : public wxApp
 {

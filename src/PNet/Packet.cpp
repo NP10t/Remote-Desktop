@@ -56,6 +56,24 @@ namespace PNet
 		extractionOffset += sizeof(uint32_t);
 		return *this;
 	}
+	Packet & Packet::operator<<(double data)
+	{
+		data = htonl(data);
+		Append(&data, sizeof(double));
+		return *this;
+	}
+
+	Packet & Packet::operator>>(double & data)
+	{
+		
+		if ((extractionOffset + sizeof(double)) > buffer.size())
+			throw PacketException("[Packet::operator >>(uint32_t &)] - Extraction offset exceeded buffer size.");
+		
+		data = *reinterpret_cast<double*>(&buffer[extractionOffset]);
+		data = ntohl(data);
+		extractionOffset += sizeof(double);
+		return *this;
+	}
 	Packet & Packet::operator<<(const std::string & data)
 	{
 		*this << (uint32_t)data.size();

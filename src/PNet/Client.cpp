@@ -6,30 +6,29 @@
 #include <mutex>
 #include <algorithm>
 
-int LCD = 0, RCD = 0, LCU = 0, RCU = 0;
-int keyboard = -1, ctrlD = 0, shiftD = 0, ctrlU = 0, shiftU = 0, Caplock = 0, delta = 0;
+double LCD = 0, RCD = 0, LCU = 0, RCU = 0;
+double keyboard = -1, ctrlD = 0, shiftD = 0, ctrlU = 0, shiftU = 0, Caplock = 0, delta = 0;
 
 namespace PNet
 {
 	std::mutex mtx;
 	
-	bool Client::Connect(IPEndpoint ip)
+	bool Client::Initialize(IPEndpoint ip)
 	{
-		MessageBox(NULL, TEXT("connect 1"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 		Socket socket = Socket(ip.GetIPVersion());
 		if (socket.Create() == PResult::P_Success)
 		{
-			MessageBox(NULL, TEXT("connect 2"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 			if (socket.SetBlocking(true) != PResult::P_Success)
 				return false;
 
-			std::cout << "Socket successfully created." << std::endl;
 			while (1)
 			{
 				if (socket.Connect(ip) != PResult::P_Success)
 				{
+					
 					continue; // neu client mo truoc server thi client wait until server start to listen
 				}
+				MessageBox(NULL, TEXT("Socket connected"), TEXT("Socket"), MB_ICONERROR | MB_OK);
 
 				if (socket.SetBlocking(false) == PResult::P_Success)
 				{
@@ -41,21 +40,16 @@ namespace PNet
 					newConnectionFD.revents = 0;
 
 					master_fd.push_back(newConnectionFD); // khi co ket noi toi thi bo vao buffer
-
 					OnConnect(newConnection);
-					MessageBox(NULL, TEXT("connect 3"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 					return true;
 				}
 			}
-			MessageBox(NULL, TEXT("connect 4"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 			socket.Close();
 		}
 		else
 		{
-			MessageBox(NULL, TEXT("connect 5"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 			std::cerr << "Socket failed to create." << std::endl;
 		}
-		MessageBox(NULL, TEXT("connect 5"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 		OnConnectFail();
 		return false;
 	}
@@ -264,7 +258,7 @@ namespace PNet
 								connection.pm_incoming.currentPacketSize = 0;
 								connection.pm_incoming.currentPacketExtractionOffset = 0;
 								connection.pm_incoming.currentTask = PacketManagerTask::ProcessPacketSize;
-								// while (connections[i-1].pm_incoming.HasPendingPackets())
+								// while (connections[i].pm_incoming.HasPendingPackets())
 								// {
 								std::shared_ptr<Packet> frontPacket = connections[i].pm_incoming.Retrieve();
 								if (!ProcessPacket(frontPacket))
@@ -482,14 +476,14 @@ namespace PNet
 		{
 			LCD = 1;
 			LCU = 0;
-			sleeptime(40);
+			sleeptime(100);
 		}
 
         if (GetAsyncKeyState(VK_RBUTTON) & 0x8001)
 		{
 			RCD = 1;
 			RCU = 0;
-			sleeptime(60);
+			sleeptime(100);
 		}
 
         if (LCD && !(GetAsyncKeyState(VK_LBUTTON) & 0x8001))
@@ -531,13 +525,37 @@ namespace PNet
 
         if (GetKeyState(VK_CAPITAL) & 0x0001) Caplock = 1;
 		
+		RECT windowRect;
+		HWND hwnd = FindWindow(NULL, L"Press X to escape");
+		if (hwnd == NULL) {
+		    std::cout << "Window not found\n";
+		} else {
+		    GetWindowRect(hwnd, &windowRect);
+
+		    T = windowRect.top;
+		    L = windowRect.left;
+
+		    W = windowRect.right - windowRect.left;
+		    H = windowRect.bottom - windowRect.top;
+		}
+
+		
         std::shared_ptr<Packet> packet = std::make_shared<Packet>(PacketType::PT_IntegerArray);
         POINT xy;
         GetCursorPos(&xy);
-		int x = xy.x;
-        int y = xy.y;
+		double x = xy.x;
+        double y = xy.y;
+
+		float ratio_x = (x - L)/W;
+		float ratio_y = (y - T)/H;
+		// std::wstring strSelectedDevice2 = std::to_wstring(ratio_x);
+		// strSelectedDevice2 += std::to_wstring(ratio_y);
+		// LPCTSTR lpSelectedDevice2 = strSelectedDevice2.c_str();
+		// MessageBox(NULL, lpSelectedDevice2, TEXT("size of use_fd (client, 1)"), MB_ICONERROR | MB_OK);
+		
+
 		if(Caplock && keyboard >= 97 && keyboard <= 97 + 'z' - 'a') keyboard -= 32;
-        *packet << x << y << LCD << RCD << LCU << RCU << delta << keyboard << shiftD << shiftU << ctrlD << ctrlU << Caplock;
+        *packet << ratio_x << ratio_y << LCD << RCD << LCU << RCU << delta << keyboard << shiftD << shiftU << ctrlD << ctrlU << Caplock;
         if (ctrlU == 1) ctrlU = 0;
         if (shiftU == 1) shiftU = 0;
 		delta = 0;
