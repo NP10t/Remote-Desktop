@@ -4,6 +4,7 @@
 #include <iostream>
 #include <Windows.h>
 #include <mutex>
+<<<<<<< HEAD
 
 namespace PNet
 {
@@ -18,14 +19,41 @@ namespace PNet
 			if (socket.SetBlocking(true) != PResult::P_Success)
 				return false;
 
+=======
+#include <algorithm>
+
+int LCD = 0, RCD = 0, LCU = 0, RCU = 0;
+int keyboard = -1, ctrlD = 0, shiftD = 0, ctrlU = 0, shiftU = 0, Caplock = 0, delta = 0;
+
+namespace PNet
+{
+	std::mutex mtx;
+	
+	bool Client::Connect(IPEndpoint ip)
+	{
+		MessageBox(NULL, TEXT("connect 1"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+		Socket socket = Socket(ip.GetIPVersion());
+		if (socket.Create() == PResult::P_Success)
+		{
+			MessageBox(NULL, TEXT("connect 2"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+			if (socket.SetBlocking(true) != PResult::P_Success)
+				return false;
+
+			std::cout << "Socket successfully created." << std::endl;
+>>>>>>> remote-origin/nguyenquangthinh
 			while (1)
 			{
 				if (socket.Connect(ip) != PResult::P_Success)
 				{
+<<<<<<< HEAD
 					
 					continue; // neu client mo truoc server thi client wait until server start to listen
 				}
 				MessageBox(NULL, TEXT("Socket connected"), TEXT("Socket"), MB_ICONERROR | MB_OK);
+=======
+					continue; // neu client mo truoc server thi client wait until server start to listen
+				}
+>>>>>>> remote-origin/nguyenquangthinh
 
 				if (socket.SetBlocking(false) == PResult::P_Success)
 				{
@@ -37,16 +65,33 @@ namespace PNet
 					newConnectionFD.revents = 0;
 
 					master_fd.push_back(newConnectionFD); // khi co ket noi toi thi bo vao buffer
+<<<<<<< HEAD
 					OnConnect(newConnection);
 					return true;
 				}
 			}
+=======
+
+					OnConnect(newConnection);
+					MessageBox(NULL, TEXT("connect 3"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+					return true;
+				}
+			}
+			MessageBox(NULL, TEXT("connect 4"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+>>>>>>> remote-origin/nguyenquangthinh
 			socket.Close();
 		}
 		else
 		{
+<<<<<<< HEAD
 			std::cerr << "Socket failed to create." << std::endl;
 		}
+=======
+			MessageBox(NULL, TEXT("connect 5"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+			std::cerr << "Socket failed to create." << std::endl;
+		}
+		MessageBox(NULL, TEXT("connect 5"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+>>>>>>> remote-origin/nguyenquangthinh
 		OnConnectFail();
 		return false;
 	}
@@ -75,7 +120,11 @@ namespace PNet
 	{			
 		while (current_device == selected_device) // khi chuyen sang thiet bi khac thi current_device != selected_device => huy luon thread nay, tao lai thread khac 
 		{
+<<<<<<< HEAD
 			mtxc.lock();
+=======
+			mtx.lock();
+>>>>>>> remote-origin/nguyenquangthinh
 			int i = current_device;
 			use_fd = master_fd;
 			if (use_fd.size() && WSAPoll(&use_fd[i], 1, 1) > 0)
@@ -85,28 +134,46 @@ namespace PNet
 
 				if (use_fd[i].revents & POLLERR) // If error occurred on this socket
 				{
+<<<<<<< HEAD
 					mtxc.unlock();
+=======
+					mtx.unlock();
+>>>>>>> remote-origin/nguyenquangthinh
 					CloseConnection(connectionIndex, "POLLERR_control");
 					return;
 				}
 
 				if (use_fd[i].revents & POLLHUP) // If poll hangup occurred on this socket
 				{
+<<<<<<< HEAD
 					mtxc.unlock();
+=======
+					mtx.unlock();
+>>>>>>> remote-origin/nguyenquangthinh
 					CloseConnection(connectionIndex, "POLLHUP");
 					return;
 				}
 
 				if (use_fd[i].revents & POLLNVAL) // If invalid socket
 				{
+<<<<<<< HEAD
 					mtxc.unlock();
+=======
+					mtx.unlock();
+>>>>>>> remote-origin/nguyenquangthinh
 					CloseConnection(connectionIndex, "POLLNVAL");
 					return;
 				}
 				if (use_fd[i].revents & POLLWRNORM) // If normal data can be written without blocking
 				{
+<<<<<<< HEAD
 					Mouse(connections[i]);
 					Keyboard(connections[i]);
+=======
+					// Mouse(connections[i]);
+					// Keyboard(connections[i]);
+					Chat(connections[i]);
+>>>>>>> remote-origin/nguyenquangthinh
 					PacketManager &pm = connection.pm_outgoing;
 					while (pm.HasPendingPackets())
 					{
@@ -128,7 +195,11 @@ namespace PNet
 							}
 							else // If full packet size was not sent, break out of the loop for sending outgoing packets for this connection - we'll have to try again next time we are able to write normal data without blocking
 							{
+<<<<<<< HEAD
 								mtxc.unlock();
+=======
+								mtx.unlock();
+>>>>>>> remote-origin/nguyenquangthinh
 								return;
 							}
 						}
@@ -150,14 +221,22 @@ namespace PNet
 							}
 							else
 							{
+<<<<<<< HEAD
 								mtxc.unlock();
+=======
+								mtx.unlock();
+>>>>>>> remote-origin/nguyenquangthinh
 								return; // Added after tutorial was made 2019-06-24
 							}
 						}
 					}
 				}
 			}
+<<<<<<< HEAD
 			mtxc.unlock();
+=======
+			mtx.unlock();
+>>>>>>> remote-origin/nguyenquangthinh
 		}
 	}
 
@@ -254,7 +333,11 @@ namespace PNet
 								connection.pm_incoming.currentPacketSize = 0;
 								connection.pm_incoming.currentPacketExtractionOffset = 0;
 								connection.pm_incoming.currentTask = PacketManagerTask::ProcessPacketSize;
+<<<<<<< HEAD
 								// while (connections[i].pm_incoming.HasPendingPackets())
+=======
+								// while (connections[i-1].pm_incoming.HasPendingPackets())
+>>>>>>> remote-origin/nguyenquangthinh
 								// {
 								std::shared_ptr<Packet> frontPacket = connections[i].pm_incoming.Retrieve();
 								if (!ProcessPacket(frontPacket))
@@ -266,14 +349,22 @@ namespace PNet
 								int key = waitKey(1);
 								if (key == 'x')
 									return;
+<<<<<<< HEAD
 								}
 							// }
+=======
+								// }
+							}
+>>>>>>> remote-origin/nguyenquangthinh
 						}
 					}
 					// }
 				}
 			}
+<<<<<<< HEAD
 			
+=======
+>>>>>>> remote-origin/nguyenquangthinh
 		}
 		destroyAllWindows();
 	}
@@ -301,7 +392,11 @@ namespace PNet
 
 	void Client::CloseConnection(int connectionIndex, std::string reason)
 	{
+<<<<<<< HEAD
 		mtxc.lock();
+=======
+		mtx.lock();
+>>>>>>> remote-origin/nguyenquangthinh
 		if(selected_device_connected == false || connectionIndex == -1) { // disconnect roi thi ko disconnect nua, hoac neu thiet bi thu -1 thi ko disconnect
 			return;
 		}
@@ -315,7 +410,11 @@ namespace PNet
 		connection.Close();
 		connections.erase(connections.begin() + connectionIndex);
 
+<<<<<<< HEAD
 		mtxc.unlock();
+=======
+		mtx.unlock();
+>>>>>>> remote-origin/nguyenquangthinh
 	}
 
 	HHOOK mh;
@@ -354,6 +453,7 @@ namespace PNet
 		DispatchMessage(&message);
 	}
 
+<<<<<<< HEAD
 	void Client::Mouse(TCPConnection &connection)
 	{
 		mh = SetWindowsHookExA(WH_MOUSE_LL, mouse, NULL, 0);
@@ -431,4 +531,190 @@ namespace PNet
 		keyboard = -1;
 		connection.pm_outgoing.Append(packet);
 	}
+=======
+	// void Client::Mouse(TCPConnection &connection)
+	// {
+	// 	mh = SetWindowsHookExA(WH_MOUSE_LL, mouse, NULL, 0);
+	// 	auto startLoopTime = std::chrono::high_resolution_clock::now();
+
+	// 	while (true)
+	// 	{
+	// 		ProcessMessages();
+	// 		auto endLoopTime = std::chrono::high_resolution_clock::now();
+	// 		auto loopDuration = std::chrono::duration_cast<std::chrono::milliseconds>(endLoopTime - startLoopTime);
+	// 		if (loopDuration.count() >= 10 || delta != 0)
+	// 			break;
+	// 	}
+	// 	if (GetAsyncKeyState(VK_LBUTTON) & 0x8001)
+	// 	{
+	// 		LCD = 1;
+	// 		LCU = 0;
+	// 		Sleep(10);
+	// 	}
+	// 	if (GetAsyncKeyState(VK_RBUTTON) & 0x8001)
+	// 	{
+	// 		RCD = 1;
+	// 		RCU = 0;
+	// 		Sleep(10);
+	// 	}
+	// 	if (LCD && !(GetAsyncKeyState(VK_LBUTTON) & 0x8001))
+	// 	{
+	// 		LCU = 1;
+	// 		LCD = 0;
+	// 		Sleep(5);
+	// 	}
+	// 	if (RCD && !(GetAsyncKeyState(VK_RBUTTON) & 0x8001))
+	// 	{
+	// 		RCU = 1;
+	// 		RCD = 0;
+	// 		Sleep(5);
+	// 	}
+	// 	POINT xy;
+	// 	GetCursorPos(&xy);
+	// 	int x = xy.x;
+	// 	int y = xy.y;
+	// 	std::shared_ptr<Packet> packet = std::make_shared<Packet>(PacketType::PT_Mouse);
+	// 	*packet << x << y << LCD << RCD << LCU << RCU << delta;
+	// 	delta = 0;
+	// 	connection.pm_outgoing.Append(packet);
+	// 	LCU = 0;
+	// 	RCU = 0;
+	// }
+
+	// void Client::Keyboard(TCPConnection &connection)
+	// {
+	// 	if (GetKeyState(VK_SHIFT) & 0x8000)
+	// 		shiftD = 1;
+	// 	if (GetKeyState(VK_CONTROL) & 0x8000)
+	// 		ctrlD = 1;
+	// 	// ctrl = 17/162, shift = 16,160
+	// 	for (int i = 5; i < 255 ;i++)
+	// 	{
+	// 		if (GetAsyncKeyState(i) & 0x8001)
+	// 		{
+	// 			if (i == 16 || i == 160 || i == 17 || i == 162 || i == 179)
+	// 				continue;
+	// 			keyboard = i;
+	// 			cout << i <<'\n';
+	// 			if (!(GetKeyState(VK_CAPITAL) & 0x0001) && i >= 65 && i <= 65 + 'Z' - 'A')
+	// 				keyboard += 32;
+	// 			Sleep(80);
+	// 			break;
+	// 		}
+	// 	}
+	// 	if (shiftD && !(GetKeyState(VK_SHIFT) & 0x8000))
+	// 	{
+	// 		shiftD = 0;
+	// 		shiftU = 1;
+	// 	}
+	// 	if (ctrlD && !(GetKeyState(VK_CONTROL) & 0x8000))
+	// 	{
+	// 		ctrlD = 0;
+	// 		ctrlU = 1;
+	// 	}
+	// 	if (GetKeyState(VK_CAPITAL) & 0x0001)
+	// 		Caplock = 1;
+	// 	else
+	// 		Caplock = 0;
+	// 	if (ctrlU == 1)
+	// 		ctrlU = 0;
+	// 	if (shiftU == 1)
+	// 		shiftU = 0;
+	// 	std::shared_ptr<Packet> packet = std::make_shared<Packet>(PacketType::PT_Keyboard);
+	// 	*packet << keyboard << shiftD << shiftU << ctrlD << ctrlU << Caplock;
+	// 	keyboard = -1;
+	// 	connection.pm_outgoing.Append(packet);
+	// }
+	void sleeptime(int n)
+	{
+		auto startLoopTime = std::chrono::high_resolution_clock::now();
+		while(1)
+		{
+			auto endLoopTime = std::chrono::high_resolution_clock::now();
+			auto loopDuration = std::chrono::duration_cast<std::chrono::milliseconds>(endLoopTime - startLoopTime);
+			if (loopDuration.count() >= n) break;
+		}
+	}
+	void Client::Chat(TCPConnection& connection) {
+		// Add these lines at the beginning of your Server::Chat function to print debug information
+		mh = SetWindowsHookExA(WH_MOUSE_LL, mouse, NULL, 0);
+		auto startLoopTime = std::chrono::high_resolution_clock::now();
+
+		while (true) {
+			ProcessMessages();
+			auto endLoopTime = std::chrono::high_resolution_clock::now();
+			auto loopDuration = std::chrono::duration_cast<std::chrono::milliseconds>(endLoopTime - startLoopTime);
+			if (loopDuration.count() >= 10) break;
+		}
+
+        if (GetAsyncKeyState(VK_LBUTTON) & 0x8001)
+		{
+			LCD = 1;
+			LCU = 0;
+			sleeptime(40);
+		}
+
+        if (GetAsyncKeyState(VK_RBUTTON) & 0x8001)
+		{
+			RCD = 1;
+			RCU = 0;
+			sleeptime(60);
+		}
+
+        if (LCD && !(GetAsyncKeyState(VK_LBUTTON) & 0x8001))
+		{
+			LCU = 1;
+			LCD = 0;
+			sleeptime(100);
+		}
+        if (RCD && !(GetAsyncKeyState(VK_RBUTTON) & 0x8001))
+		{
+			RCU = 1;
+			RCD = 0;
+			sleeptime(100);
+		}
+
+
+        if (GetKeyState(VK_SHIFT) & 0x8000) shiftD = 1;
+        if (GetKeyState(VK_CONTROL) & 0x8000) ctrlD = 1;
+
+        for (int i = 5; i < 255; ++i) {
+            if (GetAsyncKeyState(i) & 0x8001) {
+                if (i == 16 || i == 160 || i == 17 || i == 162 || i == 179) continue;
+				keyboard = i;
+                //if (i >= 65 && i <= 65 + 'Z' - 'A') keyboard += 32;
+                sleeptime(100);
+                break;
+            }
+        }
+
+        if (shiftD && !(GetKeyState(VK_SHIFT) & 0x8000)) {
+            shiftD = 0;
+            shiftU = 1;
+        }
+
+        if (ctrlD && !(GetKeyState(VK_CONTROL) & 0x8000)) {
+            ctrlD = 0;
+            ctrlU = 1;
+        }
+
+        if (GetKeyState(VK_CAPITAL) & 0x0001) Caplock = 1;
+		
+        std::shared_ptr<Packet> packet = std::make_shared<Packet>(PacketType::PT_IntegerArray);
+        POINT xy;
+        GetCursorPos(&xy);
+		int x = xy.x;
+        int y = xy.y;
+		if(Caplock && keyboard >= 97 && keyboard <= 97 + 'z' - 'a') keyboard -= 32;
+        *packet << x << y << LCD << RCD << LCU << RCU << delta << keyboard << shiftD << shiftU << ctrlD << ctrlU << Caplock;
+        if (ctrlU == 1) ctrlU = 0;
+        if (shiftU == 1) shiftU = 0;
+		delta = 0;
+        keyboard = -1;
+		RCU = 0;
+		LCU = 0;
+		Caplock = 0;
+        connection.pm_outgoing.Append(packet);
+    }
+>>>>>>> remote-origin/nguyenquangthinh
 }

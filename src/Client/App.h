@@ -4,6 +4,10 @@
 #include <wx/wx.h>
 #include <iostream>
 #include "MyClient.h"
+<<<<<<< HEAD
+=======
+#include "../UI/ConsoleFrame.h"
+>>>>>>> remote-origin/nguyenquangthinh
 #include "MainFrameClient.h"
 
 class App : public wxApp

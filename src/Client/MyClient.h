@@ -5,6 +5,10 @@
 #include <iostream>
 #include <string>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> remote-origin/nguyenquangthinh
 class MyClient : public Client
 {
 	private:
