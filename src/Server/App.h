@@ -5,10 +5,6 @@
 #include <iostream>
 #include "MainFrameServer.h"
 #include "MyServer.h"
-<<<<<<< HEAD
-=======
-#include "../UI/ConsoleFrame.h"
->>>>>>> remote-origin/nguyenquangthinh
 
 class App : public wxApp
 {

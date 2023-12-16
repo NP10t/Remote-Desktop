@@ -19,16 +19,12 @@ class MainFrameServer: public wxFrame
 
         void OnConnectButtonClicked(wxCommandEvent& evt);
         void OnDisconnectButtonClicked(wxCommandEvent& evt);
-<<<<<<< HEAD
         void OnClose(wxCloseEvent& event);
-=======
->>>>>>> remote-origin/nguyenquangthinh
 
         std::thread runServer;
 		MyServer server;
         wxPanel* panel;
         wxStaticText* IPStaticText;
-<<<<<<< HEAD
         wxStaticText* connectStateStaticText;
 
         wxButton* connectButton;
@@ -39,11 +35,6 @@ class MainFrameServer: public wxFrame
         //kiem tra xem thu da bam onconnect button de tao server chua. Ban dau = 0
         //sau khi bam onconnect = 1, bam lai onconnect thi khong co gi xay ra
         //sau khi bam disconnect thi = 0.
-=======
-        wxButton* connectButton;
-        wxButton* disconnectButton;
-        wxBoxSizer* mainSizer;
->>>>>>> remote-origin/nguyenquangthinh
 };
 
 #endif

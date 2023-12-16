@@ -1,2 +1,0 @@
-
-set(CMAKE_PREFIX_PATH "" CACHE PATH "Initial cache" FORCE)

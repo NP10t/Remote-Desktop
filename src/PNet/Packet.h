@@ -19,10 +19,6 @@ namespace PNet
 
 		Packet& operator << (uint32_t data);
 		Packet& operator >> (uint32_t & data);
-<<<<<<< HEAD
-
-=======
->>>>>>> remote-origin/nguyenquangthinh
 		Packet & operator << (const std::string & data);
 		Packet & operator >> (std::string & data);
 

@@ -5,7 +5,6 @@
 
 namespace PNet
 {
-<<<<<<< HEAD
 	std::mutex mtxs;
 
 	std::string Server::GetIPv4Address()
@@ -26,44 +25,24 @@ namespace PNet
 		if (listeningSocket.Create() == PResult::P_Success)
 		{
 			// std::cout << "Socket successfully created." << std::endl;
-=======
-	bool Server::Initialize(IPEndpoint ip)
-	{
-		listeningSocket = Socket(ip.GetIPVersion());
-		if (listeningSocket.Create() == PResult::P_Success)
-		{
-			std::cout << "Socket successfully created." << std::endl;
->>>>>>> remote-origin/nguyenquangthinh
 			if (listeningSocket.Listen(ip) == PResult::P_Success)
 			{
 				listeningSocketFD.fd = listeningSocket.GetHandle();
 				listeningSocketFD.events = POLLRDNORM;
 				listeningSocketFD.revents = 0;
 
-<<<<<<< HEAD
 				// std::cout << "Socket is listening" << std::endl;
-=======
-				std::cout << "Socket successfully listening." << std::endl;
->>>>>>> remote-origin/nguyenquangthinh
 				return true;
 			}
 			else
 			{
-<<<<<<< HEAD
 				// std::cerr << "Failed to listen." << std::endl;
-=======
-				std::cerr << "Failed to listen." << std::endl;
->>>>>>> remote-origin/nguyenquangthinh
 			}
 			listeningSocket.Close();
 		}
 		else
 		{
-<<<<<<< HEAD
 			// std::cerr << "Socket failed to create." << std::endl;
-=======
-			std::cerr << "Socket failed to create." << std::endl;
->>>>>>> remote-origin/nguyenquangthinh
 		}
 		return false;
 	}
@@ -94,11 +73,7 @@ namespace PNet
 					}
 					else
 					{
-<<<<<<< HEAD
 						// std::cerr << "Failed to accept new connection." << std::endl;
-=======
-						std::cerr << "Failed to accept new connection." << std::endl;
->>>>>>> remote-origin/nguyenquangthinh
 					}
 				}
 			}
@@ -169,11 +144,7 @@ namespace PNet
 								connection.pm_incoming.currentPacketSize = ntohs(connection.pm_incoming.currentPacketSize);
 								if (connection.pm_incoming.currentPacketSize > PNet::g_MaxPacketSize)
 								{
-<<<<<<< HEAD
 									// std::cout << "to vay ne (obey) " << connection.pm_incoming.currentPacketSize << "\n";
-=======
-									std::cout << "to vay ne (obey) " << connection.pm_incoming.currentPacketSize << "\n";
->>>>>>> remote-origin/nguyenquangthinh
 									CloseConnection("Packet size too large.");
 									return;
 								}
@@ -204,13 +175,8 @@ namespace PNet
 									return;
 								}
 								connection.pm_incoming.Pop();
-<<<<<<< HEAD
 								}
 							// }
-=======
-								// }
-							}
->>>>>>> remote-origin/nguyenquangthinh
 						}
 					}
 				}
@@ -254,11 +220,7 @@ namespace PNet
 							pm.currentPacketSize = pm.Retrieve()->buffer.size();
 							if (pm.currentPacketSize > PNet::g_MaxPacketSize)
 							{
-<<<<<<< HEAD
 								// std::cout << "vuot\n";
-=======
-								std::cout << "vuot\n";
->>>>>>> remote-origin/nguyenquangthinh
 								pm.Pop();
 								continue;
 							}
@@ -313,7 +275,6 @@ namespace PNet
 
 	void Server::OnDisconnect(std::string reason)
 	{
-<<<<<<< HEAD
 		// std::cout << "Lost connection. Reason: " << reason << "." << std::endl;
 	}
 	void Server::OnConnect()
@@ -324,44 +285,21 @@ namespace PNet
 	void Server::CloseConnection(std::string reason)
 	{
 		mtxs.lock();
-=======
-		std::cout << "Lost connection. Reason: " << reason << "." << std::endl;
-	}
-	void Server::OnConnect()
-	{
-		std::cout << "Successfully connected!" << std::endl;
-	}
-
-	std::mutex mtx;
-	void Server::CloseConnection(std::string reason)
-	{
-		mtx.lock();
->>>>>>> remote-origin/nguyenquangthinh
 		if(isConnected == false) return;
 
 		isConnected = false;
 		
 		OnDisconnect(reason);
 		listeningSocketFD.fd = 0;
-<<<<<<< HEAD
 		listeningSocket.Close();
 		connection.Close();
 
 		mtxs.unlock();
-=======
-		connection.Close();
-
-		mtx.unlock();
->>>>>>> remote-origin/nguyenquangthinh
 	}
 
 	bool Server::ProcessPacket(std::shared_ptr<Packet> packet)
 	{
-<<<<<<< HEAD
 		// std::cout << "Packet received with size: " << packet->buffer.size() << std::endl;
-=======
-		std::cout << "Packet received with size: " << packet->buffer.size() << std::endl;
->>>>>>> remote-origin/nguyenquangthinh
 		return true;
 	}
 
@@ -430,11 +368,7 @@ namespace PNet
 		// namedWindow("Server", WINDOW_NORMAL);
 		// imshow("Server", img);
 		std::string bufferStr(bufferVec.begin(), bufferVec.end());
-<<<<<<< HEAD
 		// std::cout << "kick thuoc ne " << bufferStr.size() << "\n";
-=======
-		std::cout << "kick thuoc ne " << bufferStr.size() << "\n";
->>>>>>> remote-origin/nguyenquangthinh
 		std::shared_ptr<Packet> packet = std::make_shared<Packet>(PacketType::PT_Image);
 		*packet << bufferStr;
 		connection.pm_outgoing.Append(packet);

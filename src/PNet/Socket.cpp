@@ -160,7 +160,6 @@ namespace PNet
 	PResult Socket::Connect(IPEndpoint endpoint)
 	{
 		assert(ipversion == endpoint.GetIPVersion());
-<<<<<<< HEAD
 
 		int result = 0;
 		if (ipversion == IPVersion::IPv4)
@@ -169,15 +168,6 @@ namespace PNet
 			sockaddr_in addr = endpoint.GetSockaddrIPv4();
 			result = connect(handle, (sockaddr*)(&addr), sizeof(sockaddr_in));
 			// MessageBox(NULL, TEXT("8"), TEXT("troll nhau ah"), MB_ICONERROR | MB_OK);
-=======
-		MessageBox(NULL, TEXT("connect222 1"), TEXT("Loi"), MB_ICONERROR | MB_OK);
-		int result = 0;
-		if (ipversion == IPVersion::IPv4)
-		{
-			sockaddr_in addr = endpoint.GetSockaddrIPv4();
-			MessageBox(NULL, TEXT("connect222 2"), TEXT("Loi"), MB_ICONERROR | MB_OK);
-			result = connect(handle, (sockaddr*)(&addr), sizeof(sockaddr_in));
->>>>>>> remote-origin/nguyenquangthinh
 		}
 		else //IPv6
 		{
@@ -186,19 +176,11 @@ namespace PNet
 		}
 		if (result != 0) //if an error occurred
 		{
-<<<<<<< HEAD
-=======
-			MessageBox(NULL, TEXT("connect222 3"), TEXT("Loi"), MB_ICONERROR | MB_OK);
->>>>>>> remote-origin/nguyenquangthinh
 			int error = WSAGetLastError();
 			std::cout << "chua ket noi duoc, ma loi: " << error << " (dang thu lai)" << "\n";
 			return PResult::P_GenericError;
 		}
-<<<<<<< HEAD
 		// MessageBox(NULL, TEXT("9"), TEXT("troll nhau ah"), MB_ICONERROR | MB_OK);
-=======
-		MessageBox(NULL, TEXT("connect222 4"), TEXT("Loi"), MB_ICONERROR | MB_OK);
->>>>>>> remote-origin/nguyenquangthinh
 		return PResult::P_Success;
 	}
 
