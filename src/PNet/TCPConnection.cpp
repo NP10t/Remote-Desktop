@@ -5,8 +5,9 @@ namespace PNet
 	TCPConnection::TCPConnection(Socket socket, IPEndpoint endpoint)
 		:socket(socket), endpoint(endpoint)
 	{
-		stringRepresentation = "[" + endpoint.GetIPString();
-		stringRepresentation += ":" + std::to_string(endpoint.GetPort()) + "]";
+		//stringRepresentation = "[" + endpoint.GetIPString();
+		//stringRepresentation += ":" + std::to_string(endpoint.GetPort()) + "]";
+		stringRepresentation = endpoint.GetIPString();
 	}
 
 	void TCPConnection::Close()

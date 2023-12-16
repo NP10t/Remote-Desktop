@@ -6,11 +6,6 @@
 #include <winsock2.h>
 #include <Windows.h>
 #include <WS2tcpip.h>
-#include <chrono>
-#include <conio.h>
-#include <iostream>
-#include <Windows.h>
-#include <mutex>
 
 using namespace std;
 using namespace cv;
@@ -30,8 +25,8 @@ namespace PNet
 		std::thread video;
 		int selected_device;
 		int selected_device_connected;
-		void CloseConnection(int connectionIndex, std::string reason);
-		std::mutex mtx;	
+		void CloseConnection(int connectionIndex, std::string reason);	
+		std::vector<TCPConnection> connections;	
 
 	protected:
 		virtual bool ProcessPacket(std::shared_ptr<Packet> packet);
@@ -39,7 +34,7 @@ namespace PNet
 		virtual void OnConnect(TCPConnection &newConnection);
 		virtual void OnDisconnect(TCPConnection &lostConnection, std::string reason);
 
-		std::vector<TCPConnection> connections;
+		// std::vector<TCPConnection> connections;
 		std::vector<WSAPOLLFD> master_fd;
 		std::vector<WSAPOLLFD> use_fd;
 	};

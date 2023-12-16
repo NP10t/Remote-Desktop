@@ -4,13 +4,9 @@
 #include "..\PNet\IncludeMe.h"
 #include <iostream>
 #include <string>
-#include <mutex>
 
 class MyClient : public Client
 {
-	public:
-		void Run(std::string inputIP);
-	
 	private:
 		bool ProcessPacket(std::shared_ptr<Packet> packet) override;
 		void OnConnect(TCPConnection & newConnection) override;

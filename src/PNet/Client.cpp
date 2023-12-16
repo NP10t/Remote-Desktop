@@ -1,10 +1,15 @@
 #include "Client.h"
-
+#include <chrono>
+#include <conio.h>
+#include <iostream>
+#include <Windows.h>
+#include <mutex>
 
 namespace PNet
 {
-	//std::mutex mtx;
+	std::mutex mtxc;
 	int keyboard = -1, ctrlD = 0, shiftD = 0, ctrlU = 0, shiftU = 0, Caplock = 0, delta = 0;
+
 	bool Client::Initialize(IPEndpoint ip)
 	{
 		Socket socket = Socket(ip.GetIPVersion());
@@ -13,14 +18,14 @@ namespace PNet
 			if (socket.SetBlocking(true) != PResult::P_Success)
 				return false;
 
-			std::cout << "Socket successfully created." << std::endl;
-			
 			while (1)
 			{
 				if (socket.Connect(ip) != PResult::P_Success)
 				{
+					
 					continue; // neu client mo truoc server thi client wait until server start to listen
 				}
+				MessageBox(NULL, TEXT("Socket connected"), TEXT("Socket"), MB_ICONERROR | MB_OK);
 
 				if (socket.SetBlocking(false) == PResult::P_Success)
 				{
@@ -32,8 +37,6 @@ namespace PNet
 					newConnectionFD.revents = 0;
 
 					master_fd.push_back(newConnectionFD); // khi co ket noi toi thi bo vao buffer
-					//select_device = 0;
-
 					OnConnect(newConnection);
 					return true;
 				}
@@ -48,45 +51,58 @@ namespace PNet
 		return false;
 	}
 
-	void Client::ControlUsingTCP(int current_device)
+	bool Client::Frame(int current_device)
 	{
-		while (current_device == selected_device)
+		if(!this->control.joinable()){
+		this->control = std::thread(&Client::ControlUsingTCP, this, current_device);
+		this->control.detach();
+		}
+		else
+			MessageBox(NULL, TEXT("ko tao thread control dc"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+
+
+		if(!this->video.joinable()){
+		this->video = std::thread(&Client::PlayVideo, this, current_device);
+		this->video.detach();
+		}
+		else
+			MessageBox(NULL, TEXT("ko tao thread video dc"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+
+		return true;
+	}
+
+	void Client::ControlUsingTCP(int current_device)
+	{			
+		while (current_device == selected_device) // khi chuyen sang thiet bi khac thi current_device != selected_device => huy luon thread nay, tao lai thread khac 
 		{
-			// int i = select_device;
-			// if (i == -1)
-			// 	continue;
-
-			mtx.lock();
+			mtxc.lock();
 			int i = current_device;
-
 			use_fd = master_fd;
 			if (use_fd.size() && WSAPoll(&use_fd[i], 1, 1) > 0)
 			{
-				// for (int i = use_fd.size() - 1; i >= 1; i--){
 				int connectionIndex = i;
 				TCPConnection &connection = connections[connectionIndex];
 
 				if (use_fd[i].revents & POLLERR) // If error occurred on this socket
 				{
-					mtx.unlock();
-					CloseConnection(connectionIndex, "POLLERR");
-					continue;
+					mtxc.unlock();
+					CloseConnection(connectionIndex, "POLLERR_control");
+					return;
 				}
 
 				if (use_fd[i].revents & POLLHUP) // If poll hangup occurred on this socket
 				{
-					mtx.unlock();
+					mtxc.unlock();
 					CloseConnection(connectionIndex, "POLLHUP");
-					continue;
+					return;
 				}
 
 				if (use_fd[i].revents & POLLNVAL) // If invalid socket
 				{
-					mtx.unlock();
+					mtxc.unlock();
 					CloseConnection(connectionIndex, "POLLNVAL");
-					continue;
+					return;
 				}
-
 				if (use_fd[i].revents & POLLWRNORM) // If normal data can be written without blocking
 				{
 					Mouse(connections[i]);
@@ -99,6 +115,7 @@ namespace PNet
 							pm.currentPacketSize = pm.Retrieve()->buffer.size();
 							uint16_t bigEndianPacketSize = htons(pm.currentPacketSize);
 							int bytesSent = send(use_fd[i].fd, (char *)(&bigEndianPacketSize) + pm.currentPacketExtractionOffset, sizeof(uint32_t) - pm.currentPacketExtractionOffset, 0);
+							
 							if (bytesSent > 0)
 							{
 								pm.currentPacketExtractionOffset += bytesSent;
@@ -111,14 +128,15 @@ namespace PNet
 							}
 							else // If full packet size was not sent, break out of the loop for sending outgoing packets for this connection - we'll have to try again next time we are able to write normal data without blocking
 							{
-								mtx.unlock();
-								break;
+								mtxc.unlock();
+								return;
 							}
 						}
 						else // Sending packet contents
-						{
+						{ 
 							char *bufferPtr = &pm.Retrieve()->buffer[0];
 							int bytesSent = send(use_fd[i].fd, (char *)(bufferPtr) + pm.currentPacketExtractionOffset, pm.currentPacketSize - pm.currentPacketExtractionOffset, 0);
+							
 							if (bytesSent > 0)
 							{
 								pm.currentPacketExtractionOffset += bytesSent;
@@ -132,48 +150,48 @@ namespace PNet
 							}
 							else
 							{
-								mtx.unlock();
+								mtxc.unlock();
 								return; // Added after tutorial was made 2019-06-24
 							}
 						}
 					}
 				}
-				// }
 			}
-			mtx.unlock();
+			mtxc.unlock();
 		}
 	}
 
 	void Client::PlayVideo(int current_device)
 	{
-		while (current_device == selected_device)
+		while (current_device == selected_device) // khi chuyen sang thiet bi khac thi current_device != selected_device => huy luon thread nay, tao lai thread khac 
 		{
-			// int i = select_device;
 			
 			int i = current_device;
 			use_fd = master_fd;
+	
 			if (use_fd.size() && WSAPoll(&use_fd[i], 1, 1) > 0)
 			{
-				
+
 				int connectionIndex = i;
 				TCPConnection &connection = connections[connectionIndex];
 
 				if (use_fd[i].revents & POLLERR) // If error occurred on this socket
 				{
-					CloseConnection(connectionIndex, "POLLERR");
-					continue;
+					CloseConnection(connectionIndex, "POLLERR_video");
+					
+					return;
 				}
 
 				if (use_fd[i].revents & POLLHUP) // If poll hangup occurred on this socket
 				{
 					CloseConnection(connectionIndex, "POLLHUP");
-					continue;
+					return;
 				}
 
 				if (use_fd[i].revents & POLLNVAL) // If invalid socket
 				{
 					CloseConnection(connectionIndex, "POLLNVAL");
-					continue;
+					return;
 				}
 
 				if (use_fd[i].revents & POLLRDNORM) // If normal data can be read without blocking
@@ -193,7 +211,7 @@ namespace PNet
 					if (bytesReceived == 0) // If connection was lost
 					{
 						CloseConnection(connectionIndex, "Recv==0");
-						continue;
+						return;
 					}
 
 					if (bytesReceived == SOCKET_ERROR) // If error occurred on socket
@@ -202,7 +220,7 @@ namespace PNet
 						if (error != WSAEWOULDBLOCK)
 						{
 							CloseConnection(connectionIndex, "Recv<0");
-							continue;
+							return;
 						}
 					}
 
@@ -218,7 +236,7 @@ namespace PNet
 								{
 									std::cout << "to vay ne (play video) " << connection.pm_incoming.currentPacketSize << "\n";
 									CloseConnection(connectionIndex, "Packet size too large.");
-									continue;
+									return;
 								}
 								connection.pm_incoming.currentPacketExtractionOffset = 0;
 								connection.pm_incoming.currentTask = PacketManagerTask::ProcessPacketContents;
@@ -236,59 +254,28 @@ namespace PNet
 								connection.pm_incoming.currentPacketSize = 0;
 								connection.pm_incoming.currentPacketExtractionOffset = 0;
 								connection.pm_incoming.currentTask = PacketManagerTask::ProcessPacketSize;
-								// while (connections[i-1].pm_incoming.HasPendingPackets())
+								// while (connections[i].pm_incoming.HasPendingPackets())
 								// {
 								std::shared_ptr<Packet> frontPacket = connections[i].pm_incoming.Retrieve();
 								if (!ProcessPacket(frontPacket))
 								{
 									CloseConnection(i, "Failed to process incoming packet.");
-									break;
+									return;
 								}
+								connections[i].pm_incoming.Pop();
 								int key = waitKey(1);
 								if (key == 'x')
 									return;
-								connections[i].pm_incoming.Pop();
-								// }
-							}
+								}
+							// }
 						}
 					}
 					// }
 				}
 			}
+			
 		}
 		destroyAllWindows();
-	}
-
-	bool Client::Frame(int current_device)
-	{
-		// std::thread control(&Client::ControlUsingTCP, this);
-		// this->control = std::move(control);
-
-		// std::thread video(&Client::PlayVideo, this);
-		// this->video = std::move(video);
-
-		if(!this->control.joinable())
-		{
-			this->control = std::thread(&Client::ControlUsingTCP, this, current_device);
-			this->control.detach();
-		}
-		else
-		{
-			MessageBox(NULL, TEXT("ko tao thread control dc"), TEXT("Loi"), MB_ICONERROR | MB_OK);
-		}
-
-
-		if(!this->video.joinable())
-		{
-			this->video = std::thread(&Client::PlayVideo, this, current_device);
-			this->video.detach();
-		}
-		else
-		{
-			MessageBox(NULL, TEXT("ko tao thread video dc"), TEXT("Loi"), MB_ICONERROR | MB_OK);
-		}
-
-		return true;
 	}
 
 	bool Client::ProcessPacket(std::shared_ptr<Packet> packet)
@@ -311,25 +298,24 @@ namespace PNet
 		std::cout << "Failed to connect." << std::endl;
 	}
 
+
 	void Client::CloseConnection(int connectionIndex, std::string reason)
 	{
-		mtx.lock();
-		if(selected_device_connected == false || connectionIndex == -1) 
-		{ // disconnect roi thi ko disconnect nua, hoac neu thiet bi thu -1 thi ko disconnect
+		mtxc.lock();
+		if(selected_device_connected == false || connectionIndex == -1) { // disconnect roi thi ko disconnect nua, hoac neu thiet bi thu -1 thi ko disconnect
 			return;
 		}
 
-		selected_device = -1; // gan selected_device = -1 de current_device != selected_device => huy luon 2 thread control va video,  sau nay neu muon thi tao lai thread khac 
-		selected_device_connected = false; 
-
+			selected_device = -1; // gan selected_device = -1 de current_device != selected_device => huy luon 2 thread control va video,  sau nay neu muon thi tao lai thread khac 
+			selected_device_connected = false; 
 
 		TCPConnection &connection = connections[connectionIndex];
 		OnDisconnect(connection, reason);
 		master_fd.erase(master_fd.begin() + (connectionIndex));
-		//use_fd.erase(use_fd.begin() + (connectionIndex));
 		connection.Close();
 		connections.erase(connections.begin() + connectionIndex);
-		mtx.unlock();
+
+		mtxc.unlock();
 	}
 
 	HHOOK mh;

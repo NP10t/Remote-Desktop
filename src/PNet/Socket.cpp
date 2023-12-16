@@ -164,8 +164,10 @@ namespace PNet
 		int result = 0;
 		if (ipversion == IPVersion::IPv4)
 		{
+			// MessageBox(NULL, TEXT("7"), TEXT("troll nhau ah"), MB_ICONERROR | MB_OK);
 			sockaddr_in addr = endpoint.GetSockaddrIPv4();
 			result = connect(handle, (sockaddr*)(&addr), sizeof(sockaddr_in));
+			// MessageBox(NULL, TEXT("8"), TEXT("troll nhau ah"), MB_ICONERROR | MB_OK);
 		}
 		else //IPv6
 		{
@@ -178,6 +180,7 @@ namespace PNet
 			std::cout << "chua ket noi duoc, ma loi: " << error << " (dang thu lai)" << "\n";
 			return PResult::P_GenericError;
 		}
+		// MessageBox(NULL, TEXT("9"), TEXT("troll nhau ah"), MB_ICONERROR | MB_OK);
 		return PResult::P_Success;
 	}
 

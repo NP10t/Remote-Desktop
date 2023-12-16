@@ -11,13 +11,18 @@ MainFrameServer::MainFrameServer(const wxString& title, const wxPoint& pos, cons
 void MainFrameServer::CreateControls()
 {
     panel = new wxPanel(this);
+
     wxString label = wxString::Format("Your IP Address is: %s", server.GetIPv4Address());
     IPStaticText = new wxStaticText(panel, wxID_ANY, label , wxDefaultPosition, wxDefaultSize);
-    connectButton = new wxButton(panel, wxID_ANY, "Connect", wxPoint(100, 200), wxDefaultSize);
-    disconnectButton = new wxButton(panel, wxID_ANY, "Disconnect", wxPoint(400, 200), wxDefaultSize);
+
+    connectStateStaticText = new wxStaticText(panel, wxID_ANY, "asd", wxDefaultPosition, wxDefaultSize);
+
+    connectButton = new wxButton(panel, wxID_ANY, "Open connection", wxPoint(100, 200), wxDefaultSize);
+    disconnectButton = new wxButton(panel, wxID_ANY, "Close connection", wxPoint(400, 200), wxDefaultSize);
     mainSizer = new wxBoxSizer(wxVERTICAL);
 
     mainSizer->Add(IPStaticText, 0, wxALIGN_CENTRE | wxALL, 20);
+    mainSizer->Add(connectStateStaticText, 0, wxALIGN_CENTRE | wxALL, 20);
     mainSizer->Add(connectButton, 0, wxALIGN_CENTRE | wxALL, 20);
     mainSizer->Add(disconnectButton, 0, wxALIGN_CENTRE | wxALL, 20);
     panel->SetSizer(mainSizer);
@@ -28,19 +33,39 @@ void MainFrameServer::BindEventHandlers()
 {
     connectButton->Bind(wxEVT_BUTTON, &MainFrameServer::OnConnectButtonClicked, this);
     disconnectButton->Bind(wxEVT_BUTTON, &MainFrameServer::OnDisconnectButtonClicked, this);
+    Bind(wxEVT_CLOSE_WINDOW, &MainFrameServer::OnClose, this);
 }
 
 void MainFrameServer::OnConnectButtonClicked(wxCommandEvent &evt)
 {
-    runServer = std::thread(&MyServer::Run, &server);
-    runServer.detach();
+    if (flag == 0)
+    {
+        runServer = std::thread(&MyServer::Run, &server);
+        runServer.detach();
+        flag = 1;
+        connectStateStaticText->SetLabelText("Connecting.....");
+    }
 }
 
 void MainFrameServer::OnDisconnectButtonClicked(wxCommandEvent &evt)
 {
-    server.CloseConnection("ban da bam nut dong ket noi");
-    // runServer.join();
-    // Network::Shutdown(); 
+    if (flag == 1)
+    {
+        server.CloseConnection("ban da bam nut dong ket noi");
+        flag = 0;
+        connectStateStaticText->SetLabelText("");
+    }
+}
+
+void MainFrameServer::OnClose(wxCloseEvent& evt)
+{
+    if (flag == 1)
+    {
+        server.CloseConnection("ban da bam nut dong ket noi");
+        flag = 0;
+    }
+    Network::Shutdown();
+    Destroy();
 }
 
 /* khi ma Tan lam nut dong chuong trinh:

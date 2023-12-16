@@ -1,8 +1,12 @@
 #include "Server.h"
+#include <iostream>
+#include "Network.h"
+#include <mutex>
 
 namespace PNet
 {
-	std::mutex mtxx;
+	std::mutex mtxs;
+
 	std::string Server::GetIPv4Address()
 	{
 		char hostbuffer[256];
@@ -10,43 +14,42 @@ namespace PNet
 
 		struct hostent* host_entry =  gethostbyname(hostbuffer);
 
-		IPv4Address = inet_ntoa(*((struct in_addr*)host_entry->h_addr_list[0]));
+		this->IPv4Address = inet_ntoa(*((struct in_addr*)host_entry->h_addr_list[0]));
 		return IPv4Address;
 	}
 
 	bool Server::Initialize()
 	{
-		IPEndpoint ip(IPv4Address.c_str(), 6112);
+		IPEndpoint ip("0.0.0.0", 6112);
 		listeningSocket = Socket(ip.GetIPVersion());
 		if (listeningSocket.Create() == PResult::P_Success)
 		{
-			std::cout << "Socket successfully created." << std::endl;
+			// std::cout << "Socket successfully created." << std::endl;
 			if (listeningSocket.Listen(ip) == PResult::P_Success)
 			{
 				listeningSocketFD.fd = listeningSocket.GetHandle();
 				listeningSocketFD.events = POLLRDNORM;
 				listeningSocketFD.revents = 0;
 
-				std::cout << "Socket successfully listening." << std::endl;
+				// std::cout << "Socket is listening" << std::endl;
 				return true;
 			}
 			else
 			{
-				std::cerr << "Failed to listen." << std::endl;
+				// std::cerr << "Failed to listen." << std::endl;
 			}
 			listeningSocket.Close();
 		}
 		else
 		{
-			std::cerr << "Socket failed to create." << std::endl;
+			// std::cerr << "Socket failed to create." << std::endl;
 		}
 		return false;
 	}
 
 	void Server::Frame()
 	{
-		while(1)
-		{
+		while(1){
 			if (WSAPoll(&listeningSocketFD, 1, 1) > 0)
 			{
 				if (listeningSocketFD.revents & POLLRDNORM)
@@ -61,12 +64,6 @@ namespace PNet
 						newConnectionFD.events = POLLRDNORM | POLLWRNORM;
 						newConnectionFD.revents = 0;
 
-						// std::thread control(&Server::Obey, this);
-						// threads.push_back(std::move(control));
-
-						// std::thread video(&Server::LiveStream, this);
-						// threads.push_back(std::move(video));
-
 						Obey_thread = std::thread(&Server::Obey, this);
 						Obey_thread.detach();
 
@@ -76,7 +73,7 @@ namespace PNet
 					}
 					else
 					{
-						std::cerr << "Failed to accept new connection." << std::endl;
+						// std::cerr << "Failed to accept new connection." << std::endl;
 					}
 				}
 			}
@@ -147,7 +144,7 @@ namespace PNet
 								connection.pm_incoming.currentPacketSize = ntohs(connection.pm_incoming.currentPacketSize);
 								if (connection.pm_incoming.currentPacketSize > PNet::g_MaxPacketSize)
 								{
-									std::cout << "to vay ne (obey) " << connection.pm_incoming.currentPacketSize << "\n";
+									// std::cout << "to vay ne (obey) " << connection.pm_incoming.currentPacketSize << "\n";
 									CloseConnection("Packet size too large.");
 									return;
 								}
@@ -178,8 +175,8 @@ namespace PNet
 									return;
 								}
 								connection.pm_incoming.Pop();
-								// }
-							}
+								}
+							// }
 						}
 					}
 				}
@@ -189,7 +186,6 @@ namespace PNet
 
 	void Server::Livestream()
 	{
-		
 		while (this->isConnected)
 		{
 			WSAPOLLFD use_fd = newConnectionFD;
@@ -224,7 +220,7 @@ namespace PNet
 							pm.currentPacketSize = pm.Retrieve()->buffer.size();
 							if (pm.currentPacketSize > PNet::g_MaxPacketSize)
 							{
-								std::cout << "vuot\n";
+								// std::cout << "vuot\n";
 								pm.Pop();
 								continue;
 							}
@@ -250,7 +246,6 @@ namespace PNet
 						{
 							char *bufferPtr = &pm.Retrieve()->buffer[0];
 							int bytesSent = send(use_fd.fd, (char *)(bufferPtr) + pm.currentPacketExtractionOffset, pm.currentPacketSize - pm.currentPacketExtractionOffset, 0);
-							// std::cout << "byte sent: " << bytesSent << "\n";
 							if (bytesSent > 0)
 							{
 								pm.currentPacketExtractionOffset += bytesSent;
@@ -280,30 +275,31 @@ namespace PNet
 
 	void Server::OnDisconnect(std::string reason)
 	{
-		std::cout << "Lost connection. Reason: " << reason << "." << std::endl;
+		// std::cout << "Lost connection. Reason: " << reason << "." << std::endl;
 	}
 	void Server::OnConnect()
 	{
-		std::cout << "Successfully connected!" << std::endl;
+		// std::cout << "Successfully connected!" << std::endl;
 	}
 
 	void Server::CloseConnection(std::string reason)
 	{
-		mtxx.lock();
-		if (isConnected == false) return;
-		
+		mtxs.lock();
+		if(isConnected == false) return;
+
 		isConnected = false;
+		
 		OnDisconnect(reason);
 		listeningSocketFD.fd = 0;
-		
+		listeningSocket.Close();
 		connection.Close();
 
-		mtxx.unlock();
+		mtxs.unlock();
 	}
 
 	bool Server::ProcessPacket(std::shared_ptr<Packet> packet)
 	{
-		std::cout << "Packet received with size: " << packet->buffer.size() << std::endl;
+		// std::cout << "Packet received with size: " << packet->buffer.size() << std::endl;
 		return true;
 	}
 
@@ -372,7 +368,7 @@ namespace PNet
 		// namedWindow("Server", WINDOW_NORMAL);
 		// imshow("Server", img);
 		std::string bufferStr(bufferVec.begin(), bufferVec.end());
-		std::cout << "kick thuoc ne " << bufferStr.size() << "\n";
+		// std::cout << "kick thuoc ne " << bufferStr.size() << "\n";
 		std::shared_ptr<Packet> packet = std::make_shared<Packet>(PacketType::PT_Image);
 		*packet << bufferStr;
 		connection.pm_outgoing.Append(packet);

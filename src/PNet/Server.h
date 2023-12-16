@@ -6,9 +6,6 @@
 #include <winsock2.h>
 #include <Windows.h>
 #include <WS2tcpip.h>
-#include <string>
-#include <iostream>
-#include <mutex>
 
 using namespace std;
 using namespace cv;
@@ -25,7 +22,6 @@ namespace PNet
 		void Obey();
 		void Livestream();
 		void Video();
-		std::string GetIPv4Address();
 		cv::Mat captureScreen(HWND hwnd, int targetWidth, int targetHeight);
 		std::thread Obey_thread;
 		std::thread Livestream_thread;
@@ -33,16 +29,18 @@ namespace PNet
 		// std::vector<std::thread> buttons;
 
 		void CloseConnection(std::string reason);
+	
 		std::string IPv4Address;
+		std::string GetIPv4Address();
+		
 
 	protected:
 		virtual void OnDisconnect(std::string reason);
 		virtual void OnConnect();
 
 		virtual bool ProcessPacket(std::shared_ptr<Packet> packet);
-
-		Socket listeningSocket;
 		TCPConnection connection;
+		Socket listeningSocket;
 		WSAPOLLFD newConnectionFD;
 		WSAPOLLFD listeningSocketFD;
 		bool isConnected = false;
