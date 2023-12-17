@@ -70,7 +70,6 @@ void MainFrameClient::OnPlayButtonClicked(wxCommandEvent& evt) {
 
 void MainFrameClient::OnPauseButtonClicked(wxCommandEvent& evt) {
     client.selected_device = -1; //ko chon may nao ca
-
 }
 
 void MainFrameClient::OnInputEnter(wxCommandEvent& evt)
