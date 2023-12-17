@@ -81,22 +81,21 @@ namespace PNet
 	{
 		while (this->isConnected)
 		{
-			mtx_obey_thread.lock();
 			WSAPOLLFD use_fd = newConnectionFD;
 			if (WSAPoll(&use_fd, 1, 1) > 0)
 			{
 				if (use_fd.revents & POLLERR) // If error occurred on this socket
 				{
-					// MessageBox(NULL, TEXT("pollerr tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
-					mtx_obey_thread.unlock();
+					MessageBox(NULL, TEXT("pollerr tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+					// mtx.unlock();
 					CloseConnection("POLLERR");
 					return;
 				}
 
 				if (use_fd.revents & POLLHUP) // If poll hangup occurred on this socket
 				{
-					// MessageBox(NULL, TEXT("pollup tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
-					mtx_obey_thread.unlock();
+					MessageBox(NULL, TEXT("pollup tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+					// mtx.unlock();
 					CloseConnection("POLLHUP");
 					return;
 				}
@@ -104,7 +103,7 @@ namespace PNet
 				if (use_fd.revents & POLLNVAL) // If invalid socket
 				{
 					MessageBox(NULL, TEXT("pollnval tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
-					mtx_obey_thread.unlock();
+					// mtx.unlock();
 					CloseConnection("POLLNVAL");
 					return;
 				}
@@ -125,7 +124,7 @@ namespace PNet
 					if (bytesReceived == 0) // If connection was lost
 					{
 						MessageBox(NULL, TEXT("lost connection tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
-						mtx_obey_thread.unlock();
+						// mtx.unlock();
 						CloseConnection("Recv==0");
 						return;
 					}
@@ -135,8 +134,8 @@ namespace PNet
 						int error = WSAGetLastError();
 						if (error != WSAEWOULDBLOCK)
 						{
+							// mtx.unlock();
 							MessageBox(NULL, TEXT("SOCKET_ERROR tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
-							mtx_obey_thread.unlock();
 							CloseConnection("Recv<0");
 							return;
 						}
@@ -152,7 +151,8 @@ namespace PNet
 								connection.pm_incoming.currentPacketSize = ntohs(connection.pm_incoming.currentPacketSize);
 								if (connection.pm_incoming.currentPacketSize > PNet::g_MaxPacketSize)
 								{
-									mtx_obey_thread.unlock();
+									MessageBox(NULL, TEXT("Packet size too large."), TEXT("Loi"), MB_ICONERROR | MB_OK);
+									// mtx.unlock();
 									CloseConnection("Packet size too large.");
 									return;
 								}
@@ -179,7 +179,8 @@ namespace PNet
 								std::shared_ptr<Packet> frontPacket = connection.pm_incoming.Retrieve();
 								if (!ProcessPacket(frontPacket))
 								{
-									mtx_obey_thread.unlock();
+									// mtx.unlock();
+									MessageBox(NULL, TEXT("ko process dc tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 									CloseConnection("Failed to process incoming packet.");
 									return;
 								}
@@ -190,32 +191,31 @@ namespace PNet
 					}
 				}
 			}
-			mtx_obey_thread.unlock();
+			// mtx.unlock();
 		}
-		// MessageBox(NULL, TEXT("dong Obey tu nhien"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+		MessageBox(NULL, TEXT("dong Obey tu nhien"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 	}
 
 	void Server::Livestream()
 	{
 		while (this->isConnected)
 		{
-			mtx_livestream_thread.lock();
+			// mtx.lock();
 			WSAPOLLFD use_fd = newConnectionFD;
 			if (WSAPoll(&use_fd, 1, 1) > 0)
 			{
 
 				if (use_fd.revents & POLLERR) // If error occurred on this socket
 				{
-					// MessageBox(NULL, TEXT("pollerr tai livestream"), TEXT("Loi"), MB_ICONERROR | MB_OK);
-					mtx_livestream_thread.unlock();
+					MessageBox(NULL, TEXT("pollerr tai livestream"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+					// mtx.unlock();
 					CloseConnection("POLLERR");
 					return;
 				}
 
 				if (use_fd.revents & POLLHUP) // If poll hangup occurred on this socket
 				{
-					// MessageBox(NULL, TEXT("pollup tai livestream"), TEXT("Loi"), MB_ICONERROR | MB_OK);
-					mtx_livestream_thread.unlock();
+					MessageBox(NULL, TEXT("pollup tai livestream"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 					CloseConnection("POLLHUP");
 					return;
 				}
@@ -223,7 +223,6 @@ namespace PNet
 				if (use_fd.revents & POLLNVAL) // If invalid socket
 				{
 					MessageBox(NULL, TEXT("pollnval tai livestream"), TEXT("Loi"), MB_ICONERROR | MB_OK);
-					mtx_livestream_thread.unlock();
 					CloseConnection("POLLNVAL");
 					return;
 				}
@@ -289,9 +288,9 @@ namespace PNet
 			// if (key == 'x')
 			// 	return;
 
-			mtx_livestream_thread.unlock();
+			// mtx.unlock();
 		}
-		// MessageBox(NULL, TEXT("dong livestream mot cach tu nhien"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+		MessageBox(NULL, TEXT("dong livestream mot cach tu nhien"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 	}
 
 	void Server::OnDisconnect(std::string reason)
@@ -306,18 +305,18 @@ namespace PNet
 	
 	void Server::CloseConnection(std::string reason)
 	{
+		mtx.lock();
+		// MessageBox(NULL, TEXT("closing server"), TEXT("Socket"), MB_ICONERROR | MB_OK);
 		if(isConnected == false) return;
+
 		isConnected = false;
 		// MessageBox(NULL, TEXT("dang dong ket loi"), TEXT("Loi"), MB_ICONERROR | MB_OK);
-
-		mtx_livestream_thread.lock();
-		mtx_obey_thread.lock();
+		
 		OnDisconnect(reason);
 		listeningSocketFD.fd = 0;
 		connection.Close();
 
-		mtx_obey_thread.unlock();
-		mtx_livestream_thread.unlock();
+		mtx.unlock();
 	}
 
 	bool Server::ProcessPacket(std::shared_ptr<Packet> packet)
@@ -375,10 +374,9 @@ namespace PNet
 
 	void Server::Video()
 	{
-
 		HWND hwndDesktop = GetDesktopWindow();
-		// Mat img = captureScreen(hwndDesktop, 1280, 720);
-		Mat img = captureScreen(hwndDesktop, 1000, 500);
+		Mat img = captureScreen(hwndDesktop, 1280, 720);
+		// Mat img = captureScreen(hwndDesktop, 1000, 500);
 		if (img.empty())
 			return;
 

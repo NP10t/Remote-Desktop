@@ -23,7 +23,8 @@ namespace PNet
 		Packet& operator >> (float & data);
 		Packet & operator << (const std::string & data);
 		Packet & operator >> (std::string & data);
-		Packet & operator>>(std::vector<unsigned char> & data);
+		Packet & operator >> (std::vector<unsigned char> & data);
+
 
 		uint32_t extractionOffset = 0;
 		std::vector<char> buffer;

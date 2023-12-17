@@ -19,13 +19,10 @@ namespace PNet
 		float W;
 		float T;
 		float L;
-		// float titleBarHeight;
 		bool Initialize(IPEndpoint ip);
 		bool Frame(int select_device);
 		void ControlUsingTCP(int select_device);
 		void PlayVideo(int select_device);
-		// void Mouse(TCPConnection &connection);
-		// void Keyboard(TCPConnection &connection);
 		void Commander(TCPConnection &connection);
 		std::thread control;
 		std::thread video;
@@ -33,8 +30,7 @@ namespace PNet
 		int selected_device_connected;
 		void CloseConnection(int connectionIndex, std::string reason);	
 		std::vector<TCPConnection> connections;
-		std::mutex mtx_control_thread;
-		std::mutex mtx_playvideo_thread;
+		std::mutex mtx;
 	protected:
 		virtual bool ProcessPacket(std::shared_ptr<Packet> packet);
 		virtual void OnConnectFail();

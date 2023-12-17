@@ -75,7 +75,7 @@ namespace PNet
 	{			
 		while (current_device == selected_device) // khi chuyen sang thiet bi khac thi current_device != selected_device => huy luon thread nay, tao lai thread khac 
 		{
-			mtx_control_thread.lock();
+			mtx.lock();
 			int i = current_device;
 			use_fd = master_fd;
 			if (use_fd.size() && WSAPoll(&use_fd[i], 1, 1) > 0)
@@ -85,21 +85,21 @@ namespace PNet
 
 				if (use_fd[i].revents & POLLERR) // If error occurred on this socket
 				{
-					mtx_control_thread.unlock();
+					mtx.unlock();
 					CloseConnection(connectionIndex, "POLLERR_control");
 					return;
 				}
 
 				if (use_fd[i].revents & POLLHUP) // If poll hangup occurred on this socket
 				{
-					mtx_control_thread.unlock();
+					mtx.unlock();
 					CloseConnection(connectionIndex, "POLLHUP");
 					return;
 				}
 
 				if (use_fd[i].revents & POLLNVAL) // If invalid socket
 				{
-					mtx_control_thread.unlock();
+					mtx.unlock();
 					CloseConnection(connectionIndex, "POLLNVAL");
 					return;
 				}
@@ -127,7 +127,7 @@ namespace PNet
 							}
 							else // If full packet size was not sent, break out of the loop for sending outgoing packets for this connection - we'll have to try again next time we are able to write normal data without blocking
 							{
-								mtx_control_thread.unlock();
+								mtx.unlock();
 								return;
 							}
 						}
@@ -149,49 +149,48 @@ namespace PNet
 							}
 							else
 							{
-								mtx_control_thread.unlock();
+								mtx.unlock();
 								return; // Added after tutorial was made 2019-06-24
 							}
 						}
 					}
 				}
 			}
-			mtx_control_thread.unlock();
+			mtx.unlock();
 		}
 	}
 
 	void Client::PlayVideo(int current_device)
 	{
+		namedWindow("Press X to escape", WINDOW_NORMAL);
 		while (current_device == selected_device) // khi chuyen sang thiet bi khac thi current_device != selected_device => huy luon thread nay, tao lai thread khac 
-		{	
-			mtx_playvideo_thread.lock();
+		{
 			int i = current_device;
 			use_fd = master_fd;
 	
 			if (use_fd.size() && WSAPoll(&use_fd[i], 1, 1) > 0)
 			{
-
 				int connectionIndex = i;
 				TCPConnection &connection = connections[connectionIndex];
 
 				if (use_fd[i].revents & POLLERR) // If error occurred on this socket
 				{
-					mtx_playvideo_thread.unlock();
 					CloseConnection(connectionIndex, "POLLERR_video");
+					// destroyAllWindows();
 					return;
 				}
 
 				if (use_fd[i].revents & POLLHUP) // If poll hangup occurred on this socket
 				{
-					mtx_playvideo_thread.unlock();
 					CloseConnection(connectionIndex, "POLLHUP");
+					// destroyAllWindows();
 					return;
 				}
 
 				if (use_fd[i].revents & POLLNVAL) // If invalid socket
 				{
-					mtx_playvideo_thread.unlock();
 					CloseConnection(connectionIndex, "POLLNVAL");
+					// destroyAllWindows();
 					return;
 				}
 
@@ -211,8 +210,8 @@ namespace PNet
 
 					if (bytesReceived == 0) // If connection was lost
 					{
-						mtx_playvideo_thread.unlock();
 						CloseConnection(connectionIndex, "Recv==0");
+						// destroyAllWindows();
 						return;
 					}
 
@@ -221,8 +220,8 @@ namespace PNet
 						int error = WSAGetLastError();
 						if (error != WSAEWOULDBLOCK)
 						{
-							mtx_playvideo_thread.unlock();
 							CloseConnection(connectionIndex, "Recv<0");
+							// destroyAllWindows();
 							return;
 						}
 					}
@@ -237,8 +236,9 @@ namespace PNet
 								connection.pm_incoming.currentPacketSize = ntohl(connection.pm_incoming.currentPacketSize);
 								if (connection.pm_incoming.currentPacketSize > PNet::g_MaxPacketSize)
 								{
-									mtx_playvideo_thread.unlock();
+									std::cout << "to vay ne (play video) " << connection.pm_incoming.currentPacketSize << "\n";
 									CloseConnection(connectionIndex, "Packet size too large.");
+									// destroyAllWindows();
 									return;
 								}
 								connection.pm_incoming.currentPacketExtractionOffset = 0;
@@ -257,27 +257,25 @@ namespace PNet
 								connection.pm_incoming.currentPacketSize = 0;
 								connection.pm_incoming.currentPacketExtractionOffset = 0;
 								connection.pm_incoming.currentTask = PacketManagerTask::ProcessPacketSize;
-								// while (connections[i].pm_incoming.HasPendingPackets())
-								// {
+								while (connections[i].pm_incoming.HasPendingPackets())
+								{
 								std::shared_ptr<Packet> frontPacket = connections[i].pm_incoming.Retrieve();
 								if (!ProcessPacket(frontPacket))
 								{
-									mtx_playvideo_thread.unlock();
 									CloseConnection(i, "Failed to process incoming packet.");
+									// destroyAllWindows();
 									return;
 								}
 								connections[i].pm_incoming.Pop();
 								int key = waitKey(1);
 								// if (key == 'x')
 								// 	return;
-								// }
+								}
 							}
 						}
 					}
-					// }
 				}
 			}
-			mtx_playvideo_thread.unlock();
 		}
 		destroyAllWindows();
 	}
@@ -304,25 +302,23 @@ namespace PNet
 
 
 	void Client::CloseConnection(int connectionIndex, std::string reason)
-	{	
+	{
+		mtx.lock();
 		if(selected_device_connected == false || connectionIndex == -1) { // disconnect roi thi ko disconnect nua, hoac neu thiet bi thu -1 thi ko disconnect
 			return;
 		}
 
-		selected_device = -1; // gan selected_device = -1 de current_device != selected_device => huy luon 2 thread control va video,  sau nay neu muon thi tao lai thread khac 
-		selected_device_connected = false; 
+			selected_device = -1; // gan selected_device = -1 de current_device != selected_device => huy luon 2 thread control va video,  sau nay neu muon thi tao lai thread khac 
+			selected_device_connected = false; 
 
-		mtx_playvideo_thread.lock();
-		mtx_control_thread.lock();
-
+		// MessageBox(NULL, TEXT("closing client"), TEXT("Socket"), MB_ICONERROR | MB_OK);
 		TCPConnection &connection = connections[connectionIndex];
 		OnDisconnect(connection, reason);
 		master_fd.erase(master_fd.begin() + (connectionIndex));
 		connection.Close();
 		connections.erase(connections.begin() + connectionIndex);
 
-		mtx_control_thread.unlock();
-		mtx_playvideo_thread.unlock();
+		mtx.unlock();
 	}
 
 	HHOOK mh;
@@ -361,99 +357,6 @@ namespace PNet
 		DispatchMessage(&message);
 	}
 
-	// void Client::Mouse(TCPConnection &connection)
-	// {
-	// 	mh = SetWindowsHookExA(WH_MOUSE_LL, mouse, NULL, 0);
-	// 	auto startLoopTime = std::chrono::high_resolution_clock::now();
-
-	// 	while (true)
-	// 	{
-	// 		ProcessMessages();
-	// 		auto endLoopTime = std::chrono::high_resolution_clock::now();
-	// 		auto loopDuration = std::chrono::duration_cast<std::chrono::milliseconds>(endLoopTime - startLoopTime);
-	// 		if (loopDuration.count() >= 10 || delta != 0)
-	// 			break;
-	// 	}
-	// 	if (GetAsyncKeyState(VK_LBUTTON) & 0x8001)
-	// 	{
-	// 		LCD = 1;
-	// 		LCU = 0;
-	// 		Sleep(10);
-	// 	}
-	// 	if (GetAsyncKeyState(VK_RBUTTON) & 0x8001)
-	// 	{
-	// 		RCD = 1;
-	// 		RCU = 0;
-	// 		Sleep(10);
-	// 	}
-	// 	if (LCD && !(GetAsyncKeyState(VK_LBUTTON) & 0x8001))
-	// 	{
-	// 		LCU = 1;
-	// 		LCD = 0;
-	// 		Sleep(5);
-	// 	}
-	// 	if (RCD && !(GetAsyncKeyState(VK_RBUTTON) & 0x8001))
-	// 	{
-	// 		RCU = 1;
-	// 		RCD = 0;
-	// 		Sleep(5);
-	// 	}
-	// 	POINT xy;
-	// 	GetCursorPos(&xy);
-	// 	int x = xy.x;
-	// 	int y = xy.y;
-	// 	std::shared_ptr<Packet> packet = std::make_shared<Packet>(PacketType::PT_Mouse);
-	// 	*packet << x << y << LCD << RCD << LCU << RCU << delta;
-	// 	delta = 0;
-	// 	connection.pm_outgoing.Append(packet);
-	// 	LCU = 0;
-	// 	RCU = 0;
-	// }
-
-	// void Client::Keyboard(TCPConnection &connection)
-	// {
-	// 	if (GetKeyState(VK_SHIFT) & 0x8000)
-	// 		shiftD = 1;
-	// 	if (GetKeyState(VK_CONTROL) & 0x8000)
-	// 		ctrlD = 1;
-	// 	// ctrl = 17/162, shift = 16,160
-	// 	for (int i = 5; i < 255 ;i++)
-	// 	{
-	// 		if (GetAsyncKeyState(i) & 0x8001)
-	// 		{
-	// 			if (i == 16 || i == 160 || i == 17 || i == 162 || i == 179)
-	// 				continue;
-	// 			keyboard = i;
-	// 			cout << i <<'\n';
-	// 			if (!(GetKeyState(VK_CAPITAL) & 0x0001) && i >= 65 && i <= 65 + 'Z' - 'A')
-	// 				keyboard += 32;
-	// 			Sleep(80);
-	// 			break;
-	// 		}
-	// 	}
-	// 	if (shiftD && !(GetKeyState(VK_SHIFT) & 0x8000))
-	// 	{
-	// 		shiftD = 0;
-	// 		shiftU = 1;
-	// 	}
-	// 	if (ctrlD && !(GetKeyState(VK_CONTROL) & 0x8000))
-	// 	{
-	// 		ctrlD = 0;
-	// 		ctrlU = 1;
-	// 	}
-	// 	if (GetKeyState(VK_CAPITAL) & 0x0001)
-	// 		Caplock = 1;
-	// 	else
-	// 		Caplock = 0;
-	// 	if (ctrlU == 1)
-	// 		ctrlU = 0;
-	// 	if (shiftU == 1)
-	// 		shiftU = 0;
-	// 	std::shared_ptr<Packet> packet = std::make_shared<Packet>(PacketType::PT_Keyboard);
-	// 	*packet << keyboard << shiftD << shiftU << ctrlD << ctrlU << Caplock;
-	// 	keyboard = -1;
-	// 	connection.pm_outgoing.Append(packet);
-	// }
 	void sleeptime(int n)
 	{
 		auto startLoopTime = std::chrono::high_resolution_clock::now();
@@ -552,12 +455,7 @@ namespace PNet
 
 		float ratio_x = (x - L)/W;
 		float ratio_y = (y - T)/H;
-		// std::wstring strSelectedDevice2 = std::to_wstring(ratio_x);
-		// strSelectedDevice2 += std::to_wstring(ratio_y);
-		// LPCTSTR lpSelectedDevice2 = strSelectedDevice2.c_str();
-		// MessageBox(NULL, lpSelectedDevice2, TEXT("size of use_fd (client, 1)"), MB_ICONERROR | MB_OK);
 		
-
 		if(Caplock && keyboard >= 97 && keyboard <= 97 + 'z' - 'a') keyboard -= 32;
         *packet << ratio_x << ratio_y << LCD << RCD << LCU << RCU << delta << keyboard << shiftD << shiftU << ctrlD << ctrlU << Caplock;
         if (ctrlU == 1) ctrlU = 0;

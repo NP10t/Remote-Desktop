@@ -1,6 +1,7 @@
 #include "Packet.h"
 #include "Constants.h"
 #include <iostream>
+#include <string>
 
 namespace PNet
 {

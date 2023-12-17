@@ -31,8 +31,7 @@ namespace PNet
 	
 		std::string IPv4Address;
 		std::string GetIPv4Address();
-		std::mutex mtx_obey_thread;
-		std::mutex mtx_livestream_thread;
+		std::mutex mtx;
 
 	protected:
 		virtual void OnDisconnect(std::string reason);

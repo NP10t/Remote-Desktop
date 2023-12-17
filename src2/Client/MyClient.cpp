@@ -1,15 +1,13 @@
 #include "MyClient.h"
 #include <string>
 
-//int H = 0, W = 0, T = 0, L = 0;
-
 bool MyClient::ProcessPacket(std::shared_ptr<Packet> packet)
 {
 	switch (packet->GetPacketType())
 	{
 	case PacketType::PT_Image:
 	{
-		std::vector<uchar> bufferVec;
+		std::vector<unsigned char> bufferVec;
 		*packet >> bufferVec;
 
 		// std::vector<uchar> bufferVec(bufferStr.begin(), bufferStr.end());
@@ -22,12 +20,10 @@ bool MyClient::ProcessPacket(std::shared_ptr<Packet> packet)
 			return false;
 		}
 
-		namedWindow("Press X to escape", WINDOW_NORMAL);
-		// float titleBarHeight = GetSystemMetrics(SM_CYCAPTION);
+		// namedWindow("Press X to escape", WINDOW_NORMAL);
 
 		imshow("Press X to escape", img);
 
-        
 		//cvGetWindowRect("Press X to escape",&X, &Y, &W, &H);
 		
 		break;
