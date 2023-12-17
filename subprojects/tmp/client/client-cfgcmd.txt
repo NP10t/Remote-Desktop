@@ -1,0 +1,5 @@
+<<<<<<< HEAD
+cmd='C:/Strawberry/c/bin/cmake.exe;-DCMAKE_BUILD_TYPE=;-DwxWidgets_ROOT_DIR=E:\canhom\stage;-DENV_WX_CONFIG=E:\canhom\stage\bin\wx-config;-GVisual Studio 17 2022;-DCMAKE_GENERATOR_INSTANCE:INTERNAL=C:/Program Files/Microsoft Visual Studio/2022/Community;-C<TMP_DIR>/client-cache-$<CONFIG>.cmake;-S;<SOURCE_DIR><SOURCE_SUBDIR>;-B;<BINARY_DIR>'
+=======
+cmd='C:/cmake-3.28.0-rc5-windows-x86_64/bin/cmake.exe;-DCMAKE_BUILD_TYPE=;-DwxWidgets_ROOT_DIR=C:\Do an mmt\Mang_May_Tinh-master\stage;-DENV_WX_CONFIG=C:\Do an mmt\Mang_May_Tinh-master\stage\bin\wx-config;-GVisual Studio 17 2022;-DCMAKE_GENERATOR_INSTANCE:INTERNAL=C:/Program Files/Microsoft Visual Studio/2022/Community;-C<TMP_DIR>/client-cache-$<CONFIG>.cmake;-S;<SOURCE_DIR><SOURCE_SUBDIR>;-B;<BINARY_DIR>'
+>>>>>>> nguyenquangthinh

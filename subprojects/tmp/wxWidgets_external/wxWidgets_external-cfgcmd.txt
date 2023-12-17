@@ -1,0 +1,5 @@
+<<<<<<< HEAD
+cmd='C:/Strawberry/c/bin/cmake.exe;-DCMAKE_INSTALL_PREFIX=E:/canhom/stage;-DCMAKE_BUILD_TYPE=;-DwxBUILD_SHARED=OFF;-GVisual Studio 17 2022;-DCMAKE_GENERATOR_INSTANCE:INTERNAL=C:/Program Files/Microsoft Visual Studio/2022/Community;-S;<SOURCE_DIR><SOURCE_SUBDIR>;-B;<BINARY_DIR>'
+=======
+cmd='C:/cmake-3.28.0-rc5-windows-x86_64/bin/cmake.exe;-DCMAKE_INSTALL_PREFIX=C:/Do an mmt/Mang_May_Tinh-master/stage;-DCMAKE_BUILD_TYPE=;-DwxBUILD_SHARED=OFF;-GVisual Studio 17 2022;-DCMAKE_GENERATOR_INSTANCE:INTERNAL=C:/Program Files/Microsoft Visual Studio/2022/Community;-S;<SOURCE_DIR><SOURCE_SUBDIR>;-B;<BINARY_DIR>'
+>>>>>>> nguyenquangthinh
