@@ -6,7 +6,7 @@
 #include <algorithm>
 
 float LCD = 0, RCD = 0, LCU = 0, RCU = 0;
-float keyboard = -1, ctrlD = 0, shiftD = 0, ctrlU = 0, shiftU = 0, Caplock = 0, delta = 0;
+float keyboard = -1, ctrlD = 0, shiftD = 0, ctrlU = 0, shiftU = 0, Caplock = 0, delta = 0, altD=0, altU=0;
 
 namespace PNet
 {	
@@ -158,6 +158,8 @@ namespace PNet
 			}
 			mtx_control_thread.unlock();
 		}
+		// MessageBox(NULL, TEXT("dong control thread client tu nhien"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+
 	}
 
 	void Client::PlayVideo(int current_device)
@@ -212,6 +214,7 @@ namespace PNet
 
 					if (bytesReceived == 0) // If connection was lost
 					{
+						MessageBox(NULL, TEXT("lost connection tai video"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 						mtx_playvideo_thread.unlock();
 						CloseConnection(connectionIndex, "Recv==0");
 						return;
@@ -222,6 +225,7 @@ namespace PNet
 						int error = WSAGetLastError();
 						if (error != WSAEWOULDBLOCK)
 						{
+							MessageBox(NULL, TEXT("error occur tai video"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 							mtx_playvideo_thread.unlock();
 							CloseConnection(connectionIndex, "Recv<0");
 							return;
@@ -258,7 +262,7 @@ namespace PNet
 								connection.pm_incoming.currentPacketSize = 0;
 								connection.pm_incoming.currentPacketExtractionOffset = 0;
 								connection.pm_incoming.currentTask = PacketManagerTask::ProcessPacketSize;
-								while (connections[i].pm_incoming.HasPendingPackets()) {
+								// while (connections[i].pm_incoming.HasPendingPackets()) {
 									std::shared_ptr<Packet> frontPacket = connections[i].pm_incoming.Retrieve();
 									// if (!ProcessPacket(frontPacket))
 									// {
@@ -271,7 +275,7 @@ namespace PNet
 									int key = waitKey(1);
 									// if (key == 'x')
 									// 	return;
-								}
+								// }
 							}
 						}
 					}
@@ -280,6 +284,7 @@ namespace PNet
 			mtx_playvideo_thread.unlock();
 		}
 		destroyAllWindows();
+		// MessageBox(NULL, TEXT("dong video thread client tu nhien"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 	}
 
 	bool Client::ProcessPacket(std::shared_ptr<Packet> packet)
@@ -361,99 +366,6 @@ namespace PNet
 		DispatchMessage(&message);
 	}
 
-	// void Client::Mouse(TCPConnection &connection)
-	// {
-	// 	mh = SetWindowsHookExA(WH_MOUSE_LL, mouse, NULL, 0);
-	// 	auto startLoopTime = std::chrono::high_resolution_clock::now();
-
-	// 	while (true)
-	// 	{
-	// 		ProcessMessages();
-	// 		auto endLoopTime = std::chrono::high_resolution_clock::now();
-	// 		auto loopDuration = std::chrono::duration_cast<std::chrono::milliseconds>(endLoopTime - startLoopTime);
-	// 		if (loopDuration.count() >= 10 || delta != 0)
-	// 			break;
-	// 	}
-	// 	if (GetAsyncKeyState(VK_LBUTTON) & 0x8001)
-	// 	{
-	// 		LCD = 1;
-	// 		LCU = 0;
-	// 		Sleep(10);
-	// 	}
-	// 	if (GetAsyncKeyState(VK_RBUTTON) & 0x8001)
-	// 	{
-	// 		RCD = 1;
-	// 		RCU = 0;
-	// 		Sleep(10);
-	// 	}
-	// 	if (LCD && !(GetAsyncKeyState(VK_LBUTTON) & 0x8001))
-	// 	{
-	// 		LCU = 1;
-	// 		LCD = 0;
-	// 		Sleep(5);
-	// 	}
-	// 	if (RCD && !(GetAsyncKeyState(VK_RBUTTON) & 0x8001))
-	// 	{
-	// 		RCU = 1;
-	// 		RCD = 0;
-	// 		Sleep(5);
-	// 	}
-	// 	POINT xy;
-	// 	GetCursorPos(&xy);
-	// 	int x = xy.x;
-	// 	int y = xy.y;
-	// 	std::shared_ptr<Packet> packet = std::make_shared<Packet>(PacketType::PT_Mouse);
-	// 	*packet << x << y << LCD << RCD << LCU << RCU << delta;
-	// 	delta = 0;
-	// 	connection.pm_outgoing.Append(packet);
-	// 	LCU = 0;
-	// 	RCU = 0;
-	// }
-
-	// void Client::Keyboard(TCPConnection &connection)
-	// {
-	// 	if (GetKeyState(VK_SHIFT) & 0x8000)
-	// 		shiftD = 1;
-	// 	if (GetKeyState(VK_CONTROL) & 0x8000)
-	// 		ctrlD = 1;
-	// 	// ctrl = 17/162, shift = 16,160
-	// 	for (int i = 5; i < 255 ;i++)
-	// 	{
-	// 		if (GetAsyncKeyState(i) & 0x8001)
-	// 		{
-	// 			if (i == 16 || i == 160 || i == 17 || i == 162 || i == 179)
-	// 				continue;
-	// 			keyboard = i;
-	// 			cout << i <<'\n';
-	// 			if (!(GetKeyState(VK_CAPITAL) & 0x0001) && i >= 65 && i <= 65 + 'Z' - 'A')
-	// 				keyboard += 32;
-	// 			Sleep(80);
-	// 			break;
-	// 		}
-	// 	}
-	// 	if (shiftD && !(GetKeyState(VK_SHIFT) & 0x8000))
-	// 	{
-	// 		shiftD = 0;
-	// 		shiftU = 1;
-	// 	}
-	// 	if (ctrlD && !(GetKeyState(VK_CONTROL) & 0x8000))
-	// 	{
-	// 		ctrlD = 0;
-	// 		ctrlU = 1;
-	// 	}
-	// 	if (GetKeyState(VK_CAPITAL) & 0x0001)
-	// 		Caplock = 1;
-	// 	else
-	// 		Caplock = 0;
-	// 	if (ctrlU == 1)
-	// 		ctrlU = 0;
-	// 	if (shiftU == 1)
-	// 		shiftU = 0;
-	// 	std::shared_ptr<Packet> packet = std::make_shared<Packet>(PacketType::PT_Keyboard);
-	// 	*packet << keyboard << shiftD << shiftU << ctrlD << ctrlU << Caplock;
-	// 	keyboard = -1;
-	// 	connection.pm_outgoing.Append(packet);
-	// }
 	void sleeptime(int n)
 	{
 		auto startLoopTime = std::chrono::high_resolution_clock::now();
@@ -506,13 +418,14 @@ namespace PNet
 
         if (GetKeyState(VK_SHIFT) & 0x8000) shiftD = 1;
         if (GetKeyState(VK_CONTROL) & 0x8000) ctrlD = 1;
+		if (GetKeyState(VK_MENU) & 0x8000) altD = 1;
 
         for (int i = 5; i < 255; ++i) {
             if (GetAsyncKeyState(i) & 0x8001) {
-                if (i == 16 || i == 160 || i == 17 || i == 162 || i == 179) continue;
+                if (i == 16 || i == 160 || i == 17 || i == 162 || i == 179 || i == 18 || i == 164) continue;
 				keyboard = i;
                 //if (i >= 65 && i <= 65 + 'Z' - 'A') keyboard += 32;
-                sleeptime(100);
+                sleeptime(150);
                 break;
             }
         }
@@ -526,6 +439,11 @@ namespace PNet
             ctrlD = 0;
             ctrlU = 1;
         }
+		
+		if (altD && !(GetKeyState(VK_MENU) & 0x8000)) {
+			altD = 0;
+			altU = 1;
+		}
 
         if (GetKeyState(VK_CAPITAL) & 0x0001) Caplock = 1;
 		
@@ -552,14 +470,9 @@ namespace PNet
 
 		float ratio_x = (x - L)/W;
 		float ratio_y = (y - T)/H;
-		// std::wstring strSelectedDevice2 = std::to_wstring(ratio_x);
-		// strSelectedDevice2 += std::to_wstring(ratio_y);
-		// LPCTSTR lpSelectedDevice2 = strSelectedDevice2.c_str();
-		// MessageBox(NULL, lpSelectedDevice2, TEXT("size of use_fd (client, 1)"), MB_ICONERROR | MB_OK);
-		
 
 		if(Caplock && keyboard >= 97 && keyboard <= 97 + 'z' - 'a') keyboard -= 32;
-        *packet << ratio_x << ratio_y << LCD << RCD << LCU << RCU << delta << keyboard << shiftD << shiftU << ctrlD << ctrlU << Caplock;
+        *packet << ratio_x << ratio_y << LCD << RCD << LCU << RCU << delta << keyboard << shiftD << shiftU << ctrlD << ctrlU << altD << altU << Caplock;
         if (ctrlU == 1) ctrlU = 0;
         if (shiftU == 1) shiftU = 0;
 		delta = 0;

@@ -103,7 +103,7 @@ namespace PNet
 
 				if (use_fd.revents & POLLNVAL) // If invalid socket
 				{
-					MessageBox(NULL, TEXT("pollnval tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+					// MessageBox(NULL, TEXT("pollnval tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 					mtx_obey_thread.unlock();
 					CloseConnection("POLLNVAL");
 					return;
@@ -124,7 +124,7 @@ namespace PNet
 
 					if (bytesReceived == 0) // If connection was lost
 					{
-						MessageBox(NULL, TEXT("lost connection tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+						// MessageBox(NULL, TEXT("lost connection tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 						mtx_obey_thread.unlock();
 						CloseConnection("Recv==0");
 						return;
@@ -135,7 +135,7 @@ namespace PNet
 						int error = WSAGetLastError();
 						if (error != WSAEWOULDBLOCK)
 						{
-							MessageBox(NULL, TEXT("SOCKET_ERROR tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+							// MessageBox(NULL, TEXT("SOCKET_ERROR tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 							mtx_obey_thread.unlock();
 							CloseConnection("Recv<0");
 							return;
@@ -222,7 +222,7 @@ namespace PNet
 
 				if (use_fd.revents & POLLNVAL) // If invalid socket
 				{
-					MessageBox(NULL, TEXT("pollnval tai livestream"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+					// MessageBox(NULL, TEXT("pollnval tai livestream"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 					mtx_livestream_thread.unlock();
 					CloseConnection("POLLNVAL");
 					return;
