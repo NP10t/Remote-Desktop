@@ -37,7 +37,7 @@ bool MyServer::ProcessPacket(std::shared_ptr<Packet> packet)
 	{
 	case PacketType::PT_Command:
 	{
-		return true;
+		// return true;
 		float W_ratio = GetSystemMetrics(SM_CXSCREEN);
 		float H_ratio = GetSystemMetrics(SM_CYSCREEN);
 		float a[13];

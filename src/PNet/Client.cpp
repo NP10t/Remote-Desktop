@@ -162,6 +162,7 @@ namespace PNet
 
 	void Client::PlayVideo(int current_device)
 	{
+		namedWindow("Press X to escape", WINDOW_NORMAL);
 		while (current_device == selected_device) // khi chuyen sang thiet bi khac thi current_device != selected_device => huy luon thread nay, tao lai thread khac 
 		{	
 			mtx_playvideo_thread.lock();
@@ -257,24 +258,23 @@ namespace PNet
 								connection.pm_incoming.currentPacketSize = 0;
 								connection.pm_incoming.currentPacketExtractionOffset = 0;
 								connection.pm_incoming.currentTask = PacketManagerTask::ProcessPacketSize;
-								// while (connections[i].pm_incoming.HasPendingPackets())
-								// {
-								std::shared_ptr<Packet> frontPacket = connections[i].pm_incoming.Retrieve();
-								if (!ProcessPacket(frontPacket))
-								{
-									mtx_playvideo_thread.unlock();
-									CloseConnection(i, "Failed to process incoming packet.");
-									return;
+								while (connections[i].pm_incoming.HasPendingPackets()) {
+									std::shared_ptr<Packet> frontPacket = connections[i].pm_incoming.Retrieve();
+									// if (!ProcessPacket(frontPacket))
+									// {
+									// 	mtx_playvideo_thread.unlock();
+									// 	CloseConnection(i, "Failed to process incoming packet.");
+									// 	return;
+									// }
+									ProcessPacket(frontPacket);
+									connections[i].pm_incoming.Pop();
+									int key = waitKey(1);
+									// if (key == 'x')
+									// 	return;
 								}
-								connections[i].pm_incoming.Pop();
-								int key = waitKey(1);
-								// if (key == 'x')
-								// 	return;
-								// }
 							}
 						}
 					}
-					// }
 				}
 			}
 			mtx_playvideo_thread.unlock();

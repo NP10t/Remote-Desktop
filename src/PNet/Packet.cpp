@@ -84,6 +84,7 @@ namespace PNet
 		Append(data.data(), data.size());
 		return *this;
 	}
+
 	Packet & Packet::operator>>(std::string & data)
 	{
 		data.clear();
@@ -113,6 +114,13 @@ namespace PNet
 		data.resize(vectorSize);
 		std::copy(buffer.begin() + extractionOffset, buffer.begin() + extractionOffset + vectorSize, data.begin());
 		extractionOffset += vectorSize;
+		return *this;
+	}
+
+	Packet & Packet::operator<<(std::vector<unsigned char> & data)
+	{
+		*this << (uint32_t)data.size();
+		Append(data.data(), data.size());
 		return *this;
 	}
 }

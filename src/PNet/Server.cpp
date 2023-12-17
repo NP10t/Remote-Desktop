@@ -377,8 +377,8 @@ namespace PNet
 	{
 
 		HWND hwndDesktop = GetDesktopWindow();
-		// Mat img = captureScreen(hwndDesktop, 1280, 720);
-		Mat img = captureScreen(hwndDesktop, 1000, 500);
+		Mat img = captureScreen(hwndDesktop, 1280, 720);
+		// Mat img = captureScreen(hwndDesktop, 1000, 500);
 		if (img.empty())
 			return;
 
@@ -391,10 +391,9 @@ namespace PNet
 
 		// namedWindow("Server", WINDOW_NORMAL);
 		// imshow("Server", img);
-		std::string bufferStr(bufferVec.begin(), bufferVec.end());
-		// std::cout << "kick thuoc ne " << bufferStr.size() << "\n";
+		
 		std::shared_ptr<Packet> packet = std::make_shared<Packet>(PacketType::PT_Image);
-		*packet << bufferStr;
+		*packet << bufferVec;
 		connection.pm_outgoing.Append(packet);
 	}
 }
