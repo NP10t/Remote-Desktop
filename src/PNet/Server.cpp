@@ -81,15 +81,12 @@ namespace PNet
 	{
 		while (this->isConnected)
 		{
-			// mtx.lock();
-			// MessageBox(NULL, TEXT("1"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 			WSAPOLLFD use_fd = newConnectionFD;
 			if (WSAPoll(&use_fd, 1, 1) > 0)
 			{
-				// MessageBox(NULL, TEXT("2"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 				if (use_fd.revents & POLLERR) // If error occurred on this socket
 				{
-					MessageBox(NULL, TEXT("pollerr tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+					// MessageBox(NULL, TEXT("pollerr tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 					// mtx.unlock();
 					CloseConnection("POLLERR");
 					return;
@@ -97,7 +94,7 @@ namespace PNet
 
 				if (use_fd.revents & POLLHUP) // If poll hangup occurred on this socket
 				{
-					MessageBox(NULL, TEXT("pollup tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+					// MessageBox(NULL, TEXT("pollup tai obey"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 					// mtx.unlock();
 					CloseConnection("POLLHUP");
 					return;
@@ -196,7 +193,7 @@ namespace PNet
 			}
 			// mtx.unlock();
 		}
-		MessageBox(NULL, TEXT("dong Obey tu nhien"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+		// MessageBox(NULL, TEXT("dong Obey tu nhien"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 	}
 
 	void Server::Livestream()
@@ -210,7 +207,7 @@ namespace PNet
 
 				if (use_fd.revents & POLLERR) // If error occurred on this socket
 				{
-					MessageBox(NULL, TEXT("pollerr tai livestream"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+					// MessageBox(NULL, TEXT("pollerr tai livestream"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 					// mtx.unlock();
 					CloseConnection("POLLERR");
 					return;
@@ -218,7 +215,7 @@ namespace PNet
 
 				if (use_fd.revents & POLLHUP) // If poll hangup occurred on this socket
 				{
-					MessageBox(NULL, TEXT("pollup tai livestream"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+					// MessageBox(NULL, TEXT("pollup tai livestream"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 					CloseConnection("POLLHUP");
 					return;
 				}
@@ -293,7 +290,7 @@ namespace PNet
 
 			// mtx.unlock();
 		}
-		MessageBox(NULL, TEXT("dong livestream mot cach tu nhien"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+		// MessageBox(NULL, TEXT("dong livestream mot cach tu nhien"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 	}
 
 	void Server::OnDisconnect(std::string reason)
@@ -312,7 +309,7 @@ namespace PNet
 		if(isConnected == false) return;
 
 		isConnected = false;
-		MessageBox(NULL, TEXT("dang dong ket loi"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+		// MessageBox(NULL, TEXT("dang dong ket loi"), TEXT("Loi"), MB_ICONERROR | MB_OK);
 		
 		OnDisconnect(reason);
 		listeningSocketFD.fd = 0;
