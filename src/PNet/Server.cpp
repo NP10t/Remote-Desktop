@@ -393,13 +393,13 @@ namespace PNet
 		HWND hwndDesktop = GetDesktopWindow();
 		// Mat img = captureScreen(hwndDesktop, 1280, 720);
 		Mat img = captureScreen(hwndDesktop, 1000, 500);
-		if (img.empty())
-			return;
+		// if (img.empty())
+		// 	return;
 
 		std::vector<uchar> bufferVec;
 		std::vector<int> compression_params;
 		compression_params.push_back(cv::IMWRITE_JPEG_QUALITY);
-		compression_params.push_back(60); // Đặt chất lượng JPEG (giá trị từ 0-100)
+		compression_params.push_back(90); // Đặt chất lượng JPEG (giá trị từ 0-100)
 
 		imencode(".jpg", img, bufferVec, compression_params);
 

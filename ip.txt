@@ -12,10 +12,26 @@ Wireless LAN adapter Local Area Connection* 2:
    Media State . . . . . . . . . . . : Media disconnected
    Connection-specific DNS Suffix  . : 
 
+Ethernet adapter VMware Network Adapter VMnet1:
+
+   Connection-specific DNS Suffix  . : 
+   Link-local IPv6 Address . . . . . : fe80::1776:9600:72e4:d629%5
+   IPv4 Address. . . . . . . . . . . : 192.168.44.1
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 
+
+Ethernet adapter VMware Network Adapter VMnet8:
+
+   Connection-specific DNS Suffix  . : 
+   Link-local IPv6 Address . . . . . : fe80::b1b0:11ed:bfba:3ab8%19
+   IPv4 Address. . . . . . . . . . . : 192.168.26.1
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 
+
 Wireless LAN adapter Wi-Fi:
 
    Connection-specific DNS Suffix  . : 
-   Link-local IPv6 Address . . . . . : fe80::cdff:17a4:a7a6:6cdd%15
-   IPv4 Address. . . . . . . . . . . : 172.20.10.5
-   Subnet Mask . . . . . . . . . . . : 255.255.255.240
-   Default Gateway . . . . . . . . . : 172.20.10.1
+   Link-local IPv6 Address . . . . . : fe80::cdff:17a4:a7a6:6cdd%16
+   IPv4 Address. . . . . . . . . . . : 10.0.105.176
+   Subnet Mask . . . . . . . . . . . : 255.255.0.0
+   Default Gateway . . . . . . . . . : 10.0.0.1

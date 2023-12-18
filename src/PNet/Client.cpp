@@ -157,12 +157,11 @@ namespace PNet
 			mtx_control_thread.unlock();
 		}
 		// MessageBox(NULL, TEXT("dong control thread client tu nhien"), TEXT("Loi"), MB_ICONERROR | MB_OK);
-
 	}
 
 	void Client::PlayVideo(int current_device)
 	{
-		namedWindow("Press X to escape", WINDOW_NORMAL);
+		namedWindow("Screen of controlled deviced", WINDOW_NORMAL);
 		while (current_device == selected_device) // khi chuyen sang thiet bi khac thi current_device != selected_device => huy luon thread nay, tao lai thread khac 
 		{	
 			mtx_playvideo_thread.lock();
@@ -174,27 +173,6 @@ namespace PNet
 
 				int connectionIndex = i;
 				TCPConnection &connection = connections[connectionIndex];
-
-				if (use_fd[i].revents & POLLERR) // If error occurred on this socket
-				{
-					mtx_playvideo_thread.unlock();
-					CloseConnection(connectionIndex, "POLLERR_video");
-					return;
-				}
-
-				if (use_fd[i].revents & POLLHUP) // If poll hangup occurred on this socket
-				{
-					mtx_playvideo_thread.unlock();
-					CloseConnection(connectionIndex, "POLLHUP");
-					return;
-				}
-
-				if (use_fd[i].revents & POLLNVAL) // If invalid socket
-				{
-					mtx_playvideo_thread.unlock();
-					CloseConnection(connectionIndex, "POLLNVAL");
-					return;
-				}
 
 				if (use_fd[i].revents & POLLRDNORM) // If normal data can be read without blocking
 				{
@@ -210,25 +188,25 @@ namespace PNet
 						bytesReceived = recv(use_fd[i].fd, (char *)&connection.buffer + connection.pm_incoming.currentPacketExtractionOffset, connection.pm_incoming.currentPacketSize - connection.pm_incoming.currentPacketExtractionOffset, 0);
 					}
 
-					if (bytesReceived == 0) // If connection was lost
-					{
-						MessageBox(NULL, TEXT("lost connection tai video"), TEXT("Loi"), MB_ICONERROR | MB_OK);
-						mtx_playvideo_thread.unlock();
-						CloseConnection(connectionIndex, "Recv==0");
-						return;
-					}
+					// if (bytesReceived == 0) // If connection was lost
+					// {
+					// 	MessageBox(NULL, TEXT("lost connection tai video"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+					// 	mtx_playvideo_thread.unlock();
+					// 	CloseConnection(connectionIndex, "Recv==0");
+					// 	return;
+					// }
 
-					if (bytesReceived == SOCKET_ERROR) // If error occurred on socket
-					{
-						int error = WSAGetLastError();
-						if (error != WSAEWOULDBLOCK)
-						{
-							MessageBox(NULL, TEXT("error occur tai video"), TEXT("Loi"), MB_ICONERROR | MB_OK);
-							mtx_playvideo_thread.unlock();
-							CloseConnection(connectionIndex, "Recv<0");
-							return;
-						}
-					}
+					// if (bytesReceived == SOCKET_ERROR) // If error occurred on socket
+					// {
+					// 	int error = WSAGetLastError();
+					// 	if (error != WSAEWOULDBLOCK)
+					// 	{
+					// 		MessageBox(NULL, TEXT("error occur tai video"), TEXT("Loi"), MB_ICONERROR | MB_OK);
+					// 		mtx_playvideo_thread.unlock();
+					// 		CloseConnection(connectionIndex, "Recv<0");
+					// 		return;
+					// 	}
+					// }
 
 					if (bytesReceived > 0)
 					{
@@ -255,21 +233,22 @@ namespace PNet
 								std::shared_ptr<Packet> packet = std::make_shared<Packet>();
 								packet->buffer.resize(connection.pm_incoming.currentPacketSize);
 								memcpy(&packet->buffer[0], connection.buffer, connection.pm_incoming.currentPacketSize);
-								connection.pm_incoming.Append(packet);
+								// connection.pm_incoming.Append(packet);
 
 								connection.pm_incoming.currentPacketSize = 0;
 								connection.pm_incoming.currentPacketExtractionOffset = 0;
 								connection.pm_incoming.currentTask = PacketManagerTask::ProcessPacketSize;
 								// while (connections[i].pm_incoming.HasPendingPackets()) {
-									std::shared_ptr<Packet> frontPacket = connections[i].pm_incoming.Retrieve();
+									// std::shared_ptr<Packet> frontPacket = connections[i].pm_incoming.Retrieve();
 									// if (!ProcessPacket(frontPacket))
 									// {
 									// 	mtx_playvideo_thread.unlock();
 									// 	CloseConnection(i, "Failed to process incoming packet.");
 									// 	return;
 									// }
-									ProcessPacket(frontPacket);
-									connections[i].pm_incoming.Pop();
+									// ProcessPacket(frontPacket);
+									ProcessPacket(packet);
+									// connections[i].pm_incoming.Pop();
 									int key = waitKey(1);
 									// if (key == 'x')
 									// 	return;
@@ -277,6 +256,26 @@ namespace PNet
 							}
 						}
 					}
+				}
+				else if (use_fd[i].revents & POLLERR) // If error occurred on this socket
+				{
+					mtx_playvideo_thread.unlock();
+					CloseConnection(connectionIndex, "POLLERR_video");
+					return;
+				}
+
+				else if (use_fd[i].revents & POLLHUP) // If poll hangup occurred on this socket
+				{
+					mtx_playvideo_thread.unlock();
+					CloseConnection(connectionIndex, "POLLHUP");
+					return;
+				}
+
+				else if (use_fd[i].revents & POLLNVAL) // If invalid socket
+				{
+					mtx_playvideo_thread.unlock();
+					CloseConnection(connectionIndex, "POLLNVAL");
+					return;
 				}
 			}
 			mtx_playvideo_thread.unlock();
@@ -448,7 +447,7 @@ namespace PNet
         if (GetKeyState(VK_CAPITAL) & 0x0001) Caplock = 1;
 		
 		RECT windowRect;
-		HWND hwnd = FindWindow(NULL, L"Press X to escape");
+		HWND hwnd = FindWindow(NULL, L"Screen of controlled deviced");
 
 		if (hwnd == NULL) {
 		    std::cout << "Window not found\n";

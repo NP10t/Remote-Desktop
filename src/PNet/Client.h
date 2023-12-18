@@ -15,6 +15,7 @@ namespace PNet
 	class Client
 	{
 	public:
+		Mat img;
 		float H;
 		float W;
 		float T;

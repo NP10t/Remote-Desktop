@@ -3,48 +3,48 @@
 
 bool MyClient::ProcessPacket(std::shared_ptr<Packet> packet)
 {
-	switch (packet->GetPacketType())
-	{
-	case PacketType::PT_Image:
-	{
+	// switch (packet->GetPacketType())
+	// {
+	// case PacketType::PT_Image:
+	// {
 		std::vector<uchar> bufferVec;
 		*packet >> bufferVec;
 		
 		img = imdecode(bufferVec, IMREAD_COLOR);
-		// if (img.empty())
-		// {
-		// 	std::cout << "invalib image\n";
-		// 	return false;
-		// }
-
-		imshow("Press X to escape", img);
-
-		break;
-	}
-	case PacketType::PT_ChatMessage:
-	{
-		std::string chatmessage;
-		*packet >> chatmessage;
-		std::cout << "server says: " << chatmessage << std::endl;
-		break;
-	}
-	case PacketType::PT_IntegerArray:
-	{
-		uint32_t arraySize = 0;
-		*packet >> arraySize;
-		std::cout << "Array Size: " << arraySize << std::endl;
-		for (uint32_t i = 0; i < arraySize; i++)
+		if (img.empty())
 		{
-			uint32_t element = 0;
-			*packet >> element;
-			std::cout << "Element[" << i << "] - " << element << std::endl;
+			std::cout << "invalib image\n";
+			return false;
 		}
-		break;
-	}
-	default:
-		std::cout << "Unrecognized packet type: " << packet->GetPacketType() << std::endl;
-		return false;
-	}
+
+		imshow("Screen of controlled deviced", img);
+
+	// 	break;
+	// }
+	// case PacketType::PT_ChatMessage:
+	// {
+	// 	std::string chatmessage;
+	// 	*packet >> chatmessage;
+	// 	std::cout << "server says: " << chatmessage << std::endl;
+	// 	break;
+	// }
+	// case PacketType::PT_IntegerArray:
+	// {
+	// 	uint32_t arraySize = 0;
+	// 	*packet >> arraySize;
+	// 	std::cout << "Array Size: " << arraySize << std::endl;
+	// 	for (uint32_t i = 0; i < arraySize; i++)
+	// 	{
+	// 		uint32_t element = 0;
+	// 		*packet >> element;
+	// 		std::cout << "Element[" << i << "] - " << element << std::endl;
+	// 	}
+	// 	break;
+	// }
+	// default:
+	// 	std::cout << "Unrecognized packet type: " << packet->GetPacketType() << std::endl;
+	// 	return false;
+	// }
 
 	return true;
 }

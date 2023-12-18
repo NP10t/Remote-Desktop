@@ -7,8 +7,6 @@
 
 class MyClient : public Client
 {
-	public:
-		Mat img;
 	private:
 		bool ProcessPacket(std::shared_ptr<Packet> packet) override;
 		void OnConnect(TCPConnection & newConnection) override;
