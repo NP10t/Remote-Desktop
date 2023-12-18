@@ -8,6 +8,5 @@ bool App::OnInit()
     mainFrameClient->Center();
     mainFrameClient->Show();
 
-
     return true;
 }

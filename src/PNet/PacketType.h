@@ -11,6 +11,7 @@ namespace PNet
 		PT_Test,
 		PT_Image,
 		PT_Keyboard,
-		PT_Mouse
+		PT_Mouse,
+		PT_Command
 	};
 }

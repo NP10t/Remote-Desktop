@@ -56,12 +56,35 @@ namespace PNet
 		extractionOffset += sizeof(uint32_t);
 		return *this;
 	}
+
+	Packet & Packet::operator<<(float data)
+	{
+		uint32_t int_data = htonl(*reinterpret_cast<uint32_t*>(&data));
+		// data = htonl(data);
+		Append(&int_data, sizeof(uint32_t));
+		return *this;
+	}
+
+	Packet & Packet::operator>>(float & data)
+	{
+		
+		if ((extractionOffset + sizeof(float)) > buffer.size())
+			throw PacketException("[Packet::operator >>(float &)] - Extraction offset exceeded buffer size.");
+		
+		uint32_t int_data = ntohl(*reinterpret_cast<uint32_t*>(&buffer[extractionOffset]));
+
+		data = *reinterpret_cast<float*>(&int_data);
+		extractionOffset += sizeof(float);
+		return *this;
+	}
+
 	Packet & Packet::operator<<(const std::string & data)
 	{
 		*this << (uint32_t)data.size();
 		Append(data.data(), data.size());
 		return *this;
 	}
+
 	Packet & Packet::operator>>(std::string & data)
 	{
 		data.clear();
@@ -75,6 +98,29 @@ namespace PNet
 		data.resize(stringSize);
 		data.assign(&buffer[extractionOffset], stringSize);
 		extractionOffset += stringSize;
+		return *this;
+	}
+
+	Packet & Packet::operator>>(std::vector<unsigned char> & data)
+	{
+		data.clear();
+
+		uint32_t vectorSize = 0;
+		*this >> vectorSize;
+		
+		if ((extractionOffset + vectorSize) > buffer.size()){
+			throw PacketException("[Packet::operator >>(std::string &)] - Extraction offset exceeded buffer size.");
+		}
+		data.resize(vectorSize);
+		std::copy(buffer.begin() + extractionOffset, buffer.begin() + extractionOffset + vectorSize, data.begin());
+		extractionOffset += vectorSize;
+		return *this;
+	}
+
+	Packet & Packet::operator<<(std::vector<unsigned char> & data)
+	{
+		*this << (uint32_t)data.size();
+		Append(data.data(), data.size());
 		return *this;
 	}
 }

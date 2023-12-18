@@ -12,7 +12,7 @@ void MainFrameClient::CreateControls()
 {
     panel = new wxPanel(this);
     // Tao khung input va khung list
-    inputIPTextCtrl = new wxTextCtrl(panel, wxID_ANY, "192.168.1.232", wxPoint(200, 200), wxDefaultSize, wxTE_PROCESS_ENTER);
+    inputIPTextCtrl = new wxTextCtrl(panel, wxID_ANY, "192.168.226.208", wxPoint(200, 200), wxDefaultSize, wxTE_PROCESS_ENTER);
     IPListBox = new wxListBox(panel, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0, NULL, wxLB_SINGLE | wxLB_EXTENDED);
 
     // Tao button
@@ -70,9 +70,6 @@ void MainFrameClient::OnPlayButtonClicked(wxCommandEvent& evt) {
 
 void MainFrameClient::OnPauseButtonClicked(wxCommandEvent& evt) {
     client.selected_device = -1; //ko chon may nao ca
-
-    client.selected_device_connected = true;
-    client.Frame(client.selected_device);
 }
 
 void MainFrameClient::OnInputEnter(wxCommandEvent& evt)

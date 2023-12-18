@@ -44,31 +44,35 @@ void MainFrameServer::OnConnectButtonClicked(wxCommandEvent &evt)
         runServer.detach();
         flag = 1;
         connectStateStaticText->SetLabelText("Connecting.....");
+        connectStateStaticText->GetContainingSizer()->Layout();
     }
 }
 
 void MainFrameServer::OnDisconnectButtonClicked(wxCommandEvent &evt)
 {
     if (flag == 1)
-    {
-        server.CloseConnection("ban da bam nut dong ket noi");
+    {   
         flag = 0;
         connectStateStaticText->SetLabelText("");
+        
+        if(server.isConnected == false)
+            return;
+
+        server.CloseConnection("ban da bam nut dong ket noi");
     }
 }
 
 void MainFrameServer::OnClose(wxCloseEvent& evt)
 {
     if (flag == 1)
-    {
-        server.CloseConnection("ban da bam nut dong ket noi");
+    {   
         flag = 0;
+        connectStateStaticText->SetLabelText("");
+        
+        if(server.isConnected == true) 
+            server.CloseConnection("ban da bam nut dong ket noi");
+            
     }
     Network::Shutdown();
     Destroy();
 }
-
-/* khi ma Tan lam nut dong chuong trinh:
--dong chuong trinh thi goi Network::Shutdown(); ngoai ra con lam gi ko thi NP ko biet. A biet r, cho dong het tat ca cac cua so
--Cac thread video va control ko can join nua. 2 thread ay duoc detach co nghia la xong thi no tu dong dung lai. neu no ko dung thi chac la viet them cai dieu kien dung (return)
-*/

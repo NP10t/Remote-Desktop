@@ -1,31 +1,26 @@
 #include "MyClient.h"
 #include <string>
 
+//int H = 0, W = 0, T = 0, L = 0;
+
 bool MyClient::ProcessPacket(std::shared_ptr<Packet> packet)
 {
 	switch (packet->GetPacketType())
 	{
 	case PacketType::PT_Image:
 	{
-		std::string bufferStr;
-		*packet >> bufferStr;
-
-		std::vector<uchar> bufferVec(bufferStr.begin(), bufferStr.end());
-
-		Mat img;
+		std::vector<uchar> bufferVec;
+		*packet >> bufferVec;
+		
 		img = imdecode(bufferVec, IMREAD_COLOR);
-		if (img.empty())
-		{
-			std::cout << "invalib image\n";
-			return false;
-		}
-		namedWindow("Press X to escape", WINDOW_NORMAL);
+		// if (img.empty())
+		// {
+		// 	std::cout << "invalib image\n";
+		// 	return false;
+		// }
 
 		imshow("Press X to escape", img);
 
-		// int X, Y, W, H;
-        // cvGetWindowImageRect("Press X to escape", &X, &Y, &W, &H);
-		
 		break;
 	}
 	case PacketType::PT_ChatMessage:
