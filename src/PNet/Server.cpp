@@ -6,13 +6,27 @@ namespace PNet
 {
 	std::string Server::GetIPv4Address()
 	{
-		char hostbuffer[256];
-		gethostname(hostbuffer, sizeof(hostbuffer));
-
-		struct hostent* host_entry =  gethostbyname(hostbuffer);
-
-		this->IPv4Address = inet_ntoa(*((struct in_addr*)host_entry->h_addr_list[0]));
-		return IPv4Address;
+		std::string line;
+		std::ifstream IPFile;
+		int offset;
+		char *search0 = new char[36];
+		search0 = "IPv4 Address. . . . . . . . . . . :";;
+		system("ipconfig > ip.txt");
+		IPFile.open("ip.txt");
+		if(IPFile.is_open())
+		{
+			while(!IPFile.eof())
+			{
+				getline(IPFile, line);
+				if((offset = line.find(search0)) != string::npos)
+				{
+					line.erase(0,39);
+					IPFile.close();
+					return line;
+				}
+			}
+		}
+		return "";
 	}
 
 	bool Server::Initialize()
@@ -377,8 +391,8 @@ namespace PNet
 	{
 
 		HWND hwndDesktop = GetDesktopWindow();
-		Mat img = captureScreen(hwndDesktop, 1280, 720);
-		// Mat img = captureScreen(hwndDesktop, 1000, 500);
+		// Mat img = captureScreen(hwndDesktop, 1280, 720);
+		Mat img = captureScreen(hwndDesktop, 1000, 500);
 		if (img.empty())
 			return;
 

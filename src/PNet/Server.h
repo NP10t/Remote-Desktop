@@ -6,7 +6,8 @@
 #include <Windows.h>
 #include <WS2tcpip.h>
 #include <mutex>
-
+#include <string>
+#include <fstream>
 using namespace std;
 using namespace cv;
 

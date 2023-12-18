@@ -40,15 +40,18 @@ void MainFrameServer::OnConnectButtonClicked(wxCommandEvent &evt)
 {
     if (flag == 0)
     {
+        flag = 1;
+
         runServer = std::thread(&MyServer::Run, &server);
         runServer.detach();
-        flag = 1;
+    
         connectStateStaticText->SetLabelText("Connecting.....");
+        connectStateStaticText->GetContainingSizer()->Layout();
     }
 }
 
 void MainFrameServer::OnDisconnectButtonClicked(wxCommandEvent &evt)
-{
+{   
     if (flag == 1)
     {   
         flag = 0;
