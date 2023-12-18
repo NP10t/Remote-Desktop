@@ -18,6 +18,8 @@ namespace PNet
 	class Server
 	{
 	public:
+		float shitfD = 0, ctrlD = 0;
+
 		bool Initialize();
 		void Frame();
 		void Obey();

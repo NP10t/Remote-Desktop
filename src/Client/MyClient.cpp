@@ -1,8 +1,6 @@
 #include "MyClient.h"
 #include <string>
 
-//int H = 0, W = 0, T = 0, L = 0;
-
 bool MyClient::ProcessPacket(std::shared_ptr<Packet> packet)
 {
 	switch (packet->GetPacketType())

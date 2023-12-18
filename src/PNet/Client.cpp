@@ -5,8 +5,6 @@
 #include <Windows.h>
 #include <algorithm>
 
-float LCD = 0, RCD = 0, LCU = 0, RCU = 0;
-float keyboard = -1, ctrlD = 0, shiftD = 0, ctrlU = 0, shiftU = 0, Caplock = 0, delta = 0, altD=0, altU=0;
 
 namespace PNet
 {	
@@ -314,8 +312,6 @@ namespace PNet
 			return;
 		}
 
-		
-
 		selected_device = -1; // gan selected_device = -1 de current_device != selected_device => huy luon 2 thread control va video,  sau nay neu muon thi tao lai thread khac 
 		selected_device_connected = false; 
 
@@ -333,6 +329,8 @@ namespace PNet
 	}
 
 	HHOOK mh;
+	float LCD = 0, RCD = 0, LCU = 0, RCU = 0;
+	float keyboard = -1, ctrlD = 0, shiftD = 0, ctrlU = 0, shiftU = 0, Caplock = 0, delta = 0, altD=0, altU=0;
 
 	LRESULT CALLBACK mouse(int nCode, WPARAM wParam, LPARAM lParam)
 	{

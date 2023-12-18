@@ -5,20 +5,10 @@
 #include <iostream>
 #include <Windows.h>
 
-float shitfD = 0, ctrlD = 0;
-
 void MyServer::Run()
 {
-	// if (Network::Initialize())
-	{
-		if (this->Initialize())
-		{
-			// while (true)
-			// {
-				this->Frame();
-			// }
-		}
-	}
+	if (this->Initialize())
+		this->Frame();
 }
 
 void MyServer::OnConnect()
