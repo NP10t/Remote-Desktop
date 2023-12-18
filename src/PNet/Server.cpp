@@ -10,11 +10,18 @@ namespace PNet
 		std::ifstream IPFile;
 		int offset;
 		char *search0 = new char[36];
-		search0 = "IPv4 Address. . . . . . . . . . . :";;
+		char *search1 = new char[60];
+		search0 = "IPv4 Address. . . . . . . . . . . :";
+		search1 = "Wireless LAN adapter Wi-Fi:";
 		system("ipconfig > ip.txt");
 		IPFile.open("ip.txt");
 		if(IPFile.is_open())
 		{
+			while(!IPFile.eof())
+			{
+				getline(IPFile, line);
+				if((offset = line.find(search1)) != string::npos) break;
+			}
 			while(!IPFile.eof())
 			{
 				getline(IPFile, line);

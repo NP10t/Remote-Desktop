@@ -27,7 +27,7 @@ bool MyServer::ProcessPacket(std::shared_ptr<Packet> packet)
 	{
 	case PacketType::PT_Command:
 	{
-		return true;
+		// return true;
 		float W_ratio = GetSystemMetrics(SM_CXSCREEN);
 		float H_ratio = GetSystemMetrics(SM_CYSCREEN);
 		float a[15];
@@ -36,7 +36,7 @@ bool MyServer::ProcessPacket(std::shared_ptr<Packet> packet)
 
 		if(a[0] >= 0 && a[0] <= 1 && a[1] >= 0 && a[1] <= 1)
 		{
-			SetCursorPos(round(a[0]*W_ratio),round(a[1]*H_ratio-20));
+			SetCursorPos(round(a[0]*W_ratio),round(a[1]*H_ratio-13));
 
 			if(a[2] != 0) mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
 
