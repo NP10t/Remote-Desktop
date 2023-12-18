@@ -12,7 +12,7 @@ void MainFrameClient::CreateControls()
 {
     panel = new wxPanel(this);
     // Tao khung input va khung list
-    inputIPTextCtrl = new wxTextCtrl(panel, wxID_ANY, "127.0.0.1", wxPoint(200, 200), wxDefaultSize, wxTE_PROCESS_ENTER);
+    inputIPTextCtrl = new wxTextCtrl(panel, wxID_ANY, "192.168.226.208", wxPoint(200, 200), wxDefaultSize, wxTE_PROCESS_ENTER);
     IPListBox = new wxListBox(panel, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0, NULL, wxLB_SINGLE | wxLB_EXTENDED);
 
     // Tao button

@@ -314,6 +314,8 @@ namespace PNet
 			return;
 		}
 
+		
+
 		selected_device = -1; // gan selected_device = -1 de current_device != selected_device => huy luon 2 thread control va video,  sau nay neu muon thi tao lai thread khac 
 		selected_device_connected = false; 
 

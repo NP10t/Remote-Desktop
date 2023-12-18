@@ -19,13 +19,10 @@ namespace PNet
 		float W;
 		float T;
 		float L;
-		// float titleBarHeight;
 		bool Initialize(IPEndpoint ip);
 		bool Frame(int select_device);
 		void ControlUsingTCP(int select_device);
 		void PlayVideo(int select_device);
-		// void Mouse(TCPConnection &connection);
-		// void Keyboard(TCPConnection &connection);
 		void Commander(TCPConnection &connection);
 		std::thread control;
 		std::thread video;
