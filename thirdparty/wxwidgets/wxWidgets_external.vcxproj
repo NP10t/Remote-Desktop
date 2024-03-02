@@ -1,0 +1,831 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{CA3A1AB5-4DAE-3BA8-A391-83451093D4A9}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>wxWidgets_external</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\canhom\CMakeFiles\bea636eec4a5ddcd528c4c0d61f9b2c6\wxWidgets_external-mkdir.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Creating directories for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\Strawberry\c\bin\cmake.exe -Dcfgdir=/Debug -P E:/canhom/subprojects/tmp/wxWidgets_external/wxWidgets_external-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Debug/wxWidgets_external-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Creating directories for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\Strawberry\c\bin\cmake.exe -Dcfgdir=/Release -P E:/canhom/subprojects/tmp/wxWidgets_external/wxWidgets_external-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Release/wxWidgets_external-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Creating directories for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\Strawberry\c\bin\cmake.exe -Dcfgdir=/MinSizeRel -P E:/canhom/subprojects/tmp/wxWidgets_external/wxWidgets_external-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/MinSizeRel/wxWidgets_external-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Creating directories for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\Strawberry\c\bin\cmake.exe -Dcfgdir=/RelWithDebInfo -P E:/canhom/subprojects/tmp/wxWidgets_external/wxWidgets_external-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/RelWithDebInfo/wxWidgets_external-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\canhom\CMakeFiles\bea636eec4a5ddcd528c4c0d61f9b2c6\wxWidgets_external-download.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing download step (git clone) for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd E:\canhom\subprojects\Source
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -P E:/canhom/subprojects/tmp/wxWidgets_external/wxWidgets_external-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Debug/wxWidgets_external-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\wxWidgets_external-gitinfo.txt;E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing download step (git clone) for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd E:\canhom\subprojects\Source
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -P E:/canhom/subprojects/tmp/wxWidgets_external/wxWidgets_external-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Release/wxWidgets_external-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\wxWidgets_external-gitinfo.txt;E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing download step (git clone) for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd E:\canhom\subprojects\Source
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -P E:/canhom/subprojects/tmp/wxWidgets_external/wxWidgets_external-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/MinSizeRel/wxWidgets_external-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\wxWidgets_external-gitinfo.txt;E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing download step (git clone) for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd E:\canhom\subprojects\Source
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -P E:/canhom/subprojects/tmp/wxWidgets_external/wxWidgets_external-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/RelWithDebInfo/wxWidgets_external-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\wxWidgets_external-gitinfo.txt;E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\canhom\CMakeFiles\bea636eec4a5ddcd528c4c0d61f9b2c6\wxWidgets_external-update.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No update step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd E:\canhom\subprojects\Source\wxWidgets_external
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Debug/wxWidgets_external-update
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No update step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd E:\canhom\subprojects\Source\wxWidgets_external
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Release/wxWidgets_external-update
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No update step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd E:\canhom\subprojects\Source\wxWidgets_external
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/MinSizeRel/wxWidgets_external-update
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No update step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd E:\canhom\subprojects\Source\wxWidgets_external
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/RelWithDebInfo/wxWidgets_external-update
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\canhom\CMakeFiles\bea636eec4a5ddcd528c4c0d61f9b2c6\wxWidgets_external-patch.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No patch step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\Strawberry\c\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Debug/wxWidgets_external-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No patch step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\Strawberry\c\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Release/wxWidgets_external-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No patch step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\Strawberry\c\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/MinSizeRel/wxWidgets_external-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No patch step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\Strawberry\c\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/RelWithDebInfo/wxWidgets_external-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\canhom\CMakeFiles\bea636eec4a5ddcd528c4c0d61f9b2c6\wxWidgets_external-configure.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing configure step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd E:\canhom\subprojects\Build\wxWidgets_external
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -Dconfig=$(Configuration) -P E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-configure-Debug.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Debug/wxWidgets_external-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\tmp\wxWidgets_external\wxWidgets_external-cfgcmd.txt;E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing configure step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd E:\canhom\subprojects\Build\wxWidgets_external
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -Dconfig=$(Configuration) -P E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-configure-Release.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Release/wxWidgets_external-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\tmp\wxWidgets_external\wxWidgets_external-cfgcmd.txt;E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing configure step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd E:\canhom\subprojects\Build\wxWidgets_external
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -Dconfig=$(Configuration) -P E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-configure-MinSizeRel.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/MinSizeRel/wxWidgets_external-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\tmp\wxWidgets_external\wxWidgets_external-cfgcmd.txt;E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing configure step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd E:\canhom\subprojects\Build\wxWidgets_external
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -Dconfig=$(Configuration) -P E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-configure-RelWithDebInfo.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/RelWithDebInfo/wxWidgets_external-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\tmp\wxWidgets_external\wxWidgets_external-cfgcmd.txt;E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\canhom\CMakeFiles\bea636eec4a5ddcd528c4c0d61f9b2c6\wxWidgets_external-build.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing build step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd E:\canhom\subprojects\Build\wxWidgets_external
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -Dconfig=$(Configuration) -P E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-build-Debug.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Debug/wxWidgets_external-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing build step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd E:\canhom\subprojects\Build\wxWidgets_external
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -Dconfig=$(Configuration) -P E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-build-Release.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Release/wxWidgets_external-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing build step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd E:\canhom\subprojects\Build\wxWidgets_external
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -Dconfig=$(Configuration) -P E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-build-MinSizeRel.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/MinSizeRel/wxWidgets_external-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing build step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd E:\canhom\subprojects\Build\wxWidgets_external
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -Dconfig=$(Configuration) -P E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-build-RelWithDebInfo.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/RelWithDebInfo/wxWidgets_external-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\canhom\CMakeFiles\bea636eec4a5ddcd528c4c0d61f9b2c6\wxWidgets_external-install.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing install step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd E:\canhom\subprojects\Build\wxWidgets_external
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -Dconfig=$(Configuration) -P E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-install-Debug.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Debug/wxWidgets_external-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing install step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd E:\canhom\subprojects\Build\wxWidgets_external
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -Dconfig=$(Configuration) -P E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-install-Release.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Release/wxWidgets_external-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing install step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd E:\canhom\subprojects\Build\wxWidgets_external
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -Dconfig=$(Configuration) -P E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-install-MinSizeRel.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/MinSizeRel/wxWidgets_external-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing install step for 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd E:\canhom\subprojects\Build\wxWidgets_external
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -Dconfig=$(Configuration) -P E:/canhom/subprojects/Stamp/wxWidgets_external/wxWidgets_external-install-RelWithDebInfo.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/RelWithDebInfo/wxWidgets_external-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\canhom\CMakeFiles\70dcefc0cc8dcf63db4e56f6893052e0\wxWidgets_external-complete.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Completed 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\Strawberry\c\bin\cmake.exe -E make_directory E:/canhom/thirdparty/wxwidgets/CMakeFiles/Debug
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/thirdparty/wxwidgets/CMakeFiles/Debug/wxWidgets_external-complete
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Debug/wxWidgets_external-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-install;E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-mkdir;E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-download;E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-update;E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-patch;E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-configure;E:\canhom\subprojects\Stamp\wxWidgets_external\Debug\wxWidgets_external-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\Debug\wxWidgets_external-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Completed 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\Strawberry\c\bin\cmake.exe -E make_directory E:/canhom/thirdparty/wxwidgets/CMakeFiles/Release
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/thirdparty/wxwidgets/CMakeFiles/Release/wxWidgets_external-complete
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/Release/wxWidgets_external-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-install;E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-mkdir;E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-download;E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-update;E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-patch;E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-configure;E:\canhom\subprojects\Stamp\wxWidgets_external\Release\wxWidgets_external-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\Release\wxWidgets_external-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Completed 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\Strawberry\c\bin\cmake.exe -E make_directory E:/canhom/thirdparty/wxwidgets/CMakeFiles/MinSizeRel
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/thirdparty/wxwidgets/CMakeFiles/MinSizeRel/wxWidgets_external-complete
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/MinSizeRel/wxWidgets_external-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-install;E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-mkdir;E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-download;E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-update;E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-patch;E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-configure;E:\canhom\subprojects\Stamp\wxWidgets_external\MinSizeRel\wxWidgets_external-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\MinSizeRel\wxWidgets_external-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Completed 'wxWidgets_external'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\Strawberry\c\bin\cmake.exe -E make_directory E:/canhom/thirdparty/wxwidgets/CMakeFiles/RelWithDebInfo
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/thirdparty/wxwidgets/CMakeFiles/RelWithDebInfo/wxWidgets_external-complete
+if %errorlevel% neq 0 goto :cmEnd
+C:\Strawberry\c\bin\cmake.exe -E touch E:/canhom/subprojects/Stamp/wxWidgets_external/RelWithDebInfo/wxWidgets_external-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-install;E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-mkdir;E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-download;E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-update;E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-patch;E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-configure;E:\canhom\subprojects\Stamp\wxWidgets_external\RelWithDebInfo\wxWidgets_external-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\RelWithDebInfo\wxWidgets_external-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\canhom\CMakeFiles\ad4b525464ea6c57859d4535dd227c17\wxWidgets_external.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\Debug\wxWidgets_external-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\wxWidgets_external</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\Release\wxWidgets_external-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\wxWidgets_external</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\MinSizeRel\wxWidgets_external-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\wxWidgets_external</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\RelWithDebInfo\wxWidgets_external-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\wxWidgets_external</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\canhom\thirdparty\wxwidgets\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/canhom/thirdparty/wxwidgets/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\Strawberry\c\bin\cmake.exe -SE:/canhom -BE:/canhom --check-stamp-file E:/canhom/thirdparty/wxwidgets/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\RepositoryInfo.txt.in;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\cfgcmd.txt.in;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\gitclone.cmake.in;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\mkdirs.cmake.in;C:\Strawberry\c\share\cmake-3.26\Modules\FindGit.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\FindPackageHandleStandardArgs.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\FindPackageMessage.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\FindwxWidgets.cmake;E:\canhom\subprojects\tmp\wxWidgets_external\wxWidgets_external-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/canhom/thirdparty/wxwidgets/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\Strawberry\c\bin\cmake.exe -SE:/canhom -BE:/canhom --check-stamp-file E:/canhom/thirdparty/wxwidgets/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\RepositoryInfo.txt.in;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\cfgcmd.txt.in;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\gitclone.cmake.in;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\mkdirs.cmake.in;C:\Strawberry\c\share\cmake-3.26\Modules\FindGit.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\FindPackageHandleStandardArgs.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\FindPackageMessage.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\FindwxWidgets.cmake;E:\canhom\subprojects\tmp\wxWidgets_external\wxWidgets_external-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule E:/canhom/thirdparty/wxwidgets/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\Strawberry\c\bin\cmake.exe -SE:/canhom -BE:/canhom --check-stamp-file E:/canhom/thirdparty/wxwidgets/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\RepositoryInfo.txt.in;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\cfgcmd.txt.in;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\gitclone.cmake.in;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\mkdirs.cmake.in;C:\Strawberry\c\share\cmake-3.26\Modules\FindGit.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\FindPackageHandleStandardArgs.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\FindPackageMessage.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\FindwxWidgets.cmake;E:\canhom\subprojects\tmp\wxWidgets_external\wxWidgets_external-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule E:/canhom/thirdparty/wxwidgets/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\Strawberry\c\bin\cmake.exe -SE:/canhom -BE:/canhom --check-stamp-file E:/canhom/thirdparty/wxwidgets/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\RepositoryInfo.txt.in;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\cfgcmd.txt.in;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\gitclone.cmake.in;C:\Strawberry\c\share\cmake-3.26\Modules\ExternalProject\mkdirs.cmake.in;C:\Strawberry\c\share\cmake-3.26\Modules\FindGit.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\FindPackageHandleStandardArgs.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\FindPackageMessage.cmake;C:\Strawberry\c\share\cmake-3.26\Modules\FindwxWidgets.cmake;E:\canhom\subprojects\tmp\wxWidgets_external\wxWidgets_external-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\canhom\thirdparty\wxwidgets\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="E:\canhom\thirdparty\wxwidgets\CMakeFiles\wxWidgets_external">
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="E:\canhom\ZERO_CHECK.vcxproj">
+      <Project>{78252731-9FBB-3167-A90B-0EABDB816E52}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

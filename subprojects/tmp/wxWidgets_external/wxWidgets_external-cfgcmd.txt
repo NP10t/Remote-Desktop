@@ -1,0 +1,1 @@
+cmd='C:/Strawberry/c/bin/cmake.exe;-DCMAKE_INSTALL_PREFIX=E:/canhom/stage;-DCMAKE_BUILD_TYPE=;-DwxBUILD_SHARED=OFF;-GVisual Studio 17 2022;-DCMAKE_GENERATOR_INSTANCE:INTERNAL=C:/Program Files/Microsoft Visual Studio/2022/Community;-S;<SOURCE_DIR><SOURCE_SUBDIR>;-B;<BINARY_DIR>'
