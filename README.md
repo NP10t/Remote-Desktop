@@ -17,8 +17,7 @@ This project implements a Remote Desktop solution as part of our Computer Networ
 - Keyboard and mouse input control
 - File transfer capabilities
 - Secure connection handling
-- [Add any other key features of your project]
-
+  
 ## Technologies Used
 - C++
 - Winsock (Windows Sockets API)
@@ -36,8 +35,10 @@ This project implements a Remote Desktop solution as part of our Computer Networ
    git clone https://github.com/your-username/remote-desktop-project.git
    cd remote-desktop-project
 2. Generate the build files using CMake:
-  cmake -S. -Bbuild
+   ```bash
+   cmake -S. -Bbuild
 3. Build the project:
+```bash
 cmake --build build
 
 ## Demo
