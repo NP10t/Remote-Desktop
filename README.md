@@ -1,4 +1,7 @@
 # Remote Desktop Project
+## Demo
+View a demonstration of the Remote Desktop Project:  
+[Remote Desktop Project Demo](https://www.youtube.com/watch?v=cIOEv-dLolA)
 
 ## Computer Network Course Project
 ### Honor Program in Information Technology
